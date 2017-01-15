@@ -2,8 +2,8 @@
 //  Users+CoreDataProperties.swift
 //  Gym Tracker
 //
-//  Created by Axel Nowaczyk on 29/12/2016.
-//  Copyright © 2016 Axel Nowaczyk. All rights reserved.
+//  Created by Axel Nowaczyk on 15/01/2017.
+//  Copyright © 2017 Axel Nowaczyk. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +16,8 @@ extension Users {
         return NSFetchRequest<Users>(entityName: "Users");
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var isShowing: Bool
+    @NSManaged public var name: String?
+    @NSManaged public var did: Exorcise?
 
 }

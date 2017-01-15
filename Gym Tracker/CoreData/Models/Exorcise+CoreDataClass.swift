@@ -1,5 +1,5 @@
 //
-//  Users+CoreDataClass.swift
+//  Exorcise+CoreDataClass.swift
 //  Gym Tracker
 //
 //  Created by Axel Nowaczyk on 15/01/2017.
@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
-public class Users: NSManagedObject {
+
+public class Exorcise: NSManagedObject {
 
 }
