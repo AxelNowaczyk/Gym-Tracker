@@ -12,6 +12,12 @@ class SettingsTableViewController: UITableViewController {
 
     @IBOutlet var usersTableView: UITableView!
     
+    @IBAction func saveButtonWasPressed(_ sender: UIButton) {
+        print("save")
+    
+    }
+    
+    
     private enum Cell: String {
         case basic = "Settings User Cell"
     }

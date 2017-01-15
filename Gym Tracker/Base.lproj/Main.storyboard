@@ -114,7 +114,13 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Recent workouts" id="ReW-Nx-0O5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vm5-Ld-fqt"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vm5-Ld-fqt">
+                            <connections>
+                                <segue destination="Ab0-aE-mT4" kind="popoverPresentation" popoverAnchorBarButtonItem="vm5-Ld-fqt" id="8Ua-Uv-KNN">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -372,6 +378,24 @@
             </objects>
             <point key="canvasLocation" x="-1482" y="1488"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="KyK-lK-G5c">
+            <objects>
+                <viewController id="Ab0-aE-mT4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="taH-iU-9Xi"/>
+                        <viewControllerLayoutGuide type="bottom" id="dTj-er-ewo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z5I-4q-YHs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wu0-hL-Yy3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2151" y="2209"/>
+        </scene>
         <!--History Chart View Controller-->
         <scene sceneID="45e-PK-oBv">
             <objects>
@@ -467,7 +491,13 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvp-LG-6KT">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                                    <state key="normal" title="Save"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <state key="normal" title="Save">
+                                                        <color key="titleColor" red="0.020927422519999999" green="0.64786485599999999" blue="0.025333383540000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="saveButtonWasPressed:" destination="C17-3D-f6H" eventType="touchUpInside" id="Bqx-7y-R7G"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
