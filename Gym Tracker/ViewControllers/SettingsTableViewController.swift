@@ -17,7 +17,6 @@ class SettingsTableViewController: UITableViewController {
     
     }
     
-    
     private enum Cell: String {
         case basic = "Settings User Cell"
     }

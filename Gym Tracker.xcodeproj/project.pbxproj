@@ -26,6 +26,7 @@
 		7A9E31FC1E2BE6B1004ECF70 /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E31F81E2BE6B1004ECF70 /* Users+CoreDataProperties.swift */; };
 		7A9E32021E2BE838004ECF70 /* Exorcise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E32001E2BE838004ECF70 /* Exorcise+CoreDataProperties.swift */; };
 		7A9E32031E2BE8B1004ECF70 /* Exorcise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E31FF1E2BE838004ECF70 /* Exorcise+CoreDataClass.swift */; };
+		7A9E320B1E2CE15C004ECF70 /* SimpleHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E320A1E2CE15C004ECF70 /* SimpleHistoryTableViewCell.swift */; };
 		7AE66AE21E2B6AAC00FF458A /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */; };
 		7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */; };
 		7AE66AE71E2B755400FF458A /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE61E2B755400FF458A /* AppManager.swift */; };
@@ -54,6 +55,7 @@
 		7A9E31F81E2BE6B1004ECF70 /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Users+CoreDataProperties.swift"; path = "CoreData/Models/Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7A9E31FF1E2BE838004ECF70 /* Exorcise+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Exorcise+CoreDataClass.swift"; path = "CoreData/Models/Exorcise+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7A9E32001E2BE838004ECF70 /* Exorcise+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = "Exorcise+CoreDataProperties.swift"; path = "CoreData/Models/Exorcise+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7A9E320A1E2CE15C004ECF70 /* SimpleHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleHistoryTableViewCell.swift; path = Views/SimpleHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorageManager.swift; path = CoreData/Services/LocalStorageManager.swift; sourceTree = "<group>"; };
 		7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchscreenViewController.swift; path = ViewControllers/LaunchscreenViewController.swift; sourceTree = "<group>"; };
 		7AE66AE61E2B755400FF458A /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppManager.swift; path = Models/AppManager.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				7A8B4CB11E0888F40002E37E /* WorkoutTableViewCell.swift */,
 				7A8B4CBB1E08998E0002E37E /* HistoryExorciseTableViewCell.swift */,
 				7A9E31DD1E2B8C0F004ECF70 /* SettingsTableViewCell.swift */,
+				7A9E320A1E2CE15C004ECF70 /* SimpleHistoryTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				7A8B4CB21E0888F40002E37E /* WorkoutTableViewCell.swift in Sources */,
 				7A8B4CC21E08A28B0002E37E /* HistoryChartViewController.swift in Sources */,
 				7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */,
+				7A9E320B1E2CE15C004ECF70 /* SimpleHistoryTableViewCell.swift in Sources */,
 				7AE66AE71E2B755400FF458A /* AppManager.swift in Sources */,
 				7A1062DE1E154C65009DAE08 /* CoreDataModel.xcdatamodeld in Sources */,
 				7A9E31FB1E2BE6B1004ECF70 /* Users+CoreDataClass.swift in Sources */,

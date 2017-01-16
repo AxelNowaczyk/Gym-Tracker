@@ -12,5 +12,9 @@ import UIKit
 class HistoryChartViewController: UIViewController {
     var exorcise = ""
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = exorcise
+    }
 }
