@@ -51,7 +51,8 @@ class SettingsTableViewController: UITableViewController {
         if tableView == usersTableView {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: Cell.basic.rawValue, for: indexPath) as! SettingsTableViewCell
-            setupTableViewCell(with: cell, for: indexPath)
+            
+            cell.setup(for: indexPath)
             return cell
             
         } else {
@@ -59,14 +60,7 @@ class SettingsTableViewController: UITableViewController {
         }
 
     }
-    
-    private func setupTableViewCell(with cell: SettingsTableViewCell, for indexPath: IndexPath) {
-        
-        cell.nameLabel.text = AppManager.users[indexPath.row].name
-        cell.visibilitySwitch.isOn = AppManager.users[indexPath.row].isShowing
 
-    }
-    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if tableView == usersTableView {
             return nil

@@ -7,3 +7,112 @@
 //
 
 import Foundation
+import CoreData
+
+class Persistence: NSObject {
+    
+    fileprivate var manageObjectModel:NSManagedObjectModel! = nil
+    fileprivate var persistentStoreCoordinator:NSPersistentStoreCoordinator! = nil
+    
+    var managedObjectContext:NSManagedObjectContext! = nil
+    
+    override init() {
+        
+        super.init()
+        self.setupDatabase()
+    }
+    
+    //MARK: life cycle
+    
+    func coordinator() -> NSPersistentStoreCoordinator {
+        
+        return self.persistentStoreCoordinator
+    }
+    
+    fileprivate func persistentStoreCommonOptions() -> [AnyHashable: Any] {
+        
+        return [NSMigratePersistentStoresAutomaticallyOption: 1,
+                NSInferMappingModelAutomaticallyOption: 1,
+                NSSQLitePragmasOption: ["journal_mode":"DELETE"]]
+    }
+    
+    fileprivate func defaultPersistentStoreURL() -> URL {
+        
+        let manager = FileManager.default
+        let documentDirectoryURL = manager.urls(for: .documentDirectory, in: .userDomainMask).last
+        
+        return documentDirectoryURL!.appendingPathComponent("GymTracker.sqlite")
+    }
+    
+    func setupDatabase() {
+        
+        let persistentStoreURL = self.defaultPersistentStoreURL()
+        let modelURL = Bundle.main.url(forResource: "CoreDataModel", withExtension: "momd")
+        
+        self.manageObjectModel = NSManagedObjectModel(contentsOf: modelURL!)
+        self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.manageObjectModel)
+        
+        let options = self.persistentStoreCommonOptions()
+        
+        do {
+            let storeMetadata = try NSPersistentStoreCoordinator.metadataForPersistentStore(ofType: NSSQLiteStoreType, at: persistentStoreURL, options: options)
+            
+            if self.manageObjectModel.isConfiguration(withName: nil, compatibleWithStoreMetadata: storeMetadata) == false {
+                
+                try FileManager.default.removeItem(atPath: persistentStoreURL.path)
+            }
+            
+        }
+        catch {
+            print("No database - creating new")
+        }
+        
+        do {
+            _ = try self.persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType,
+                                                                       configurationName: nil,
+                                                                       at: persistentStoreURL,
+                                                                       options: options)
+            
+            self.managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+            self.managedObjectContext?.persistentStoreCoordinator = self.persistentStoreCoordinator
+            self.managedObjectContext?.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        }
+        catch {
+            fatalError("Error while trying to setup database")
+        }
+    }
+    
+    func save() -> Void {
+        
+        if self.persistentStoreCoordinator.persistentStores.count == 0 {
+            
+            print("Persistent store does not exist!")
+            return
+            
+        }
+        
+        if self.managedObjectContext == nil {
+            
+            print("managedObjectContext does not exist!")
+            return
+        }
+        
+        
+        self.managedObjectContext.perform { () -> Void in
+            
+            if self.managedObjectContext.hasChanges == false {
+                return
+            }
+            
+            do {
+                try self.managedObjectContext.save()
+            }
+            catch {
+                print("Error while saving database: \(error)")
+            }
+        }
+        
+        return
+    }
+}
+

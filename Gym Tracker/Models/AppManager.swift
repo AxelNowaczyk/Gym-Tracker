@@ -34,8 +34,15 @@ public class AppManager: NSObject {
         
         return usersToShow
     }
-    var _workouts = [("Squats","Axel","3x50"),("Pushups","Axel","3x20"),("Pullups","Axel","3x10")]
-    static var workouts: [(String, String, String)] {
+    
+    struct Workout {
+        var reps: Int = 0
+        var weight: Int = 0
+
+    }
+    
+    private var _workouts = [("Squats","Axel",[Workout(reps: 12, weight: 20),Workout(reps: 8, weight: 35),Workout(reps: 3, weight: 50)]),("Pushups","Axel",[Workout(reps: 12, weight: 20),Workout(reps: 8, weight: 35),Workout(reps: 3, weight: 50)]),("Pullups","Axel",[Workout(reps: 12, weight: 20),Workout(reps: 8, weight: 35),Workout(reps: 3, weight: 50)])]
+    static var workouts: [(String, String, [Workout])] {
         return self.shared._workouts
     }
     

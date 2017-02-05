@@ -14,4 +14,11 @@ class SettingsTableViewCell: UITableViewCell {
     @IBOutlet var visibilitySwitch: UISwitch!
 
 
+    func setup(for indexPath: IndexPath) {
+        
+        nameLabel.text = AppManager.users[indexPath.row].name
+        visibilitySwitch.isOn = AppManager.users[indexPath.row].isShowing
+        
+    }
+    
 }

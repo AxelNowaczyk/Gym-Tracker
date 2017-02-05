@@ -18,7 +18,6 @@ class LocalStorageManager: NSObject {
         static let users = "Users"
     }
     
-    
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var context: NSManagedObjectContext {
         return appDelegate.managedObjectContext

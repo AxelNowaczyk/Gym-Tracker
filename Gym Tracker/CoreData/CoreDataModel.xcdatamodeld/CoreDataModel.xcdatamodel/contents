@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Exorcises" representedClassName=".Exorcise" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    <entity name="Exorcise" representedClassName=".Exorcise" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="result" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="wasDone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="did" inverseEntity="Users" syncable="YES"/>
+        <relationship name="wasPerformedIn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Take" inverseName="wasPerforming" inverseEntity="Take" syncable="YES"/>
     </entity>
-    <entity name="Users" representedClassName=".Users" syncable="YES">
+    <entity name="Session" representedClassName="Session" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="including" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Take" inverseName="wasIncludedIn" inverseEntity="Take" syncable="YES"/>
+        <relationship name="wasPerformedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="performed" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Take" representedClassName="Take" syncable="YES" codeGenerationType="class">
+        <attribute name="repsNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="wasIncludedIn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="including" inverseEntity="Session" syncable="YES"/>
+        <relationship name="wasPerforming" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exorcise" inverseName="wasPerformedIn" inverseEntity="Exorcise" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".Users" syncable="YES">
         <attribute name="isShowing" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="did" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exorcises" inverseName="wasDone" inverseEntity="Exorcises" syncable="YES"/>
+        <relationship name="performed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="wasPerformedBy" inverseEntity="Session" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Users" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Exorcises" positionX="-63" positionY="0" width="128" height="105"/>
+        <element name="Exorcise" positionX="-63" positionY="0" width="128" height="75"/>
+        <element name="Session" positionX="-54" positionY="18" width="128" height="90"/>
+        <element name="Take" positionX="-45" positionY="27" width="128" height="105"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>

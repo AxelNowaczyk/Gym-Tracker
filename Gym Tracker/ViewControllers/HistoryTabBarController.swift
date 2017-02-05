@@ -1,5 +1,5 @@
 //
-//  MainTabBarController.swift
+//  HistoryTabBarController.swift
 //  Gym Tracker
 //
 //  Created by Axel Nowaczyk on 19/12/16.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+class HistoryTabBarController: UITabBarController {
 
-    //var selectedExorcise = ""
+    var selectedExorcise = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     //   self.title = self.selectedExorcise
+        self.title = self.selectedExorcise
     }
 }

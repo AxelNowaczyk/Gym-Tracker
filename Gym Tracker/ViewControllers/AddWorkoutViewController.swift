@@ -8,8 +8,12 @@
 
 import UIKit
 
-class AddWorkoutViewController: UIViewController {
+class AddWorkoutTableViewController: UITableViewController {
 
+    @IBAction func leftBarButtonItemWasPressed(_ sender: UIBarButtonItem) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
