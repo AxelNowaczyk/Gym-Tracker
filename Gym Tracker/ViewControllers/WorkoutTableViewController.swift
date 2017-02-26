@@ -10,6 +10,8 @@ import UIKit
 
 class WorkoutTableViewController: UITableViewController {
     
+    fileprivate let userProvider = UserProvider()
+    
     private enum CellType: String {
         case complex = "WorkoutTableViewCell"
         case simple = "SimpleWorkoutTableViewCell"

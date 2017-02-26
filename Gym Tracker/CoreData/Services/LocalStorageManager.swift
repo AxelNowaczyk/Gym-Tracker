@@ -20,7 +20,7 @@ struct LocalStorageManager {
 }
 
 class BaseProvider: NSObject {
-    static var context: NSManagedObjectContext {
+    var context: NSManagedObjectContext {
         return (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     }
 }

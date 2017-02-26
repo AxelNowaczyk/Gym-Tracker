@@ -31,6 +31,9 @@
 		7AC202171E3B52AD00876A9C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC202161E3B52AD00876A9C /* Settings.storyboard */; };
 		7AC2021C1E3F685B00876A9C /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2021B1E3F685B00876A9C /* AddWorkoutViewController.swift */; };
 		7AE5FDC91E62B80200D6F6D6 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5FDC81E62B80200D6F6D6 /* UserProvider.swift */; };
+		7AE5FDCB1E62C1AF00D6F6D6 /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5FDCA1E62C1AF00D6F6D6 /* SessionProvider.swift */; };
+		7AE5FDCD1E62C1C300D6F6D6 /* TakeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5FDCC1E62C1C300D6F6D6 /* TakeProvider.swift */; };
+		7AE5FDCF1E62C1DD00D6F6D6 /* ExorciseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5FDCE1E62C1DD00D6F6D6 /* ExorciseProvider.swift */; };
 		7AE66AE21E2B6AAC00FF458A /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */; };
 		7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */; };
 		7AE66AE71E2B755400FF458A /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE61E2B755400FF458A /* AppManager.swift */; };
@@ -64,6 +67,9 @@
 		7AC202161E3B52AD00876A9C /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		7AC2021B1E3F685B00876A9C /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddWorkoutViewController.swift; path = ViewControllers/AddWorkoutViewController.swift; sourceTree = "<group>"; };
 		7AE5FDC81E62B80200D6F6D6 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProvider.swift; path = CoreData/UserProvider.swift; sourceTree = "<group>"; };
+		7AE5FDCA1E62C1AF00D6F6D6 /* SessionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionProvider.swift; path = CoreData/SessionProvider.swift; sourceTree = "<group>"; };
+		7AE5FDCC1E62C1C300D6F6D6 /* TakeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeProvider.swift; path = CoreData/TakeProvider.swift; sourceTree = "<group>"; };
+		7AE5FDCE1E62C1DD00D6F6D6 /* ExorciseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExorciseProvider.swift; path = CoreData/ExorciseProvider.swift; sourceTree = "<group>"; };
 		7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorageManager.swift; path = CoreData/Services/LocalStorageManager.swift; sourceTree = "<group>"; };
 		7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchscreenViewController.swift; path = ViewControllers/LaunchscreenViewController.swift; sourceTree = "<group>"; };
 		7AE66AE61E2B755400FF458A /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppManager.swift; path = Models/AppManager.swift; sourceTree = "<group>"; };
@@ -200,12 +206,23 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		7AE5FDD01E62C1E800D6F6D6 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				7AE5FDC81E62B80200D6F6D6 /* UserProvider.swift */,
+				7AE5FDCA1E62C1AF00D6F6D6 /* SessionProvider.swift */,
+				7AE5FDCC1E62C1C300D6F6D6 /* TakeProvider.swift */,
+				7AE5FDCE1E62C1DD00D6F6D6 /* ExorciseProvider.swift */,
+			);
+			name = Providers;
+			sourceTree = "<group>";
+		};
 		7AE66AE01E2B6A6C00FF458A /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */,
-				7AE5FDC81E62B80200D6F6D6 /* UserProvider.swift */,
 				7AC2020E1E3B4F8C00876A9C /* Persistence.swift */,
+				7AE5FDD01E62C1E800D6F6D6 /* Providers */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -358,6 +375,7 @@
 				7AE66AE21E2B6AAC00FF458A /* LocalStorageManager.swift in Sources */,
 				7A8B4CB01E0888D20002E37E /* WorkoutTableViewController.swift in Sources */,
 				7AC2020F1E3B4F8C00876A9C /* Persistence.swift in Sources */,
+				7AE5FDCF1E62C1DD00D6F6D6 /* ExorciseProvider.swift in Sources */,
 				7A8B4CBE1E0899DD0002E37E /* HistoryTableViewCell.swift in Sources */,
 				7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */,
 				7A8B4CB21E0888F40002E37E /* WorkoutTableViewCell.swift in Sources */,
@@ -365,8 +383,10 @@
 				7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */,
 				7A9E320B1E2CE15C004ECF70 /* SimpleHistoryTableViewCell.swift in Sources */,
 				7AE66AE71E2B755400FF458A /* AppManager.swift in Sources */,
+				7AE5FDCD1E62C1C300D6F6D6 /* TakeProvider.swift in Sources */,
 				7A1062DE1E154C65009DAE08 /* CoreDataModel.xcdatamodeld in Sources */,
 				7A9E31DE1E2B8C0F004ECF70 /* SettingsTableViewCell.swift in Sources */,
+				7AE5FDCB1E62C1AF00D6F6D6 /* SessionProvider.swift in Sources */,
 				7AE66AE91E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift in Sources */,
 				7A8B4CBC1E08998E0002E37E /* HistoryExorciseTableViewCell.swift in Sources */,
 				7A8B4CB81E0896D70002E37E /* HistoryTabBarController.swift in Sources */,

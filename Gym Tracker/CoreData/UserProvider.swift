@@ -10,8 +10,14 @@ import Foundation
 import CoreData
 
 class UserProvider: BaseProvider {
+
+    func storeUser(with name: String, shouldBeShown: Bool = false) {
+        let user = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.userModel, into: self.context) as! User
+        user.name = name
+        user.isShowing = shouldBeShown
+    }
     
-    static func getAllUsers() -> [User] {
+    func getAllUsers() -> [User] {
         
         do {
             let users = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.userModel))
@@ -23,9 +29,16 @@ class UserProvider: BaseProvider {
         return []
     }
     
-    static func storeUser(with name: String, shouldBeShown: Bool = false) {
-        let user = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.userModel, into: self.context) as! User
-        user.name = name
-        user.isShowing = shouldBeShown
+    func getUsersToDisplay() -> [User] {
+        
+        var usersToShow = [User]()
+        for user in getAllUsers() {
+            if user.isShowing {
+                usersToShow.append(user)
+            }
+        }
+        
+        return usersToShow
     }
+
 }

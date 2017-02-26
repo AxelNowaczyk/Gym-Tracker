@@ -22,18 +22,6 @@ public class AppManager: NSObject {
         }
     }
     
-    static var usersToDisplay: [User] {
-
-        var usersToShow = [User]()
-        for user in users {
-            if user.isShowing {
-                usersToShow.append(user)
-            }
-        }
-        
-        return usersToShow
-    }
-    
     struct Workout {
         var reps: Int = 0
         var weight: Int = 0
@@ -47,11 +35,12 @@ public class AppManager: NSObject {
     
     public static func performInitialSetup(completionHandler: (Void) -> Void) {
         
-        users = UserProvider.getAllUsers()
+        let userProvider = UserProvider()
+        
+        users = userProvider.getAllUsers()
         if users.count == 0 {
-            UserProvider.storeUser(with: "Axel", shouldBeShown: true)
+            userProvider.storeUser(with: "Axel", shouldBeShown: true)
         }
-        users = UserProvider.getAllUsers()
         
         completionHandler()
         
