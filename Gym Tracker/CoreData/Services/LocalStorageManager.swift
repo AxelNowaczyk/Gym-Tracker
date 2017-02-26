@@ -10,37 +10,18 @@ import Foundation
 import UIKit
 import CoreData
 
-class LocalStorageManager: NSObject {
+struct LocalStorageManager {
     
-    static let shared = LocalStorageManager()
-    
-    private struct Strings {
-        static let users = "Users"
-    }
-    
-    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var context: NSManagedObjectContext {
-        return appDelegate.managedObjectContext
-    }
-    
-    static func getAllUsers() -> [Users] {
-        
-        do {
-            let users = try self.shared.context.fetch(NSFetchRequest(entityName: Strings.users))
-            return (users as! [Users])
-            
-        } catch {
-            print(error)
-        }
-        return []
-    }
-    
-    static func storeUser(with name: String, shouldBeShown: Bool = false) {
-        let user = NSEntityDescription.insertNewObject(forEntityName: Strings.users, into: self.shared.context) as! Users
-        user.name = name
-        user.isShowing = shouldBeShown
-    }
-    
-    
+    static let userModel = "User"
+    static let sessionModel = "Session"
+    static let takeModel = "Take"
+    static let exorciseModel = "Exorcise"
     
 }
+
+class BaseProvider: NSObject {
+    static var context: NSManagedObjectContext {
+        return (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+    }
+}
+

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Exorcise" representedClassName=".Exorcise" syncable="YES">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Exorcise" representedClassName="Exorcise" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="wasPerformedIn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Take" inverseName="wasPerforming" inverseEntity="Take" syncable="YES"/>
     </entity>
@@ -15,15 +15,15 @@
         <relationship name="wasIncludedIn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="including" inverseEntity="Session" syncable="YES"/>
         <relationship name="wasPerforming" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exorcise" inverseName="wasPerformedIn" inverseEntity="Exorcise" syncable="YES"/>
     </entity>
-    <entity name="User" representedClassName=".Users" syncable="YES">
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="isShowing" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="performed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="wasPerformedBy" inverseEntity="Session" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exorcise" positionX="-63" positionY="0" width="128" height="75"/>
-        <element name="Session" positionX="-54" positionY="18" width="128" height="90"/>
-        <element name="Take" positionX="-45" positionY="27" width="128" height="105"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Exorcise" positionX="18" positionY="-3" width="128" height="73"/>
+        <element name="Session" positionX="-344" positionY="-18" width="128" height="90"/>
+        <element name="Take" positionX="-162" positionY="-33" width="128" height="105"/>
+        <element name="User" positionX="-344" positionY="-162" width="128" height="88"/>
     </elements>
 </model>

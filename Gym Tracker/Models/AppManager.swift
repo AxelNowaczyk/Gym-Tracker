@@ -8,13 +8,12 @@
 
 import Foundation
 
-
 public class AppManager: NSObject {
     
     static let shared = AppManager()
     
-    var _users = [Users]()
-    static var users: [Users] {
+    var _users = [User]()
+    static var users: [User] {
         get {
             return self.shared._users
         }
@@ -23,9 +22,9 @@ public class AppManager: NSObject {
         }
     }
     
-    static var usersToDisplay: [Users] {
+    static var usersToDisplay: [User] {
 
-        var usersToShow = [Users]()
+        var usersToShow = [User]()
         for user in users {
             if user.isShowing {
                 usersToShow.append(user)
@@ -48,11 +47,11 @@ public class AppManager: NSObject {
     
     public static func performInitialSetup(completionHandler: (Void) -> Void) {
         
-        users = LocalStorageManager.getAllUsers()
+        users = UserProvider.getAllUsers()
         if users.count == 0 {
-            LocalStorageManager.storeUser(with: "Axel", shouldBeShown: true)
+            UserProvider.storeUser(with: "Axel", shouldBeShown: true)
         }
-        users = LocalStorageManager.getAllUsers()
+        users = UserProvider.getAllUsers()
         
         completionHandler()
         
