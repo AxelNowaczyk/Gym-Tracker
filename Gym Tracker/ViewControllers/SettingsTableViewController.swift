@@ -17,6 +17,8 @@ class SettingsTableViewController: UITableViewController {
     
     }
     
+    let userProvider = UserProvider()
+    
     private enum Cell: String {
         case basic = "Settings User Cell"
     }
@@ -39,7 +41,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == usersTableView {
-            return AppManager.users.count
+            return userProvider.getAllUsers().count
         } else {
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
@@ -52,7 +54,8 @@ class SettingsTableViewController: UITableViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: Cell.basic.rawValue, for: indexPath) as! SettingsTableViewCell
             
-            cell.setup(for: indexPath)
+            let user = userProvider.getAllUsers()[indexPath.row]
+            cell.setup(for: user.name, hidden: user.hidden)
             return cell
             
         } else {

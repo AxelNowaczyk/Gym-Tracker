@@ -11,18 +11,30 @@ import UIKit
 class WorkoutTableViewController: UITableViewController {
     
     fileprivate let userProvider = UserProvider()
+    fileprivate let takeProvider = TakeProvider()
+    fileprivate let sessionProvider = SessionProvider()
+    
+    var data: [User:[Take]] = [:]
     
     private enum CellType: String {
         case complex = "WorkoutTableViewCell"
         case simple = "SimpleWorkoutTableViewCell"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        reloadData()
+        
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return AppManager.workouts.count
+        return data.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppManager.workouts[section].2.count
+        let key = Array(data.keys)[section]
+        return data[key]?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,13 +42,17 @@ class WorkoutTableViewController: UITableViewController {
         let cellType: CellType = .complex //AppManager.usersToDisplay.count > 1 ? .complex : .simple
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType.rawValue, for: indexPath)
 
+        let key = Array(data.keys)[indexPath.section]
+        if let workout = data[key]?[indexPath.row] {
+        
+        
         //switch cellType {
         //case .complex:
-            (cell as! WorkoutTableViewCell).setup(for: indexPath)
+            (cell as! WorkoutTableViewCell).setup(reps: Int(workout.repsNumber), weight: workout.weight)
         //case .simple:
         //    (cell as! SimpleWorkoutTableViewCell).setup(for: indexPath)
         //}
-
+        }
         return cell
     }
     
@@ -69,4 +85,28 @@ class WorkoutTableViewController: UITableViewController {
         
     }
     
+    fileprivate func reloadData() {
+        data = [:]
+        
+        let users = userProvider.getAllUsers()
+        for user in users {
+            guard let session = sessionProvider.getLastSession(user: user),
+                    let takesSet = session.including,
+                    let takes = Array(takesSet) as? [Take]  else {
+                continue
+            }
+            
+            data[user] = takes
+        }
+        
+        
+    }
+    
 }
+
+
+
+
+
+
+

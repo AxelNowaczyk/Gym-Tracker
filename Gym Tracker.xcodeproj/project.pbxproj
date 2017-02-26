@@ -36,7 +36,6 @@
 		7AE5FDCF1E62C1DD00D6F6D6 /* ExorciseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5FDCE1E62C1DD00D6F6D6 /* ExorciseProvider.swift */; };
 		7AE66AE21E2B6AAC00FF458A /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */; };
 		7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */; };
-		7AE66AE71E2B755400FF458A /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE61E2B755400FF458A /* AppManager.swift */; };
 		7AE66AE91E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE81E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +71,6 @@
 		7AE5FDCE1E62C1DD00D6F6D6 /* ExorciseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExorciseProvider.swift; path = CoreData/ExorciseProvider.swift; sourceTree = "<group>"; };
 		7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorageManager.swift; path = CoreData/Services/LocalStorageManager.swift; sourceTree = "<group>"; };
 		7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchscreenViewController.swift; path = ViewControllers/LaunchscreenViewController.swift; sourceTree = "<group>"; };
-		7AE66AE61E2B755400FF458A /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppManager.swift; path = Models/AppManager.swift; sourceTree = "<group>"; };
 		7AE66AE81E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleWorkoutTableViewCell.swift; path = Views/SimpleWorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		B220F520ACE816BE898A6B1E /* Pods-Gym Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gym Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gym Tracker/Pods-Gym Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		C6012F7CF0B74F8FCC5862B8 /* Pods_Gym_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gym_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,7 +228,6 @@
 		7AE66AE51E2B752500FF458A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7AE66AE61E2B755400FF458A /* AppManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -382,7 +379,6 @@
 				7A8B4CC21E08A28B0002E37E /* HistoryChartViewController.swift in Sources */,
 				7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */,
 				7A9E320B1E2CE15C004ECF70 /* SimpleHistoryTableViewCell.swift in Sources */,
-				7AE66AE71E2B755400FF458A /* AppManager.swift in Sources */,
 				7AE5FDCD1E62C1C300D6F6D6 /* TakeProvider.swift in Sources */,
 				7A1062DE1E154C65009DAE08 /* CoreDataModel.xcdatamodeld in Sources */,
 				7A9E31DE1E2B8C0F004ECF70 /* SettingsTableViewCell.swift in Sources */,

@@ -30,7 +30,7 @@ class HistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellType: Cell = AppManager.usersToDisplay.count > 1 ? .complex : .simple
+        let cellType: Cell = /*AppManager.usersToDisplay.count > 1 ? .complex :*/ .simple
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType.rawValue, for: indexPath)
 
