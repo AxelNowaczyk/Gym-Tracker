@@ -1,5 +1,5 @@
 //
-//  HeaderTableViewCell.swift
+//  ExorciseTableViewCell.swift
 //  Gym Tracker
 //
 //  Created by Axel Nowaczyk on 03/02/2017.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class HeaderTableViewCell: UITableViewCell {
+class ExorciseTableViewCell: UITableViewCell {
 
-    @IBOutlet var HeaderNameLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
 
 }
