@@ -11,26 +11,48 @@ import CoreData
 
 class ExorciseProvider: BaseProvider {
     
-    func storeExorcise(named name: String) -> Exorcise {
+    func storeExorcise(named name: String, in session: Session) -> Exorcise {
+        if let exorcise = self.exorcise(named: name, in: session) {
+            return exorcise
+        }
+        
         let exorcise = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.exorciseModel, into: self.context) as! Exorcise
         exorcise.name = name
+        exorcise.wasPerformedIn = session
         
         return exorcise
     }
     
-    func getExorcise(named name: String) -> Exorcise? {
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.exorciseModel)
-        fetchRequest.predicate = NSPredicate(format: "%K = %@", "name", name)
-        fetchRequest.fetchLimit = 1
-        
-        do {
-            let exorcises = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.exorciseModel))
-            return exorcises.first as? Exorcise
-        } catch {
-            return nil
+    func exorcise(named name: String, in session: Session) -> Exorcise? {
+        return session.including?.first(where: { ($0 as? Exorcise)?.name == name }) as! Exorcise?
+    }
+    
+    func exorcises(in session: Session) -> [Exorcise] {
+        guard   let sessionsSet = session.including,
+                let sessions = Array(sessionsSet) as? [Exorcise] else {
+            return []
         }
         
+        return sessions
+    }
+    
+    var exorcises: [Exorcise] {
+        do {
+            let exorcises = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.exorciseModel))
+            let uniqueExorcises = Array(Set(exorcises as! [Exorcise]))
+            return uniqueExorcises
+        } catch {
+            print(error)
+        }
+        return []
+    }
+
+    var exorciseNames: [String] {
+        let exorcisesStringNames = exorcises.map() { $0.name! }
+        let uniqueNames = exorcisesStringNames.reduce([]) { ac, name in
+            ac.contains(where: { $0 == name }) ? ac : ac + [name]
+        }
+        return uniqueNames
     }
     
 }

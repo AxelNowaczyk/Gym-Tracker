@@ -17,17 +17,23 @@ class SettingsTableViewController: UITableViewController {
     
     }
     
-    let userProvider = UserProvider()
+    fileprivate let userProvider = UserProvider()
+    fileprivate var users: [User] = [] {
+        didSet {
+            usersTableView.reloadData()
+        }
+    }
     
     private enum Cell: String {
         case basic = "Settings User Cell"
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        users = userProvider.users
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         if tableView == usersTableView {
@@ -41,7 +47,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == usersTableView {
-            return userProvider.getAllUsers().count
+            return users.count
         } else {
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
@@ -54,7 +60,7 @@ class SettingsTableViewController: UITableViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: Cell.basic.rawValue, for: indexPath) as! SettingsTableViewCell
             
-            let user = userProvider.getAllUsers()[indexPath.row]
+            let user = users[indexPath.row]
             cell.setup(for: user.name, hidden: user.hidden)
             return cell
             

@@ -10,95 +10,78 @@ import UIKit
 
 class WorkoutTableViewController: UITableViewController {
     
-    fileprivate let userProvider = UserProvider()
-    fileprivate let takeProvider = TakeProvider()
-    fileprivate let sessionProvider = SessionProvider()
+    fileprivate let exorciseProvider            = ExorciseProvider()
+    fileprivate var exorciseNames: [String]     = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
+    fileprivate enum CellIdentifierType: String {
+        case exorcise = "ExorciseTableViewCell"
+    }
     
-    var data: [User:[Take]] = [:]
-    
-    private enum CellType: String {
-        case complex = "WorkoutTableViewCell"
-        case simple = "SimpleWorkoutTableViewCell"
+    fileprivate enum SegueType: String {
+        case toAddWorkout = "RecentWorkoutsToAddWorkoutViewControllerSegue"
+    }
+
+    @IBAction func addBarButtonWasPressed(_ sender: UIBarButtonItem) {
+
+        let alert = AlertUtil.createAlertWithTextField( title: "Write name for the new exorcise: ",
+                                                        message: "",
+                                                        textFieldPlaceholder: "Exorcise Name") { textFieldText in
+                                                            
+                                                            if self.exorciseNames.first(where: { $0 == textFieldText }) == nil {
+                                                                self.exorciseNames.append(textFieldText)
+                                                            }
+
+        }
+        present(alert, animated: true, completion: nil)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        reloadData()
-        
-    }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+        reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let key = Array(data.keys)[section]
-        return data[key]?.count ?? 0
+        return exorciseNames.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cellType: CellType = .complex //AppManager.usersToDisplay.count > 1 ? .complex : .simple
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellType.rawValue, for: indexPath)
 
-        let key = Array(data.keys)[indexPath.section]
-        if let workout = data[key]?[indexPath.row] {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierType.exorcise.rawValue, for: indexPath)
+        (cell as! ExorciseTableViewCell).nameLabel.text = exorciseNames[indexPath.row]
         
-        
-        //switch cellType {
-        //case .complex:
-            (cell as! WorkoutTableViewCell).setup(reps: Int(workout.repsNumber), weight: workout.weight)
-        //case .simple:
-        //    (cell as! SimpleWorkoutTableViewCell).setup(for: indexPath)
-        //}
-        }
         return cell
     }
     
-   // override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-    //}
-    
-    private func showAddWorkoutViewController() {
-        
-        if let addWorkoutVC = UIStoryboard.init(name: "AddWorkout", bundle: nil).instantiateInitialViewController() {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: SegueType.toAddWorkout.rawValue, sender: nil)
+    }
 
-            let newVCSize = CGRect(x: 30,
-                                   y: 20 + addWorkoutVC.view.frame.height,
-                                   width: addWorkoutVC.view.frame.width - 60,
-                                   height: addWorkoutVC.view.frame.height - 40)
-            
-            addWorkoutVC.view.frame = newVCSize
-            
-            let blur = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-            blur.frame = UIScreen.main.bounds
-            self.tabBarController?.view.addSubview(blur)
-            
-            self.tabBarController?.addChildViewController(addWorkoutVC)
-            self.tabBarController?.view.addSubview(addWorkoutVC.view)
-            
-            UIView.animate(withDuration: 0.25) {
-                addWorkoutVC.view.frame.origin.y = 20
-            }
-        }
-        
+    fileprivate func reloadData() {
+        exorciseNames = exorciseProvider.exorciseNames
     }
     
-    fileprivate func reloadData() {
-        data = [:]
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let users = userProvider.getAllUsers()
-        for user in users {
-            guard let session = sessionProvider.getLastSession(user: user),
-                    let takesSet = session.including,
-                    let takes = Array(takesSet) as? [Take]  else {
-                continue
-            }
-            
-            data[user] = takes
+        guard let segueType = SegueType(rawValue: segue.identifier ?? "") else {
+            return
         }
         
+        switch segueType {
+        case .toAddWorkout:
+            
+            guard let selectedRow = tableView.indexPathForSelectedRow?.row else {
+                return
+            }
+            let addWorkoutViewController = segue.destination as! AddWorkoutViewController
+            addWorkoutViewController.exorciseName = exorciseNames[selectedRow]
+            
+        }
         
     }
     

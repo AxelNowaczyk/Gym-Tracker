@@ -12,9 +12,9 @@ class HistoryTableViewController: UITableViewController {
 
     private var selectedRow: Int?
     
-    private enum Cell: String {
-        case complex = "HistoryTableViewCell"
-        case simple = "SimpleHistoryTableViewCell"
+    private struct CellIdentifiers {
+        static let complex = "HistoryTableViewCell"
+        static let simple = "SimpleHistoryTableViewCell"
     }
 
     // MARK: - Table view data source
@@ -24,33 +24,31 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppManager.workouts.count
+        return 0 //AppManager.workouts.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellType: Cell = /*AppManager.usersToDisplay.count > 1 ? .complex :*/ .simple
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellType.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.simple, for: indexPath)
 
-        switch cellType {
-        case .complex:
-            setupTableViewCell(with: cell as! HistoryTableViewCell, for: indexPath)
-        case .simple:
+//        switch cellType {
+//        case .complex:
+//            setupTableViewCell(with: cell as! HistoryTableViewCell, for: indexPath)
+//        case .simple:
             setupTableViewCell(with: cell as! SimpleHistoryTableViewCell, for: indexPath)
-        }
+//        }
 
         return cell
     }
  
     private func setupTableViewCell(with cell: HistoryTableViewCell, for indexPath: IndexPath) {
-        cell.nameLabel.text = AppManager.workouts[indexPath.row].0
-        cell.userLabel.text = AppManager.workouts[indexPath.row].1
+//        cell.nameLabel.text = AppManager.workouts[indexPath.row].0
+//        cell.userLabel.text = AppManager.workouts[indexPath.row].1
     }
     
     private func setupTableViewCell(with cell: SimpleHistoryTableViewCell, for indexPath: IndexPath) {
-        cell.nameLabel.text = AppManager.workouts[indexPath.row].0
+//        cell.nameLabel.text = AppManager.workouts[indexPath.row].0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -81,7 +79,7 @@ class HistoryTableViewController: UITableViewController {
     private func setupForHistorySegue(destination viewController: UIViewController) {
         if  let dvc = viewController as? HistoryTabBarController,
             let selectedRow = self.selectedRow {
-            dvc.selectedExorcise = AppManager.workouts[selectedRow].0
+//            dvc.selectedExorcise = AppManager.workouts[selectedRow].0
         }
     }
 

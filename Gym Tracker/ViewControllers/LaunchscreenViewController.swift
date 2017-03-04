@@ -28,32 +28,35 @@ class LaunchscreenViewController: UIViewController {
     
     func performInitialSetup(completionHandler: () -> Void) {
         
-        if UserProvider().getAllUsers().count == 0 {
-            setupWorkouts()
+        if UserProvider().users.count == 0 {
+            setupWorkouts(userName: "Axel")
+            setupWorkouts(userName: "Axel2")
+            
         }
 
         completionHandler()
     }
 
-    private func setupWorkouts() {
+    private func setupWorkouts(userName: String) {
         
-        let user        = UserProvider().storeUser(named: "Axel")
-        let session     = SessionProvider().storeSession()
+        let user        = UserProvider().storeUser(named: userName)
+        let session     = SessionProvider().storeSession(for: user)
         user.addToPerformed(session)
         
+        let exorciseProvider = ExorciseProvider()
         let takeProvider = TakeProvider()
-        let squats = ExorciseProvider().storeExorcise(named: "Squats")
-        _ = takeProvider.storeTake(repsNumber: 12, weight: 20, exorcise: squats, for: session)
-        _ = takeProvider.storeTake(repsNumber: 8, weight: 35, exorcise: squats, for: session)
-        _ = takeProvider.storeTake(repsNumber: 3, weight: 50, exorcise: squats, for: session)
-        let pushups = ExorciseProvider().storeExorcise(named: "Pushups")
-        _ = takeProvider.storeTake(repsNumber: 12, weight: 20, exorcise: pushups, for: session)
-        _ = takeProvider.storeTake(repsNumber: 8, weight: 35, exorcise: pushups, for: session)
-        _ = takeProvider.storeTake(repsNumber: 3, weight: 50, exorcise: pushups, for: session)
-        let pullups = ExorciseProvider().storeExorcise(named: "Pullups")
-        _ = takeProvider.storeTake(repsNumber: 12, weight: 20, exorcise: pullups, for: session)
-        _ = takeProvider.storeTake(repsNumber: 8, weight: 35, exorcise: pullups, for: session)
-        _ = takeProvider.storeTake(repsNumber: 3, weight: 50, exorcise: pullups, for: session)
+        let squats = exorciseProvider.storeExorcise(named: "Squats", in: session)
+        _ = takeProvider.storeTake(repsNumber: 12, weight: 20, for: squats)
+        _ = takeProvider.storeTake(repsNumber: 8, weight: 35, for: squats)
+        _ = takeProvider.storeTake(repsNumber: 3, weight: 50, for: squats)
+        let pushups = exorciseProvider.storeExorcise(named: "Pushups", in: session)
+        _ = takeProvider.storeTake(repsNumber: 12, weight: 20, for: pushups)
+        _ = takeProvider.storeTake(repsNumber: 8, weight: 35, for: pushups)
+        _ = takeProvider.storeTake(repsNumber: 3, weight: 50, for: pushups)
+        let pullups = exorciseProvider.storeExorcise(named: "Pullups", in: session)
+        _ = takeProvider.storeTake(repsNumber: 12, weight: 20, for: pullups)
+        _ = takeProvider.storeTake(repsNumber: 8, weight: 35, for: pullups)
+        _ = takeProvider.storeTake(repsNumber: 3, weight: 50, for: pullups)
     }
     
     

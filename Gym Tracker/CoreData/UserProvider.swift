@@ -19,7 +19,7 @@ class UserProvider: BaseProvider {
         return user
     }
     
-    func getUser(named name: String) -> User? {
+    func user(named name: String) -> User? {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.userModel)
         fetchRequest.fetchLimit = 1
@@ -33,8 +33,7 @@ class UserProvider: BaseProvider {
         }
     }
     
-    func getAllUsers() -> [User] {
-        
+    var users: [User] {
         do {
             let users = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.userModel))
             return (users as? [User]) ?? []
@@ -45,13 +44,11 @@ class UserProvider: BaseProvider {
         return []
     }
     
-    func getUsersToDisplay() -> [User] {
+    var usersToDisplay: [User] {
         
         var usersToShow = [User]()
-        for user in getAllUsers() {
-            if !user.hidden {
-                usersToShow.append(user)
-            }
+        for user in users where !user.hidden {
+            usersToShow.append(user)
         }
         
         return usersToShow
