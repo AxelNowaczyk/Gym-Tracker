@@ -19,7 +19,12 @@ class TakeProvider: BaseProvider {
         
         take.wasIncludedIn = exorcise
 
+        saveContest()
         return take
     }
 
+    func delete(take: Take) {
+        context.delete(take)
+        saveContest()
+    }
 }

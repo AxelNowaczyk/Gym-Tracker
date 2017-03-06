@@ -20,14 +20,14 @@ class SessionProvider: BaseProvider {
         return session
     }
 
-    func getLastSessions(numberOfSessions: Int, for user: User, performing exorcise: Exorcise) -> [Session] {
+    func getLastSessions(numberOfSessions: Int, for user: User, performing exorciseName: String) -> [Session] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.sessionModel)
         fetchRequest.fetchLimit = numberOfSessions
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        fetchRequest.predicate = NSPredicate(format: "(wasPerformedBy == %@) AND (including == %@)", user, exorcise)
-        
+        fetchRequest.predicate = NSPredicate(format: "wasPerformedBy == %@ AND ANY including.name == %@", user, exorciseName)
+
         do {
-            let exorcises = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.sessionModel))
+            let exorcises = try self.context.fetch(fetchRequest)
             return exorcises as? [Session] ?? []
         } catch {
             return []

@@ -23,10 +23,10 @@ class UserProvider: BaseProvider {
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.userModel)
         fetchRequest.fetchLimit = 1
-        fetchRequest.predicate = NSPredicate(format: "ALL name == %@", name)
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
         do {
-            let users = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.userModel))
+            let users = try self.context.fetch(fetchRequest)
             return users.first as? User
         } catch {
             return nil

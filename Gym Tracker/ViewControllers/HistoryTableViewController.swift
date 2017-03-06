@@ -10,55 +10,22 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
 
-    private var selectedRow: Int?
-    
-    private struct CellIdentifiers {
-        static let complex = "HistoryTableViewCell"
-        static let simple = "SimpleHistoryTableViewCell"
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0 //AppManager.workouts.count
-    }
-
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.simple, for: indexPath)
-
-//        switch cellType {
-//        case .complex:
-//            setupTableViewCell(with: cell as! HistoryTableViewCell, for: indexPath)
-//        case .simple:
-            setupTableViewCell(with: cell as! SimpleHistoryTableViewCell, for: indexPath)
-//        }
-
-        return cell
-    }
- 
-    private func setupTableViewCell(with cell: HistoryTableViewCell, for indexPath: IndexPath) {
-//        cell.nameLabel.text = AppManager.workouts[indexPath.row].0
-//        cell.userLabel.text = AppManager.workouts[indexPath.row].1
+    var exorciseNames: [String] = [] {
+        didSet {
+            tableView.reloadData()
+        }
     }
     
-    private func setupTableViewCell(with cell: SimpleHistoryTableViewCell, for indexPath: IndexPath) {
-//        cell.nameLabel.text = AppManager.workouts[indexPath.row].0
+    fileprivate enum CellTypes {
+        static let basic = "HistoryTableViewCell"
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.selectedRow = indexPath.row
-        
-        self.performSegue(withIdentifier: "HistorySegue", sender: self)
-        
+        exorciseNames = ExorciseProvider().exorciseNames
     }
-
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,12 +42,41 @@ class HistoryTableViewController: UITableViewController {
         }
 
     }
- 
+
     private func setupForHistorySegue(destination viewController: UIViewController) {
         if  let dvc = viewController as? HistoryTabBarController,
-            let selectedRow = self.selectedRow {
+            let selectedRow = tableView.indexPathForSelectedRow?.row {
 //            dvc.selectedExorcise = AppManager.workouts[selectedRow].0
         }
     }
 
+}
+
+// MARK: - Table view data source
+
+extension HistoryTableViewController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exorciseNames.count
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellTypes.basic, for: indexPath)
+        setupTableViewCell(with: cell as! HistoryTableViewCell, for: indexPath)
+        return cell
+    }
+    
+    private func setupTableViewCell(with cell: HistoryTableViewCell, for indexPath: IndexPath) {
+        cell.nameLabel.text = exorciseNames[indexPath.row]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "HistorySegue", sender: self)
+    }
 }

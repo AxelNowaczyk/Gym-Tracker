@@ -12,11 +12,7 @@ class SettingsTableViewController: UITableViewController {
 
     @IBOutlet var usersTableView: UITableView!
     
-    @IBAction func saveButtonWasPressed(_ sender: UIButton) {
-        print("save")
-    
-    }
-    
+    fileprivate let cellHeight: CGFloat = 44
     fileprivate let userProvider = UserProvider()
     fileprivate var users: [User] = [] {
         didSet {
@@ -24,7 +20,7 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    private enum Cell: String {
+    fileprivate enum CellType: String {
         case basic = "Settings User Cell"
     }
 
@@ -33,6 +29,11 @@ class SettingsTableViewController: UITableViewController {
         
         users = userProvider.users
     }
+    
+
+}
+
+extension SettingsTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -58,18 +59,19 @@ class SettingsTableViewController: UITableViewController {
         
         if tableView == usersTableView {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: Cell.basic.rawValue, for: indexPath) as! SettingsTableViewCell
-            
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellType.basic.rawValue, for: indexPath) as! SettingsTableViewCell
+            print("users: \(users.count), row: \(indexPath.row)")
             let user = users[indexPath.row]
             cell.setup(for: user.name, hidden: user.hidden)
+            cell.delegate = self
+            
             return cell
             
         } else {
             return super.tableView(tableView, cellForRowAt: indexPath)
         }
-
     }
-
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if tableView == usersTableView {
             return nil
@@ -86,4 +88,20 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == usersTableView {
+            return cellHeight
+        } else {
+            return super.tableView(tableView, heightForRowAt: indexPath) //users.count < 10 ? cellHeight * CGFloat(users.count) : cellHeight * 10
+        }
+    }
+    
+}
+
+extension SettingsTableViewController: SettingsTableViewCellDelegate {
+    func cellDidChangeStatus(cell: SettingsTableViewCell, for userName: String, to status: Bool) {
+        let user = users.first(where: { $0.name == userName })
+        user?.hidden = !status
+        userProvider.saveContest()
+    }
 }
