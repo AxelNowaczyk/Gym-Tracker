@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oum-5G-1zk" id="N8z-DV-jEr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-d6-ICZ">
@@ -85,11 +85,11 @@
                         <viewControllerLayoutGuide type="bottom" id="aPS-vC-sIh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="w5K-Kk-vGU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uDv-Oa-BoM">
-                                <rect key="frame" x="16" y="223.5" width="343" height="126.5"/>
+                                <rect key="frame" x="16" y="159" width="343" height="127"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9cw-1O-D1u" id="0mR-cQ-hSf"/>
@@ -97,7 +97,7 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="THu-YP-Lfs">
-                                <rect key="frame" x="16" y="390.5" width="343" height="126.5"/>
+                                <rect key="frame" x="16" y="326.5" width="343" height="126.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9cw-1O-D1u" id="N86-ay-Gsc"/>
@@ -105,33 +105,33 @@
                                 </connections>
                             </tableView>
                             <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="seO-Fj-Gr0">
-                                <rect key="frame" x="140" y="69" width="219" height="124"/>
+                                <rect key="frame" x="140" y="5" width="219" height="124"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9cw-1O-D1u" id="GVf-3c-8Or"/>
                                     <outlet property="delegate" destination="9cw-1O-D1u" id="a6k-Vq-bwd"/>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cj-f0-sHW">
-                                <rect key="frame" x="16" y="360" width="333" height="20.5"/>
+                                <rect key="frame" x="16" y="296" width="333" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-2E-SPz">
-                                <rect key="frame" x="0.0" y="522" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="458" width="375" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="WuQ-K3-7g8"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksw-zh-kXO">
-                                <rect key="frame" x="16" y="193" width="333" height="20.5"/>
+                                <rect key="frame" x="16" y="129" width="333" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GBJ-C3-KGy">
-                                <rect key="frame" x="16" y="543" width="225" height="30"/>
+                                <rect key="frame" x="16" y="479" width="225" height="30"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cj3-7I-7lq">
                                         <rect key="frame" x="0.0" y="0.0" width="107.5" height="30"/>
@@ -157,14 +157,14 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvv-ej-edC">
-                                <rect key="frame" x="133.5" y="583" width="107.5" height="30"/>
+                                <rect key="frame" x="133.5" y="519" width="107.5" height="30"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addButtonWasTouched:" destination="9cw-1O-D1u" eventType="touchUpInside" id="Ys5-vj-Dcl"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84D-8q-Eo9">
-                                <rect key="frame" x="16" y="69" width="124" height="124"/>
+                                <rect key="frame" x="16" y="5" width="124" height="124"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-tJ-qQC">
                                         <rect key="frame" x="1" y="1" width="122" height="122"/>
@@ -184,7 +184,7 @@
                                 </constraints>
                             </view>
                             <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dg-tg-hJw">
-                                <rect key="frame" x="249" y="543" width="110" height="80"/>
+                                <rect key="frame" x="249" y="479" width="110" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2dg-tg-hJw" secondAttribute="height" multiplier="11:8" id="CV7-Be-Hft"/>
                                 </constraints>
@@ -194,7 +194,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chx-XU-SBh">
-                                <rect key="frame" x="18.5" y="583" width="107.5" height="30"/>
+                                <rect key="frame" x="18" y="519" width="107.5" height="30"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="clearButtonWasTouched:" destination="9cw-1O-D1u" eventType="touchUpInside" id="UEp-HH-Xcb"/>
@@ -243,6 +243,7 @@
                             <constraint firstItem="84D-8q-Eo9" firstAttribute="leading" secondItem="w5K-Kk-vGU" secondAttribute="leadingMargin" id="yTs-iO-fbI"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="currentWorkoutTableView" destination="THu-YP-Lfs" id="kfK-do-1Yl"/>
                         <outlet property="exorciseImageView" destination="YA6-tJ-qQC" id="PU3-sP-dJX"/>
@@ -267,9 +268,10 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </simulatedTabBarMetrics>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sRN-KZ-4pY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sRN-KZ-4pY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

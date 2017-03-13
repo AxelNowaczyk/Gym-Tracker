@@ -24,19 +24,18 @@ class AddWorkoutViewController: UIViewController {
     }
     
     @IBAction func addButtonWasTouched(_ sender: UIButton) {
-        
         guard   let reps = Int(repsTextField.text ?? ""),
                 let weight = Double(weightTextField.text ?? ""),
                 reps != 0 && weight != 0 else {
-                
                     let alert = AlertUtil.createBasicAlert(with: "OOPS", message: "You need to provide both weight and rips number to add workout.")
                     self.present(alert, animated: true, completion: nil)
                     return
         }
         let weightKG = weightConverter.convert(weight: weight, from: selectedWeightType, to: .kg)
         _ = TakeProvider().storeTake(repsNumber: reps, weight: weightKG, for: exorcise)
+        weightTextField.resignFirstResponder()
+        repsTextField.resignFirstResponder()
         currentWorkoutTableView.reloadData()
-
     }
 
     fileprivate enum PickerViewTag: Int {
@@ -86,7 +85,7 @@ class AddWorkoutViewController: UIViewController {
     let userProvider = UserProvider()
     let weightConverter = WeightConverter()
     
-    var users: [User] = [] {
+    fileprivate var users: [User] = [] {
         didSet {
             userPickerView.reloadAllComponents()
             reloadData()
@@ -118,7 +117,7 @@ class AddWorkoutViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        users = userProvider.users
+        users = userProvider.usersToDisplay
     }
     
     fileprivate func reloadData() {
@@ -146,7 +145,6 @@ class AddWorkoutViewController: UIViewController {
         exorciseImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exorciseImageWasTapped))
         exorciseImageView.addGestureRecognizer(tapGesture)
-        
     }
     
     func exorciseImageWasTapped(_ sender: UITapGestureRecognizer) {

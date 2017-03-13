@@ -24,7 +24,7 @@ class BaseProvider: NSObject {
         return (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     }
     
-    func saveContest() {
+    func saveContext() {
         do {
             try context.save()
         } catch { }

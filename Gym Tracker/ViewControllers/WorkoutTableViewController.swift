@@ -37,7 +37,6 @@ class WorkoutTableViewController: UITableViewController {
 
         }
         present(alert, animated: true, completion: nil)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +86,25 @@ class WorkoutTableViewController: UITableViewController {
     
 }
 
+extension WorkoutTableViewController {
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+        switch editingStyle {
+        case .delete:
+            print("delete")
+        case .insert:
+            print("insert")
+        case .none:
+            print("none")
+        }
+    }
+
+}
 
 
 

@@ -11,12 +11,8 @@ import UIKit
 
 class LaunchscreenViewController: UIViewController {
  
-    let debug = false
-    
-    deinit {
-        print("did deinit")
-    }
-    
+    let debug = true
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

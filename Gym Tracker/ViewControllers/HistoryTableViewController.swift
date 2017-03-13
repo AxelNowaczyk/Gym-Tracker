@@ -29,7 +29,6 @@ class HistoryTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let id = segue.identifier else {
             print("no id")
             return
@@ -40,13 +39,12 @@ class HistoryTableViewController: UITableViewController {
             self.setupForHistorySegue(destination: segue.destination)
         default: break
         }
-
     }
 
     private func setupForHistorySegue(destination viewController: UIViewController) {
-        if  let dvc = viewController as? HistoryTabBarController,
+        if  let dvc = viewController as? MainHistoryViewController,
             let selectedRow = tableView.indexPathForSelectedRow?.row {
-//            dvc.selectedExorcise = AppManager.workouts[selectedRow].0
+            dvc.exorciseName = exorciseNames[selectedRow]
         }
     }
 
@@ -64,7 +62,6 @@ extension HistoryTableViewController {
         return exorciseNames.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellTypes.basic, for: indexPath)
@@ -74,9 +71,5 @@ extension HistoryTableViewController {
     
     private func setupTableViewCell(with cell: HistoryTableViewCell, for indexPath: IndexPath) {
         cell.nameLabel.text = exorciseNames[indexPath.row]
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "HistorySegue", sender: self)
     }
 }

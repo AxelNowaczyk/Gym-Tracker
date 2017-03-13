@@ -19,7 +19,10 @@ class UserProvider: BaseProvider {
         return user
     }
     
-    func user(named name: String) -> User? {
+    func user(named name: String?) -> User? {
+        guard let name = name else {
+            return nil
+        }
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.userModel)
         fetchRequest.fetchLimit = 1

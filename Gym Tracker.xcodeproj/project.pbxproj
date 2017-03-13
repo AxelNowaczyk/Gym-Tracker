@@ -27,8 +27,13 @@
 		7A8B4CBC1E08998E0002E37E /* HistoryExorciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CBB1E08998E0002E37E /* HistoryExorciseTableViewCell.swift */; };
 		7A8B4CC21E08A28B0002E37E /* HistoryChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */; };
 		7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */; };
-		7A9E31DE1E2B8C0F004ECF70 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E31DD1E2B8C0F004ECF70 /* SettingsTableViewCell.swift */; };
 		7A9E320B1E2CE15C004ECF70 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E320A1E2CE15C004ECF70 /* HistoryTableViewCell.swift */; };
+		7A9FCDC11E747970007BB941 /* MainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9FCDC01E747970007BB941 /* MainHistoryViewController.swift */; };
+		7A9FCDC31E748D47007BB941 /* HistoryUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9FCDC21E748D47007BB941 /* HistoryUserTableViewCell.swift */; };
+		7A9FCDC81E749F65007BB941 /* HistoryTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9FCDC61E749F65007BB941 /* HistoryTableViewHeader.swift */; };
+		7A9FCDC91E749F65007BB941 /* HistoryTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9FCDC71E749F65007BB941 /* HistoryTableViewHeader.xib */; };
+		7A9FCDCB1E74AD2B007BB941 /* DateFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9FCDCA1E74AD2B007BB941 /* DateFormatterUtil.swift */; };
+		7AAC46551E77230A00208FD8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC46541E77230A00208FD8 /* SettingsTableViewCell.swift */; };
 		7AC2020F1E3B4F8C00876A9C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2020E1E3B4F8C00876A9C /* Persistence.swift */; };
 		7AC202121E3B526B00876A9C /* RecentWorkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC202101E3B526B00876A9C /* RecentWorkouts.storyboard */; };
 		7AC202151E3B529400876A9C /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC202131E3B529400876A9C /* History.storyboard */; };
@@ -68,8 +73,13 @@
 		7A8B4CBB1E08998E0002E37E /* HistoryExorciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryExorciseTableViewCell.swift; path = Views/HistoryExorciseTableViewCell.swift; sourceTree = "<group>"; };
 		7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryChartViewController.swift; path = ViewControllers/HistoryChartViewController.swift; sourceTree = "<group>"; };
 		7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ViewControllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
-		7A9E31DD1E2B8C0F004ECF70 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = Views/SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		7A9E320A1E2CE15C004ECF70 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = Views/HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		7A9FCDC01E747970007BB941 /* MainHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainHistoryViewController.swift; path = ViewControllers/MainHistoryViewController.swift; sourceTree = "<group>"; };
+		7A9FCDC21E748D47007BB941 /* HistoryUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryUserTableViewCell.swift; path = Views/HistoryUserTableViewCell.swift; sourceTree = "<group>"; };
+		7A9FCDC61E749F65007BB941 /* HistoryTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewHeader.swift; path = Views/HistoryTableViewHeader.swift; sourceTree = "<group>"; };
+		7A9FCDC71E749F65007BB941 /* HistoryTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryTableViewHeader.xib; path = Views/HistoryTableViewHeader.xib; sourceTree = "<group>"; };
+		7A9FCDCA1E74AD2B007BB941 /* DateFormatterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatterUtil.swift; path = Services/DateFormatterUtil.swift; sourceTree = "<group>"; };
+		7AAC46541E77230A00208FD8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = Views/SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		7AC2020E1E3B4F8C00876A9C /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistence.swift; path = CoreData/Services/Persistence.swift; sourceTree = "<group>"; };
 		7AC202111E3B526B00876A9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RecentWorkouts.storyboard; sourceTree = "<group>"; };
 		7AC202141E3B529400876A9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
@@ -175,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				7A8B4CAF1E0888D20002E37E /* WorkoutTableViewController.swift */,
+				7A9FCDC01E747970007BB941 /* MainHistoryViewController.swift */,
 				7A8B4CB31E088FC50002E37E /* HistoryTableViewController.swift */,
 				7A8B4CB71E0896D70002E37E /* HistoryTabBarController.swift */,
 				7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */,
@@ -192,10 +203,13 @@
 				7A0F8FBB1E450D0300D172E5 /* ExorciseTableViewCell.swift */,
 				7A8B4CB11E0888F40002E37E /* WorkoutTableViewCell.swift */,
 				7A8B4CBB1E08998E0002E37E /* HistoryExorciseTableViewCell.swift */,
-				7A9E31DD1E2B8C0F004ECF70 /* SettingsTableViewCell.swift */,
 				7A9E320A1E2CE15C004ECF70 /* HistoryTableViewCell.swift */,
 				7A39446F1E6C2364000942D8 /* AddWorkoutTableViewCell.swift */,
 				7A3944701E6C2364000942D8 /* AddWorkoutTableViewCell.xib */,
+				7A9FCDC21E748D47007BB941 /* HistoryUserTableViewCell.swift */,
+				7A9FCDC61E749F65007BB941 /* HistoryTableViewHeader.swift */,
+				7A9FCDC71E749F65007BB941 /* HistoryTableViewHeader.xib */,
+				7AAC46541E77230A00208FD8 /* SettingsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -243,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				7AE5FDD71E64B55F00D6F6D6 /* AlertUtil.swift */,
+				7A9FCDCA1E74AD2B007BB941 /* DateFormatterUtil.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -339,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A3944721E6C2364000942D8 /* AddWorkoutTableViewCell.xib in Resources */,
+				7A9FCDC91E749F65007BB941 /* HistoryTableViewHeader.xib in Resources */,
 				7AC202121E3B526B00876A9C /* RecentWorkouts.storyboard in Resources */,
 				7A8B4C941E086D8E0002E37E /* LaunchScreen.storyboard in Resources */,
 				7A8B4C911E086D8E0002E37E /* Assets.xcassets in Resources */,
@@ -404,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A8B4CB41E088FC50002E37E /* HistoryTableViewController.swift in Sources */,
+				7A9FCDC31E748D47007BB941 /* HistoryUserTableViewCell.swift in Sources */,
 				7AE66AE21E2B6AAC00FF458A /* LocalStorageManager.swift in Sources */,
 				7A8B4CB01E0888D20002E37E /* WorkoutTableViewController.swift in Sources */,
 				7A39446A1E6A04A8000942D8 /* WeightConverter.swift in Sources */,
@@ -411,17 +428,20 @@
 				7AE5FDCF1E62C1DD00D6F6D6 /* ExorciseProvider.swift in Sources */,
 				7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */,
 				7A8B4CB21E0888F40002E37E /* WorkoutTableViewCell.swift in Sources */,
+				7A9FCDC11E747970007BB941 /* MainHistoryViewController.swift in Sources */,
 				7A8B4CC21E08A28B0002E37E /* HistoryChartViewController.swift in Sources */,
 				7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */,
 				7A9E320B1E2CE15C004ECF70 /* HistoryTableViewCell.swift in Sources */,
 				7A1145E01E6E0A6300EC6CBD /* UIView+KeybordHandling.swift in Sources */,
 				7A3944711E6C2364000942D8 /* AddWorkoutTableViewCell.swift in Sources */,
+				7A9FCDC81E749F65007BB941 /* HistoryTableViewHeader.swift in Sources */,
+				7AAC46551E77230A00208FD8 /* SettingsTableViewCell.swift in Sources */,
 				7A39446E1E6B478E000942D8 /* SessionManager.swift in Sources */,
 				7AE5FDCD1E62C1C300D6F6D6 /* TakeProvider.swift in Sources */,
 				7AE5FDD41E63972A00D6F6D6 /* Take+Comparable.swift in Sources */,
 				7A1062DE1E154C65009DAE08 /* CoreDataModel.xcdatamodeld in Sources */,
-				7A9E31DE1E2B8C0F004ECF70 /* SettingsTableViewCell.swift in Sources */,
 				7AE5FDCB1E62C1AF00D6F6D6 /* SessionProvider.swift in Sources */,
+				7A9FCDCB1E74AD2B007BB941 /* DateFormatterUtil.swift in Sources */,
 				7AE5FDD81E64B55F00D6F6D6 /* AlertUtil.swift in Sources */,
 				7AE66AE91E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift in Sources */,
 				7A8B4CBC1E08998E0002E37E /* HistoryExorciseTableViewCell.swift in Sources */,

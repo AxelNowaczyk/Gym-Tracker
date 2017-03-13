@@ -2,16 +2,11 @@
 //  SettingsTableViewCell.swift
 //  Gym Tracker
 //
-//  Created by Axel Nowaczyk on 15/01/2017.
+//  Created by Axel Nowaczyk on 13/03/2017.
 //  Copyright © 2017 Axel Nowaczyk. All rights reserved.
 //
 
 import UIKit
-
-protocol SettingsTableViewCellDelegate {
-    func cellDidChangeStatus(cell: SettingsTableViewCell, for userName: String, to status: Bool)
-}
-
 
 class SettingsTableViewCell: UITableViewCell {
 
@@ -19,13 +14,15 @@ class SettingsTableViewCell: UITableViewCell {
     @IBOutlet var visibilitySwitch: UISwitch!
     
     @IBAction func visibilitySwitchValueChanged(_ sender: UISwitch) {
-        delegate?.cellDidChangeStatus(cell: self, for: nameLabel.text!, to: visibilitySwitch.isOn)
+        switchFunction?(visibilitySwitch.isOn)
     }
     
-    var delegate: SettingsTableViewCellDelegate?
+    var switchFunction: SwitchFunction?
     
-    func setup(for user: String?, hidden: Bool) {
-        nameLabel.text = user ?? "No name"
+    typealias SwitchFunction = (Bool) -> Void
+    func setup(for user: String, hidden: Bool, switchFunction: @escaping SwitchFunction) {
+        nameLabel.text = user
         visibilitySwitch.isOn = !hidden
+        self.switchFunction = switchFunction
     }
 }

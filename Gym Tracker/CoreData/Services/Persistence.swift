@@ -26,7 +26,7 @@ class Persistence: NSObject {
     
     func coordinator() -> NSPersistentStoreCoordinator {
         
-        return self.persistentStoreCoordinator
+        return persistentStoreCoordinator
     }
     
     fileprivate func persistentStoreCommonOptions() -> [AnyHashable: Any] {
@@ -84,35 +84,29 @@ class Persistence: NSObject {
     
     func save() -> Void {
         
-        if self.persistentStoreCoordinator.persistentStores.count == 0 {
-            
+        guard self.persistentStoreCoordinator.persistentStores.count == 0 else {
             print("Persistent store does not exist!")
             return
             
         }
         
-        if self.managedObjectContext == nil {
-            
+        guard let managedObjectContext = self.managedObjectContext else {
             print("managedObjectContext does not exist!")
             return
         }
         
         
-        self.managedObjectContext.perform { () -> Void in
+        managedObjectContext.perform { () -> Void in
             
-            if self.managedObjectContext.hasChanges == false {
-                return
-            }
-            
-            do {
-                try self.managedObjectContext.save()
-            }
-            catch {
-                print("Error while saving database: \(error)")
+            if managedObjectContext.hasChanges {
+                do {
+                    try managedObjectContext.save()
+                }
+                catch {
+                    print("Error while saving database: \(error)")
+                }
             }
         }
-        
-        return
     }
 }
 
