@@ -79,7 +79,7 @@ class MainHistoryViewController: UIViewController {
     }
     
     fileprivate let sessionProvider     = SessionProvider()
-    fileprivate let users               = UserProvider().users
+    fileprivate let users               = UserProvider().usersToDisplay
     fileprivate var sessions: [Session] = [] {
         didSet {
             workoutTableView.reloadData()
@@ -210,6 +210,7 @@ extension MainHistoryViewController {
         
         let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Workouts")
         lineChartDataSet.axisDependency = .right
+        lineChartDataSet.circleRadius = 0
         chartView.leftAxis.axisMinimum = 0.0
         chartView.rightAxis.axisMinimum = 0.0
         chartView.data = LineChartData(dataSet: lineChartDataSet)

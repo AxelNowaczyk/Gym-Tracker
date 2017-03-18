@@ -20,11 +20,12 @@ class AlertUtil {
     }
     
     typealias AlertWithTextFieldResponse = (String) -> Void
-    static func createAlertWithTextField(title: String, message: String, textFieldPlaceholder: String, textFieldTextWhenSubmit: @escaping AlertWithTextFieldResponse) -> UIAlertController {
+    static func createAlertWithTextField(title: String, message: String, textFieldPlaceholder: String, withText text: String?, textFieldTextWhenSubmit: @escaping AlertWithTextFieldResponse) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
         alertController.addTextField { (textField: UITextField) in
             textField.keyboardType = .default
+            textField.text = text
             textField.placeholder = textFieldPlaceholder
             textField.clearButtonMode = .whileEditing
         }

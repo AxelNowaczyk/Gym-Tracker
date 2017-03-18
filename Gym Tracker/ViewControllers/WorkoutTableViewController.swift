@@ -29,7 +29,7 @@ class WorkoutTableViewController: UITableViewController {
 
         let alert = AlertUtil.createAlertWithTextField( title: "Write name for the new exorcise: ",
                                                         message: "",
-                                                        textFieldPlaceholder: "Exorcise Name") { textFieldText in
+                                                        textFieldPlaceholder: "Exorcise Name", withText: nil) { textFieldText in
                                                             
                                                             if self.exorciseNames.first(where: { $0 == textFieldText }) == nil {
                                                                 self.exorciseNames.append(textFieldText)
@@ -52,7 +52,7 @@ class WorkoutTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierType.exorcise.rawValue, for: indexPath)
-        (cell as! ExorciseTableViewCell).nameLabel.text = exorciseNames[indexPath.row]
+        (cell as! ExorciseTableViewCell).setup(exorciseNames[indexPath.row])
         
         return cell
     }
@@ -91,17 +91,27 @@ extension WorkoutTableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 
-        switch editingStyle {
-        case .delete:
-            print("delete")
-        case .insert:
-            print("insert")
-        case .none:
-            print("none")
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+            let alert = AlertUtil.createAlertWithTextField( title: "Write new name for the new exorcise: ",
+                                                            message: "",
+                                                            textFieldPlaceholder: "Exorcise Name", withText: self.exorciseNames[indexPath.row]) { textFieldText in
+                                                                
+                                                                print("change name")
+                                                                tableView.reloadData()
+            }
+            self.present(alert, animated: true, completion: nil)
         }
+        editAction.backgroundColor = .blue
+        
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            print("Delete")
+            tableView.reloadData()
+        }
+        deleteAction.backgroundColor = .red
+        
+        return [deleteAction,editAction]
     }
 
 }

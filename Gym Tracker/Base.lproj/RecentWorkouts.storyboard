@@ -29,7 +29,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-d6-ICZ">
-                                            <rect key="frame" x="20" y="0.0" width="355" height="43"/>
+                                            <rect key="frame" x="20" y="0.0" width="345" height="43"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Username">
                                                     <attributes>
@@ -42,12 +42,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="G3X-d6-ICZ" secondAttribute="trailing" constant="10" id="D5G-xY-y7g"/>
                                         <constraint firstItem="G3X-d6-ICZ" firstAttribute="top" secondItem="N8z-DV-jEr" secondAttribute="top" id="W2g-ci-yia"/>
-                                        <constraint firstAttribute="trailing" secondItem="G3X-d6-ICZ" secondAttribute="trailing" id="a8h-jy-YcU"/>
                                         <constraint firstAttribute="bottom" secondItem="G3X-d6-ICZ" secondAttribute="bottom" id="fxf-Xm-Pe0"/>
                                         <constraint firstItem="G3X-d6-ICZ" firstAttribute="leading" secondItem="N8z-DV-jEr" secondAttribute="leading" constant="20" id="sZV-86-yh2"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="nameLabel" destination="G3X-d6-ICZ" id="fek-nz-BW8"/>
                                 </connections>
@@ -74,7 +75,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMP-Bl-rPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2151" y="1550"/>
+            <point key="canvasLocation" x="-2151.1999999999998" y="1549.4752623688157"/>
         </scene>
         <!--Add Workout View Controller-->
         <scene sceneID="Icd-Ag-JIM">

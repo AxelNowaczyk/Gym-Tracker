@@ -126,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="-814" y="802"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Users-->
         <scene sceneID="OLV-F4-O6d">
             <objects>
                 <tableViewController id="C17-3D-f6H" customClass="SettingsTableViewController" customModule="Gym_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,6 +175,13 @@
                             <outlet property="delegate" destination="C17-3D-f6H" id="T3d-mu-P7t"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Users" id="MT1-A8-xC9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="p5w-ll-OBg">
+                            <connections>
+                                <action selector="addBarButtonItemWasTapped:" destination="C17-3D-f6H" id="Iba-sN-0c0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95x-8h-F6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

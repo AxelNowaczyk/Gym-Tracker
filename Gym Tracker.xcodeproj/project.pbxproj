@@ -34,7 +34,7 @@
 		7A9FCDC91E749F65007BB941 /* HistoryTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9FCDC71E749F65007BB941 /* HistoryTableViewHeader.xib */; };
 		7A9FCDCB1E74AD2B007BB941 /* DateFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9FCDCA1E74AD2B007BB941 /* DateFormatterUtil.swift */; };
 		7AAC46551E77230A00208FD8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC46541E77230A00208FD8 /* SettingsTableViewCell.swift */; };
-		7AC2020F1E3B4F8C00876A9C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2020E1E3B4F8C00876A9C /* Persistence.swift */; };
+		7AC2020F1E3B4F8C00876A9C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2020E1E3B4F8C00876A9C /* CoreDataStack.swift */; };
 		7AC202121E3B526B00876A9C /* RecentWorkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC202101E3B526B00876A9C /* RecentWorkouts.storyboard */; };
 		7AC202151E3B529400876A9C /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC202131E3B529400876A9C /* History.storyboard */; };
 		7AC202171E3B52AD00876A9C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC202161E3B52AD00876A9C /* Settings.storyboard */; };
@@ -80,7 +80,7 @@
 		7A9FCDC71E749F65007BB941 /* HistoryTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryTableViewHeader.xib; path = Views/HistoryTableViewHeader.xib; sourceTree = "<group>"; };
 		7A9FCDCA1E74AD2B007BB941 /* DateFormatterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatterUtil.swift; path = Services/DateFormatterUtil.swift; sourceTree = "<group>"; };
 		7AAC46541E77230A00208FD8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = Views/SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		7AC2020E1E3B4F8C00876A9C /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistence.swift; path = CoreData/Services/Persistence.swift; sourceTree = "<group>"; };
+		7AC2020E1E3B4F8C00876A9C /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = CoreData/Services/CoreDataStack.swift; sourceTree = "<group>"; };
 		7AC202111E3B526B00876A9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RecentWorkouts.storyboard; sourceTree = "<group>"; };
 		7AC202141E3B529400876A9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
 		7AC202161E3B52AD00876A9C /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */,
-				7AC2020E1E3B4F8C00876A9C /* Persistence.swift */,
+				7AC2020E1E3B4F8C00876A9C /* CoreDataStack.swift */,
 				7AE5FDD01E62C1E800D6F6D6 /* Providers */,
 			);
 			name = Services;
@@ -424,7 +424,7 @@
 				7AE66AE21E2B6AAC00FF458A /* LocalStorageManager.swift in Sources */,
 				7A8B4CB01E0888D20002E37E /* WorkoutTableViewController.swift in Sources */,
 				7A39446A1E6A04A8000942D8 /* WeightConverter.swift in Sources */,
-				7AC2020F1E3B4F8C00876A9C /* Persistence.swift in Sources */,
+				7AC2020F1E3B4F8C00876A9C /* CoreDataStack.swift in Sources */,
 				7AE5FDCF1E62C1DD00D6F6D6 /* ExorciseProvider.swift in Sources */,
 				7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */,
 				7A8B4CB21E0888F40002E37E /* WorkoutTableViewCell.swift in Sources */,

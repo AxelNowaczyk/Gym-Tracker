@@ -19,7 +19,6 @@ class SessionManager: NSObject {
         
         let lastSessions = sessionProvider.getLastSessions(numberOfSessions: 2, for: user, performing: exorciseName)
         initSessions(sessions: lastSessions, for: user)
-        
     }
     
     private func initSessions(sessions: [Session], for user: User) {

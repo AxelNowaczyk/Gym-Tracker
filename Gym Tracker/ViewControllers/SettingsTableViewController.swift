@@ -10,6 +10,21 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBAction func addBarButtonItemWasTapped(_ sender: UIBarButtonItem) {
+        let alert = AlertUtil.createAlertWithTextField( title: "Write name for a new user: ",
+                                                        message: "",
+                                                        textFieldPlaceholder: "User Name", withText: nil) { [weak self] textFieldText in
+                                                            
+                                                            if  self?.users.first(where: { $0.name == textFieldText }) == nil,
+                                                                let newUser = self?.userProvider.storeUser(named: textFieldText){
+                                                                    self?.users.append(newUser)
+                                                            }
+                                                            
+        }
+        present(alert, animated: true, completion: nil)
+    
+    }
+    
     fileprivate let userProvider = UserProvider()
     fileprivate var users: [User] = [] {
         didSet {

@@ -12,4 +12,8 @@ class ExorciseTableViewCell: UITableViewCell {
 
     @IBOutlet var nameLabel: UILabel!
 
+    func setup(_ name: String) {
+        nameLabel.text = name
+    }
+    
 }

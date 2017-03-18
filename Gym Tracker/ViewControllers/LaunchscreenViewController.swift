@@ -25,31 +25,12 @@ class LaunchscreenViewController: UIViewController {
     }
     
     func performInitialSetup(completionHandler: () -> Void) {
-        
         if debug {
             performInitialSetupForDebug {
                 completionHandler()
             }
-        } else {
-            performInitialSetupForRelease {
-                completionHandler()
-            }
         }
     }
-
-    func performInitialSetupForRelease(completionHandler: () -> Void) {
-        
-        if UserProvider().users.count == 0 {
-            
-            let userProvider = UserProvider()
-            _ = userProvider.storeUser(named: "Axel")
-            _ = userProvider.storeUser(named: "Maciek")
-            
-        }
-        
-        completionHandler()
-    }
-    
     func performInitialSetupForDebug(completionHandler: () -> Void) {
         
         if UserProvider().users.count == 0 {
