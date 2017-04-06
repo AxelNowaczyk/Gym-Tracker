@@ -11,6 +11,16 @@ import CoreData
 
 class TakeProvider: BaseProvider {
     
+    var takes: [Take] {
+        do {
+            let takes = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.takeModel))
+            return takes as? [Take] ?? []
+        } catch {
+            print(error)
+        }
+        return []
+    }
+    
     func storeTake(repsNumber: Int, weight: Double, for exorcise: Exorcise) -> Take {
         let take = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.takeModel, into: self.context) as! Take
         
@@ -23,6 +33,13 @@ class TakeProvider: BaseProvider {
         return take
     }
 
+    func deleteAllTakesForExorcise(named name: String) {
+        takes
+            .filter { $0.wasIncludedIn?.name == name }
+            .forEach { context.delete($0) }
+        saveContext()
+    }
+    
     func delete(take: Take) {
         context.delete(take)
         saveContext()

@@ -26,8 +26,8 @@ class AddWorkoutViewController: UIViewController {
     @IBAction func addButtonWasTouched(_ sender: UIButton) {
         guard   let reps = Int(repsTextField.text ?? ""),
                 let weight = Double(weightTextField.text ?? ""),
-                reps != 0 && weight != 0 else {
-                    let alert = AlertUtil.createBasicAlert(with: "OOPS", message: "You need to provide both weight and rips number to add workout.")
+                reps != 0 else {
+                    let alert = AlertUtil.createBasicAlert(with: "OOPS", message: "You need to provide number of rips to add workout.")
                     self.present(alert, animated: true, completion: nil)
                     return
         }
@@ -67,14 +67,11 @@ class AddWorkoutViewController: UIViewController {
     }
     
     var currentTakes: [Take] {
-        return (Array(exorcise.consistsOf!) as? [Take]) ?? []
+        return exorcise.consistsOf?.array as? [Take] ?? []
     }
     
     var previousTakes: [Take] {
-        guard let previousExorcise = previousExorcise else {
-            return []
-        }
-        return (Array(previousExorcise.consistsOf!) as? [Take]) ?? []
+        return previousExorcise?.consistsOf?.array as? [Take] ?? []
     }
     
     var lastSelectedWeightType: WeightType!
@@ -107,7 +104,7 @@ class AddWorkoutViewController: UIViewController {
         currentWorkoutTableView.register(nib, forCellReuseIdentifier: CellIdentifiers.addWorkoutCell.rawValue)
         previousWorkoutTableView.register(nib, forCellReuseIdentifier: CellIdentifiers.addWorkoutCell.rawValue)
         
-        self.title = exorciseName
+        title = exorciseName
         lastSelectedWeightType = selectedWeightType
         
         setupImageView()
@@ -118,6 +115,21 @@ class AddWorkoutViewController: UIViewController {
         super.viewWillAppear(animated)
         
         users = userProvider.usersToDisplay
+        
+        guard let mainTabBarController = tabBarController as? MainTabBarController else {
+            return
+        }
+        
+        if  let exorciseName = mainTabBarController.selectedExorciseName {
+            self.exorciseName = exorciseName
+            title = exorciseName
+        }
+        
+        if  let userName = mainTabBarController.selectedUserName,
+            let userIndex = users.index(where: { $0.name == userName }) {
+            userPickerView.selectRow(userIndex, inComponent: 0, animated: animated)
+        }
+        reloadData()
     }
     
     fileprivate func reloadData() {
@@ -217,6 +229,7 @@ extension AddWorkoutViewController: UIPickerViewDataSource, UIPickerViewDelegate
         
         switch pickerViewTag {
         case .user:
+            (tabBarController as? MainTabBarController)?.selectedUserName = users[row].name
             clearTextFields()
             fallthrough
         case .weight:

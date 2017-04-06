@@ -79,7 +79,7 @@ class WorkoutTableViewController: UITableViewController {
             }
             let addWorkoutViewController = segue.destination as! AddWorkoutViewController
             addWorkoutViewController.exorciseName = exorciseNames[selectedRow]
-            
+            (tabBarController as? MainTabBarController)?.selectedExorciseName = addWorkoutViewController.exorciseName
         }
         
     }
@@ -94,11 +94,11 @@ extension WorkoutTableViewController {
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
-            let alert = AlertUtil.createAlertWithTextField( title: "Write new name for the new exorcise: ",
+            let alert = AlertUtil.createAlertWithTextField( title: "Write new name for the exorcise: ",
                                                             message: "",
                                                             textFieldPlaceholder: "Exorcise Name", withText: self.exorciseNames[indexPath.row]) { textFieldText in
                                                                 
-                                                                print("change name")
+                                                                self.exorciseProvider.changeNameForExorcices(named: self.exorciseNames[indexPath.row], with: textFieldText)
                                                                 tableView.reloadData()
             }
             self.present(alert, animated: true, completion: nil)
@@ -106,7 +106,7 @@ extension WorkoutTableViewController {
         editAction.backgroundColor = .blue
         
         let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
-            print("Delete")
+            self.exorciseProvider.removeExorcices(named: self.exorciseNames[indexPath.row])
             tableView.reloadData()
         }
         deleteAction.backgroundColor = .red

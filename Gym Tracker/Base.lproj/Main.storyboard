@@ -31,10 +31,10 @@
             </objects>
             <point key="canvasLocation" x="-1482" y="-715"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="kJz-lX-pUS">
             <objects>
-                <tabBarController id="WVR-yj-odc" sceneMemberID="viewController">
+                <tabBarController id="WVR-yj-odc" customClass="MainTabBarController" customModule="Gym_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="mae-ES-dtT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

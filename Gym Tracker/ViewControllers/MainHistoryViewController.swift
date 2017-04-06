@@ -68,6 +68,7 @@ class MainHistoryViewController: UIViewController {
     var userName: String? {
         didSet {
             selectedUserLabel.text = userName
+            (tabBarController as? MainTabBarController)?.selectedUserName = userName
         }
     }
     var exorciseName: String?
@@ -77,7 +78,6 @@ class MainHistoryViewController: UIViewController {
         case table
         case chart
     }
-    
     fileprivate let sessionProvider     = SessionProvider()
     fileprivate let users               = UserProvider().usersToDisplay
     fileprivate var sessions: [Session] = [] {
@@ -85,6 +85,26 @@ class MainHistoryViewController: UIViewController {
             workoutTableView.reloadData()
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let mainTabBarController = tabBarController as? MainTabBarController else {
+            return
+        }
+        
+        if let exorciseName = mainTabBarController.selectedExorciseName {
+            self.exorciseName = exorciseName
+            title = exorciseName
+        }
+        
+        if  let userName = mainTabBarController.selectedUserName {
+            self.userName = userName
+        }
+        updateSessions()
+        workoutTableView.reloadData()
+        updateChart()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,7 +114,7 @@ class MainHistoryViewController: UIViewController {
         userName = users.first?.name
         updateSessions()
         updateChart()
-        
+    
         workoutTableView.register(UINib(nibName: CellIdentifiers.sessionHeader, bundle: nil), forCellReuseIdentifier: CellIdentifiers.sessionHeader)
         workoutTableView.register(UINib(nibName: CellIdentifiers.exorcise, bundle: nil), forCellReuseIdentifier: CellIdentifiers.exorcise)
     }
@@ -175,11 +195,16 @@ extension MainHistoryViewController: UITableViewDelegate, UITableViewDataSource 
             userName = users[indexPath.row].name!
             updateSessions()
             updateChart()
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: 10, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.userTableViewHeightConstraint.constant = 0
-            }
+            }, completion: nil)
+
+//            UIView.animate(withDuration: 1) {
+//                self.userTableViewHeightConstraint.constant = 0
+//            }
         }
     }
+
 }
 
 extension MainHistoryViewController {
@@ -187,7 +212,7 @@ extension MainHistoryViewController {
     fileprivate func updateChart() {
         var values = [Double]()
 
-        for session in sessions {
+        for session in sessions.reversed() {
             let exorcise = ExorciseProvider().exorcise(named: exorciseName ?? "", in: session)
             guard let takes = (exorcise?.consistsOf?.array as? [Take]) else {
                 continue
@@ -211,8 +236,13 @@ extension MainHistoryViewController {
         let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Workouts")
         lineChartDataSet.axisDependency = .right
         lineChartDataSet.circleRadius = 0
+        chartView.chartDescription?.enabled = false
         chartView.leftAxis.axisMinimum = 0.0
-        chartView.rightAxis.axisMinimum = 0.0
+        chartView.xAxis.labelTextColor = .white
+        chartView.leftAxis.labelTextColor = .white
+        chartView.rightAxis.labelTextColor = .white
+        chartView.legend.enabled = false
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
+    
 }

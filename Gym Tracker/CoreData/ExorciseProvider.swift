@@ -24,7 +24,7 @@ class ExorciseProvider: BaseProvider {
     }
     
     func exorcise(named name: String, in session: Session) -> Exorcise? {
-        return session.including?.first(where: { ($0 as? Exorcise)?.name == name }) as! Exorcise?
+        return session.including?.first { ($0 as? Exorcise)?.name == name } as! Exorcise?
     }
     
     func exorcises(in session: Session) -> [Exorcise] {
@@ -34,6 +34,28 @@ class ExorciseProvider: BaseProvider {
         }
         
         return sessions
+    }
+    
+    func removeExorcices(named name: String) {
+        TakeProvider().deleteAllTakesForExorcise(named: name)
+        exorcises
+            .filter { $0.name == name }
+            .forEach { context.delete($0) }
+        saveContext()
+    }
+
+    func changeNameForExorcices(named name: String, with newName: String) {
+        exorcises
+            .filter { $0.name == name }
+            .forEach { $0.name = newName }
+        saveContext()
+    }
+    
+    func removeExorcisesWithNoTakes(completionHandler: (Void) -> ()) {
+        exorcises
+            .filter { $0.consistsOf?.array.isEmpty ?? true }
+            .forEach { context.delete($0) }
+        saveContext()
     }
     
     var exorcises: [Exorcise] {

@@ -23,7 +23,7 @@
 		7A8B4CB01E0888D20002E37E /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CAF1E0888D20002E37E /* WorkoutTableViewController.swift */; };
 		7A8B4CB21E0888F40002E37E /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CB11E0888F40002E37E /* WorkoutTableViewCell.swift */; };
 		7A8B4CB41E088FC50002E37E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CB31E088FC50002E37E /* HistoryTableViewController.swift */; };
-		7A8B4CB81E0896D70002E37E /* HistoryTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CB71E0896D70002E37E /* HistoryTabBarController.swift */; };
+		7A8B4CB81E0896D70002E37E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CB71E0896D70002E37E /* MainTabBarController.swift */; };
 		7A8B4CBC1E08998E0002E37E /* HistoryExorciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CBB1E08998E0002E37E /* HistoryExorciseTableViewCell.swift */; };
 		7A8B4CC21E08A28B0002E37E /* HistoryChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */; };
 		7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */; };
@@ -69,7 +69,7 @@
 		7A8B4CAF1E0888D20002E37E /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutTableViewController.swift; path = ViewControllers/WorkoutTableViewController.swift; sourceTree = "<group>"; };
 		7A8B4CB11E0888F40002E37E /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutTableViewCell.swift; path = Views/WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		7A8B4CB31E088FC50002E37E /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewController.swift; path = ViewControllers/HistoryTableViewController.swift; sourceTree = "<group>"; };
-		7A8B4CB71E0896D70002E37E /* HistoryTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTabBarController.swift; path = ViewControllers/HistoryTabBarController.swift; sourceTree = "<group>"; };
+		7A8B4CB71E0896D70002E37E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = ViewControllers/MainTabBarController.swift; sourceTree = "<group>"; };
 		7A8B4CBB1E08998E0002E37E /* HistoryExorciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryExorciseTableViewCell.swift; path = Views/HistoryExorciseTableViewCell.swift; sourceTree = "<group>"; };
 		7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryChartViewController.swift; path = ViewControllers/HistoryChartViewController.swift; sourceTree = "<group>"; };
 		7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ViewControllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 				7A8B4CAF1E0888D20002E37E /* WorkoutTableViewController.swift */,
 				7A9FCDC01E747970007BB941 /* MainHistoryViewController.swift */,
 				7A8B4CB31E088FC50002E37E /* HistoryTableViewController.swift */,
-				7A8B4CB71E0896D70002E37E /* HistoryTabBarController.swift */,
+				7A8B4CB71E0896D70002E37E /* MainTabBarController.swift */,
 				7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */,
 				7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */,
 				7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */,
@@ -445,7 +445,7 @@
 				7AE5FDD81E64B55F00D6F6D6 /* AlertUtil.swift in Sources */,
 				7AE66AE91E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift in Sources */,
 				7A8B4CBC1E08998E0002E37E /* HistoryExorciseTableViewCell.swift in Sources */,
-				7A8B4CB81E0896D70002E37E /* HistoryTabBarController.swift in Sources */,
+				7A8B4CB81E0896D70002E37E /* MainTabBarController.swift in Sources */,
 				7AC2021C1E3F685B00876A9C /* AddWorkoutViewController.swift in Sources */,
 				7A8B4C8A1E086D8E0002E37E /* AppDelegate.swift in Sources */,
 				7A0F8FBC1E450D0300D172E5 /* ExorciseTableViewCell.swift in Sources */,
