@@ -11,6 +11,8 @@ import UIKit
 
 class LaunchscreenViewController: UIViewController {
  
+    @IBOutlet var dumbbellImageView: UIImageView!
+    
     let debug = true
     
     final let userProbability = 90
@@ -40,10 +42,36 @@ class LaunchscreenViewController: UIViewController {
         performInitialSetup()
     }
     
+    private var dataWasFetched = false
     func performInitialSetup() {
-        ExorciseProvider().removeExorcisesWithNoTakes {
-            performInitialSetup {
+        DispatchQueue.global().async {
+            ExorciseProvider().removeExorcisesWithNoTakes {
+                self.performInitialSetup {
+                    self.dataWasFetched = true
+                }
+            }
+        }
+        performAnimation {
+            if self.dataWasFetched {
+                let viewController = UIStoryboard(name: "MainTabBar", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as? MainTabBarController
+                UIApplication.shared.keyWindow?.rootViewController = viewController
                 self.performSegue(withIdentifier: "Show tabbarController", sender: self)
+            } else {
+                self.performInitialSetup()
+            }
+        }
+    }
+    
+    func performAnimation(completionHandler: @escaping (Void) -> Void) {
+        UIView.animate(withDuration: 2.0, animations: {
+            self.dumbbellImageView.transform = CGAffineTransform(rotationAngle: .pi)
+            self.view.layoutIfNeeded()
+        }) { _ in
+            UIView.animate(withDuration: 2.0, animations: {
+                self.dumbbellImageView.transform = CGAffineTransform(rotationAngle: 0)
+                self.view.layoutIfNeeded()
+            }) { _ in
+                completionHandler()
             }
         }
     }

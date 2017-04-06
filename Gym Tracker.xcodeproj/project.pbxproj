@@ -48,6 +48,7 @@
 		7AE66AE21E2B6AAC00FF458A /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */; };
 		7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */; };
 		7AE66AE91E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE81E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift */; };
+		7AE6800F1E96DBFC00C6B3A0 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE6800D1E96DBFC00C6B3A0 /* MainTabBar.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorageManager.swift; path = CoreData/Services/LocalStorageManager.swift; sourceTree = "<group>"; };
 		7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchscreenViewController.swift; path = ViewControllers/LaunchscreenViewController.swift; sourceTree = "<group>"; };
 		7AE66AE81E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleWorkoutTableViewCell.swift; path = Views/SimpleWorkoutTableViewCell.swift; sourceTree = "<group>"; };
+		7AE6800E1E96DBFC00C6B3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainTabBar.storyboard; sourceTree = "<group>"; };
 		B220F520ACE816BE898A6B1E /* Pods-Gym Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gym Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gym Tracker/Pods-Gym Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		C6012F7CF0B74F8FCC5862B8 /* Pods_Gym_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gym_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -137,12 +139,12 @@
 			name = Adapters;
 			sourceTree = "<group>";
 		};
-		7A1062ED1E15555F009DAE08 /* Assest */ = {
+		7A1062ED1E15555F009DAE08 /* Assests */ = {
 			isa = PBXGroup;
 			children = (
 				7A8B4C901E086D8E0002E37E /* Assets.xcassets */,
 			);
-			name = Assest;
+			name = Assests;
 			sourceTree = "<group>";
 		};
 		7A8B4C7D1E086D8E0002E37E = {
@@ -174,7 +176,7 @@
 				7A8B4C9B1E08710D0002E37E /* ViewControllers */,
 				7A8B4C891E086D8E0002E37E /* AppDelegate.swift */,
 				7A9E320C1E2CE5C2004ECF70 /* Storyboards */,
-				7A1062ED1E15555F009DAE08 /* Assest */,
+				7A1062ED1E15555F009DAE08 /* Assests */,
 				7A8B4C951E086D8E0002E37E /* Info.plist */,
 				7A1062E21E155021009DAE08 /* Adapters */,
 			);
@@ -219,6 +221,7 @@
 			children = (
 				7A8B4C921E086D8E0002E37E /* LaunchScreen.storyboard */,
 				7A8B4C8D1E086D8E0002E37E /* Main.storyboard */,
+				7AE6800D1E96DBFC00C6B3A0 /* MainTabBar.storyboard */,
 				7AC202161E3B52AD00876A9C /* Settings.storyboard */,
 				7AC202131E3B529400876A9C /* History.storyboard */,
 				7AC202101E3B526B00876A9C /* RecentWorkouts.storyboard */,
@@ -353,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE6800F1E96DBFC00C6B3A0 /* MainTabBar.storyboard in Resources */,
 				7A3944721E6C2364000942D8 /* AddWorkoutTableViewCell.xib in Resources */,
 				7A9FCDC91E749F65007BB941 /* HistoryTableViewHeader.xib in Resources */,
 				7AC202121E3B526B00876A9C /* RecentWorkouts.storyboard in Resources */,
@@ -486,6 +490,14 @@
 				7AC202141E3B529400876A9C /* Base */,
 			);
 			name = History.storyboard;
+			sourceTree = "<group>";
+		};
+		7AE6800D1E96DBFC00C6B3A0 /* MainTabBar.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7AE6800E1E96DBFC00C6B3A0 /* Base */,
+			);
+			name = MainTabBar.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

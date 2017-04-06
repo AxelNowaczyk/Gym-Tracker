@@ -53,9 +53,10 @@ class ExorciseProvider: BaseProvider {
     
     func removeExorcisesWithNoTakes(completionHandler: (Void) -> ()) {
         exorcises
-            .filter { $0.consistsOf?.array.isEmpty ?? true }
+            .filter { $0.consistsOf?.count == 0 }
             .forEach { context.delete($0) }
         saveContext()
+        completionHandler()
     }
     
     var exorcises: [Exorcise] {

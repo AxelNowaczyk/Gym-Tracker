@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WVR-yj-odc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="kJz-lX-pUS">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WVR-yj-odc" customClass="MainTabBarController" customModule="Gym_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="mae-ES-dtT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="fy1-lW-NO5" kind="relationship" relationship="viewControllers" id="XJx-BK-23B"/>
+                        <segue destination="Lke-qj-y6o" kind="relationship" relationship="viewControllers" id="FIq-X7-C3W"/>
+                        <segue destination="fRR-UV-Yea" kind="relationship" relationship="viewControllers" id="8BR-26-UDV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0x1-zz-Iyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1482" y="19"/>
+        </scene>
+        <!--RecentWorkouts-->
+        <scene sceneID="rW8-FH-UIS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RecentWorkouts" id="fy1-lW-NO5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="u90-4h-rJR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Gp-DX-lBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1658" y="512"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="piJ-u4-vbL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="History" id="Lke-qj-y6o" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="nIm-Dk-VIx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rgK-tN-8em" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1482" y="512"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="tMy-64-avf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="fRR-UV-Yea" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="AYz-qO-r0N"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GVH-pG-gca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1346" y="512"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+</document>

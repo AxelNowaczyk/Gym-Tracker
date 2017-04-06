@@ -26,7 +26,7 @@ class SessionManager: NSObject {
         switch sessions.count {
         case 2:
             let storedSession = sessions[0]
-            if NSCalendar.current.isDateInToday(storedSession.date as! Date) {
+            if NSCalendar.current.isDateInToday(storedSession.date! as Date) {
                 currentSession = storedSession
                 previousSession = sessions[1]
             } else {
@@ -35,7 +35,7 @@ class SessionManager: NSObject {
             }
         case 1:
             let storedSession = sessions[0]
-            if NSCalendar.current.isDateInToday(storedSession.date as! Date) {
+            if NSCalendar.current.isDateInToday(storedSession.date! as Date) {
                 currentSession = storedSession
             } else {
                 currentSession = sessionProvider.storeSession(for: user)

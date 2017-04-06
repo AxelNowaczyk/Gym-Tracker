@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PoV-Dn-kyF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PoV-Dn-kyF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,45 +20,61 @@
                     <view key="view" contentMode="scaleToFill" id="vVP-Bv-Wrr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uKQ-rn-0pH">
+                                <rect key="frame" x="134" y="297" width="107" height="72"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gym" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzw-UA-tgf">
+                                        <rect key="frame" x="20.5" y="0.0" width="66" height="36"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DU4-PU-ah2">
+                                        <rect key="frame" x="0.0" y="36" width="107" height="36"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95O-GA-wff">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="297"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dumbbell" translatesAutoresizingMaskIntoConstraints="NO" id="6Uu-zt-f67">
+                                        <rect key="frame" x="112.5" y="73.5" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="85g-6Z-4lF"/>
+                                            <constraint firstAttribute="height" constant="150" id="ANQ-LG-QKL"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="6Uu-zt-f67" firstAttribute="centerX" secondItem="95O-GA-wff" secondAttribute="centerX" id="WX3-9T-RIV"/>
+                                    <constraint firstItem="6Uu-zt-f67" firstAttribute="centerY" secondItem="95O-GA-wff" secondAttribute="centerY" id="eea-vq-Q70"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="95O-GA-wff" firstAttribute="leading" secondItem="vVP-Bv-Wrr" secondAttribute="leading" id="0g4-Q5-JoS"/>
+                            <constraint firstItem="uKQ-rn-0pH" firstAttribute="centerX" secondItem="vVP-Bv-Wrr" secondAttribute="centerX" id="Ajv-zb-lXZ"/>
+                            <constraint firstItem="uKQ-rn-0pH" firstAttribute="centerY" secondItem="vVP-Bv-Wrr" secondAttribute="centerY" id="BSm-y4-dcD"/>
+                            <constraint firstItem="uKQ-rn-0pH" firstAttribute="top" secondItem="95O-GA-wff" secondAttribute="bottom" id="Bhm-Zs-2vT"/>
+                            <constraint firstItem="95O-GA-wff" firstAttribute="top" secondItem="vVP-Bv-Wrr" secondAttribute="top" id="Y81-Pc-mk1"/>
+                            <constraint firstAttribute="trailing" secondItem="95O-GA-wff" secondAttribute="trailing" id="b0f-NW-Aeo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HMc-rD-siR"/>
                     <connections>
-                        <segue destination="WVR-yj-odc" kind="presentation" identifier="Show tabbarController" id="xBk-18-h6b"/>
+                        <outlet property="dumbbellImageView" destination="6Uu-zt-f67" id="yLC-pf-GVg"/>
+                        <segue destination="b9v-NP-AVV" kind="presentation" identifier="Show tabbarController" id="xBk-18-h6b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwP-w7-bc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1482" y="-715"/>
-        </scene>
-        <!--Main Tab Bar Controller-->
-        <scene sceneID="kJz-lX-pUS">
-            <objects>
-                <tabBarController id="WVR-yj-odc" customClass="MainTabBarController" customModule="Gym_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="mae-ES-dtT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="fy1-lW-NO5" kind="relationship" relationship="viewControllers" id="XJx-BK-23B"/>
-                        <segue destination="Lke-qj-y6o" kind="relationship" relationship="viewControllers" id="FIq-X7-C3W"/>
-                        <segue destination="fRR-UV-Yea" kind="relationship" relationship="viewControllers" id="8BR-26-UDV"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0x1-zz-Iyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1482" y="19"/>
-        </scene>
-        <!--RecentWorkouts-->
-        <scene sceneID="rW8-FH-UIS">
-            <objects>
-                <viewControllerPlaceholder storyboardName="RecentWorkouts" id="fy1-lW-NO5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="u90-4h-rJR"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Gp-DX-lBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1658" y="512"/>
+            <point key="canvasLocation" x="-1482.4000000000001" y="-715.59220389805103"/>
         </scene>
         <!--History-->
         <scene sceneID="piJ-u4-vbL">
@@ -70,16 +86,17 @@
             </objects>
             <point key="canvasLocation" x="-1482" y="512"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="tMy-64-avf">
+        <!--MainTabBar-->
+        <scene sceneID="Ql2-FJ-YpB">
             <objects>
-                <viewControllerPlaceholder storyboardName="Settings" id="fRR-UV-Yea" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="AYz-qO-r0N"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GVH-pG-gca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="MainTabBar" id="b9v-NP-AVV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WmL-zY-md5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1346" y="512"/>
+            <point key="canvasLocation" x="-1482" y="19"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dumbbell" width="16" height="16"/>
+    </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>
