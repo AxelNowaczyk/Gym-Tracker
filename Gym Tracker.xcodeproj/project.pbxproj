@@ -128,13 +128,6 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
-		7A1062E21E155021009DAE08 /* Adapters */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Adapters;
-			sourceTree = "<group>";
-		};
 		7A1062ED1E15555F009DAE08 /* Assests */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +167,6 @@
 				7A9E320C1E2CE5C2004ECF70 /* Storyboards */,
 				7A1062ED1E15555F009DAE08 /* Assests */,
 				7A8B4C951E086D8E0002E37E /* Info.plist */,
-				7A1062E21E155021009DAE08 /* Adapters */,
 			);
 			path = "Gym Tracker";
 			sourceTree = "<group>";

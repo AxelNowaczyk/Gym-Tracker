@@ -16,8 +16,9 @@ class SettingsTableViewController: UITableViewController {
                                                         textFieldPlaceholder: "User Name", withText: nil) { [weak self] textFieldText in
                                                             
                                                             if  self?.users.first(where: { $0.name == textFieldText }) == nil,
-                                                                let newUser = self?.userProvider.storeUser(named: textFieldText){
+                                                                let newUser = self?.userProvider.storeUser(named: textFieldText) {
                                                                     self?.users.append(newUser)
+                                                                    self?.userProvider.saveContext()
                                                             }
                                                             
         }

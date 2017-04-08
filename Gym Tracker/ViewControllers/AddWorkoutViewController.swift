@@ -59,6 +59,9 @@ class AddWorkoutViewController: UIViewController {
     }
     
     var previousExorcise: Exorcise? {
+        defer {
+            ExorciseProvider().saveContext()
+        }
         let sessionManager = SessionManager(user: user, exorciseName: exorciseName)
         guard let previousSession = sessionManager.previousSession else {
             return nil
@@ -106,7 +109,6 @@ class AddWorkoutViewController: UIViewController {
         
         title = exorciseName
         lastSelectedWeightType = selectedWeightType
-        exorciseImageView.image = PictureProvider().retrievePictureForExorcise(named: exorciseName) ?? #imageLiteral(resourceName: "exorciseIcon_default")
         setupImageView()
         view.bindToKeyboard()
     }
@@ -157,6 +159,7 @@ class AddWorkoutViewController: UIViewController {
         exorciseImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exorciseImageWasTapped))
         exorciseImageView.addGestureRecognizer(tapGesture)
+        exorciseImageView.image = PictureProvider().retrievePictureForExorcise(named: exorciseName) ?? #imageLiteral(resourceName: "exorciseIcon_default")
     }
     
     func exorciseImageWasTapped(_ sender: UITapGestureRecognizer) {
@@ -297,7 +300,9 @@ extension AddWorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let takeToRemove = currentTakes[indexPath.row]
-        TakeProvider().delete(take: takeToRemove)
+        let takeProvider = TakeProvider()
+        takeProvider.delete(take: takeToRemove)
+        takeProvider.saveContext()
         tableView.reloadData()
     }
     

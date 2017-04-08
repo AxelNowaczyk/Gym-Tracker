@@ -23,6 +23,20 @@ class PictureProvider: BaseProvider {
         picture.pictureData = jpegImage as NSData?
     }
     
+    func changeName(oldName: String, newName: String) {
+        guard   let picture = retrievePictureModelForExorcise(named: oldName) else {
+                return
+        }
+        picture.exorciseName = newName
+    }
+
+    func deletePictureForExorcise(named name: String) {
+        guard   let picture = retrievePictureModelForExorcise(named: name) else {
+            return
+        }
+        context.delete(picture)
+    }
+    
     func retrievePictureForExorcise(named name: String?) -> UIImage? {
         guard   let picture = retrievePictureModelForExorcise(named: name),
                 let pictureData = picture.pictureData as Data? else {

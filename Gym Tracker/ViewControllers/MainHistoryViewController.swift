@@ -198,10 +198,6 @@ extension MainHistoryViewController: UITableViewDelegate, UITableViewDataSource 
             UIView.animate(withDuration: 10, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.userTableViewHeightConstraint.constant = 0
             }, completion: nil)
-
-//            UIView.animate(withDuration: 1) {
-//                self.userTableViewHeightConstraint.constant = 0
-//            }
         }
     }
 
