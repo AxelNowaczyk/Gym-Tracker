@@ -22,27 +22,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uKQ-rn-0pH">
-                                <rect key="frame" x="134" y="297" width="107" height="72"/>
+                                <rect key="frame" x="99" y="274" width="178" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gym" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzw-UA-tgf">
-                                        <rect key="frame" x="20.5" y="0.0" width="66" height="36"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="30"/>
+                                        <rect key="frame" x="34.5" y="0.0" width="109.5" height="60"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="50"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DU4-PU-ah2">
-                                        <rect key="frame" x="0.0" y="36" width="107" height="36"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="30"/>
+                                        <rect key="frame" x="0.0" y="60" width="178" height="60"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="50"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95O-GA-wff">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="297"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dumbbell" translatesAutoresizingMaskIntoConstraints="NO" id="6Uu-zt-f67">
-                                        <rect key="frame" x="112.5" y="73.5" width="150" height="150"/>
+                                        <rect key="frame" x="112.5" y="62" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="85g-6Z-4lF"/>
                                             <constraint firstAttribute="height" constant="150" id="ANQ-LG-QKL"/>
@@ -75,16 +75,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwP-w7-bc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1482.4000000000001" y="-715.59220389805103"/>
-        </scene>
-        <!--History-->
-        <scene sceneID="piJ-u4-vbL">
-            <objects>
-                <viewControllerPlaceholder storyboardName="History" id="Lke-qj-y6o" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="nIm-Dk-VIx"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rgK-tN-8em" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1482" y="512"/>
         </scene>
         <!--MainTabBar-->
         <scene sceneID="Ql2-FJ-YpB">

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Users_icon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "exorciseIcon_default.png",
       "scale" : "2x"
     },
     {

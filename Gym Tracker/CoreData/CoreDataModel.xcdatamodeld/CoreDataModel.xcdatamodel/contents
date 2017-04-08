@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Exorcise" representedClassName="Exorcise" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="consistsOf" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Take" inverseName="wasIncludedIn" inverseEntity="Take" syncable="YES"/>
         <relationship name="wasPerformedIn" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="including" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Picture" representedClassName="Picture" syncable="YES" codeGenerationType="class">
+        <attribute name="exorciseName" attributeType="String" syncable="YES"/>
+        <attribute name="pictureData" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Session" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -25,5 +29,6 @@
         <element name="Session" positionX="-155" positionY="-162" width="128" height="88"/>
         <element name="Take" positionX="178" positionY="-162" width="128" height="88"/>
         <element name="User" positionX="-344" positionY="-162" width="128" height="88"/>
+        <element name="Picture" positionX="-162" positionY="-297" width="128" height="73"/>
     </elements>
 </model>

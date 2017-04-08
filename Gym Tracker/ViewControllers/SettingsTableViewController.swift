@@ -40,7 +40,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        users = userProvider.users
+        users = userProvider.users.sorted { $0.name! < $1.name! }
     }
 }
 

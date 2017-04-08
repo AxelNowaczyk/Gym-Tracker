@@ -14,7 +14,7 @@ class SessionProvider: BaseProvider {
     func storeSession(for user: User, with date: Date? = nil) -> Session {
         
         let session = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.sessionModel, into: self.context) as! Session
-        session.date = date as NSDate?? ?? NSDate()
+        session.date = date as NSDate? ?? NSDate()
         user.addToPerformed(session)
         
         return session

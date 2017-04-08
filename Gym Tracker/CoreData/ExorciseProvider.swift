@@ -63,7 +63,7 @@ class ExorciseProvider: BaseProvider {
         do {
             let exorcises = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.exorciseModel))
             let uniqueExorcises = Array(Set(exorcises as! [Exorcise]))
-            return uniqueExorcises
+            return uniqueExorcises.sorted { $0.name! > $1.name! }
         } catch {
             print(error)
         }

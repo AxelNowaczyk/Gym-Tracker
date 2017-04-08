@@ -16,6 +16,7 @@ struct LocalStorageManager {
     static let sessionModel = "Session"
     static let takeModel = "Take"
     static let exorciseModel = "Exorcise"
+    static let pictureModel = "Picture"
     
 }
 

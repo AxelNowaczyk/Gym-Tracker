@@ -106,7 +106,7 @@ class AddWorkoutViewController: UIViewController {
         
         title = exorciseName
         lastSelectedWeightType = selectedWeightType
-        
+        exorciseImageView.image = PictureProvider().retrievePictureForExorcise(named: exorciseName) ?? #imageLiteral(resourceName: "exorciseIcon_default")
         setupImageView()
         view.bindToKeyboard()
     }
@@ -334,6 +334,9 @@ extension AddWorkoutViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
         exorciseImageView.image = image
+        let pictureProvider = PictureProvider()
+        pictureProvider.storePictureForExorcise(named: exorciseName, image: image)
+        pictureProvider.saveContext()
         self.dismiss(animated: true, completion: nil)
     }
     

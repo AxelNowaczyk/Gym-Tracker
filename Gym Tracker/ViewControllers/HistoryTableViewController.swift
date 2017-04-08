@@ -44,6 +44,7 @@ class HistoryTableViewController: UITableViewController {
     private func setupForHistorySegue(destination viewController: UIViewController) {
         if  let dvc = viewController as? MainHistoryViewController,
             let selectedRow = tableView.indexPathForSelectedRow?.row {
+
             dvc.exorciseName = exorciseNames[selectedRow]
             (tabBarController as? MainTabBarController)?.selectedExorciseName = dvc.exorciseName
         }
@@ -65,11 +66,7 @@ extension HistoryTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellTypes.basic, for: indexPath)
-        setupTableViewCell(with: cell as! HistoryTableViewCell, for: indexPath)
+        (cell as? HistoryTableViewCell)?.setup(exorciseNames[indexPath.row])
         return cell
-    }
-    
-    private func setupTableViewCell(with cell: HistoryTableViewCell, for indexPath: IndexPath) {
-        cell.nameLabel.text = exorciseNames[indexPath.row]
     }
 }

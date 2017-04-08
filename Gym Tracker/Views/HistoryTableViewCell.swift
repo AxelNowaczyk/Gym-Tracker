@@ -11,5 +11,11 @@ import UIKit
 class HistoryTableViewCell: UITableViewCell {
     
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var exorciseImageView: UIImageView!
+    
+    func setup(_ name: String) {
+        nameLabel.text = name
+        exorciseImageView.image = PictureProvider().retrievePictureForExorcise(named: name) ?? #imageLiteral(resourceName: "exorciseIcon_default")
+    }
     
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5IQ-OA-9Fg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5IQ-OA-9Fg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -25,11 +25,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oum-5G-1zk" id="N8z-DV-jEr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-d6-ICZ">
-                                            <rect key="frame" x="20" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="54" y="0.0" width="311" height="43"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Username">
                                                     <attributes>
@@ -40,16 +40,26 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GkT-UW-6O9">
+                                            <rect key="frame" x="10" y="5" width="34" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="GkT-UW-6O9" secondAttribute="height" multiplier="1:1" id="8hr-iP-UFE"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="GkT-UW-6O9" secondAttribute="bottom" constant="5" id="4O3-lx-5Eh"/>
                                         <constraint firstAttribute="trailing" secondItem="G3X-d6-ICZ" secondAttribute="trailing" constant="10" id="D5G-xY-y7g"/>
                                         <constraint firstItem="G3X-d6-ICZ" firstAttribute="top" secondItem="N8z-DV-jEr" secondAttribute="top" id="W2g-ci-yia"/>
+                                        <constraint firstItem="G3X-d6-ICZ" firstAttribute="leading" secondItem="GkT-UW-6O9" secondAttribute="trailing" constant="10" id="XJ5-NS-qxA"/>
                                         <constraint firstAttribute="bottom" secondItem="G3X-d6-ICZ" secondAttribute="bottom" id="fxf-Xm-Pe0"/>
-                                        <constraint firstItem="G3X-d6-ICZ" firstAttribute="leading" secondItem="N8z-DV-jEr" secondAttribute="leading" constant="20" id="sZV-86-yh2"/>
+                                        <constraint firstItem="GkT-UW-6O9" firstAttribute="top" secondItem="N8z-DV-jEr" secondAttribute="top" constant="5" id="vXq-DC-mq8"/>
+                                        <constraint firstItem="GkT-UW-6O9" firstAttribute="leading" secondItem="N8z-DV-jEr" secondAttribute="leading" constant="10" id="wnS-DO-Zfe"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
+                                    <outlet property="exorciseImageView" destination="GkT-UW-6O9" id="4c6-xg-abH"/>
                                     <outlet property="nameLabel" destination="G3X-d6-ICZ" id="fek-nz-BW8"/>
                                 </connections>
                             </tableViewCell>
@@ -167,7 +177,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84D-8q-Eo9">
                                 <rect key="frame" x="16" y="5" width="124" height="124"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-tJ-qQC">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exorciseIcon_default" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-tJ-qQC">
                                         <rect key="frame" x="1" y="1" width="122" height="122"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -176,7 +186,6 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="YA6-tJ-qQC" firstAttribute="centerX" secondItem="84D-8q-Eo9" secondAttribute="centerX" id="Cby-7u-dwa"/>
                                     <constraint firstAttribute="width" secondItem="84D-8q-Eo9" secondAttribute="height" multiplier="1:1" id="ZYW-zi-XPB"/>
@@ -269,7 +278,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </simulatedTabBarMetrics>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sRN-KZ-4pY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sRN-KZ-4pY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -286,6 +295,7 @@
     </scenes>
     <resources>
         <image name="Clock" width="25" height="25"/>
+        <image name="exorciseIcon_default" width="80" height="80"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

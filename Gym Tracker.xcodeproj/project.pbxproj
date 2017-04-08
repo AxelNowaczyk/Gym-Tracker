@@ -21,10 +21,8 @@
 		7A8B4C911E086D8E0002E37E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8B4C901E086D8E0002E37E /* Assets.xcassets */; };
 		7A8B4C941E086D8E0002E37E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8B4C921E086D8E0002E37E /* LaunchScreen.storyboard */; };
 		7A8B4CB01E0888D20002E37E /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CAF1E0888D20002E37E /* WorkoutTableViewController.swift */; };
-		7A8B4CB21E0888F40002E37E /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CB11E0888F40002E37E /* WorkoutTableViewCell.swift */; };
 		7A8B4CB41E088FC50002E37E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CB31E088FC50002E37E /* HistoryTableViewController.swift */; };
 		7A8B4CB81E0896D70002E37E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CB71E0896D70002E37E /* MainTabBarController.swift */; };
-		7A8B4CBC1E08998E0002E37E /* HistoryExorciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CBB1E08998E0002E37E /* HistoryExorciseTableViewCell.swift */; };
 		7A8B4CC21E08A28B0002E37E /* HistoryChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */; };
 		7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */; };
 		7A9E320B1E2CE15C004ECF70 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E320A1E2CE15C004ECF70 /* HistoryTableViewCell.swift */; };
@@ -47,8 +45,8 @@
 		7AE5FDD81E64B55F00D6F6D6 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5FDD71E64B55F00D6F6D6 /* AlertUtil.swift */; };
 		7AE66AE21E2B6AAC00FF458A /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */; };
 		7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */; };
-		7AE66AE91E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE66AE81E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift */; };
 		7AE6800F1E96DBFC00C6B3A0 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE6800D1E96DBFC00C6B3A0 /* MainTabBar.storyboard */; };
+		7AE680111E99533000C6B3A0 /* PictureProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE680101E99533000C6B3A0 /* PictureProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,10 +66,8 @@
 		7A8B4C931E086D8E0002E37E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A8B4C951E086D8E0002E37E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8B4CAF1E0888D20002E37E /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutTableViewController.swift; path = ViewControllers/WorkoutTableViewController.swift; sourceTree = "<group>"; };
-		7A8B4CB11E0888F40002E37E /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutTableViewCell.swift; path = Views/WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		7A8B4CB31E088FC50002E37E /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewController.swift; path = ViewControllers/HistoryTableViewController.swift; sourceTree = "<group>"; };
 		7A8B4CB71E0896D70002E37E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = ViewControllers/MainTabBarController.swift; sourceTree = "<group>"; };
-		7A8B4CBB1E08998E0002E37E /* HistoryExorciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryExorciseTableViewCell.swift; path = Views/HistoryExorciseTableViewCell.swift; sourceTree = "<group>"; };
 		7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryChartViewController.swift; path = ViewControllers/HistoryChartViewController.swift; sourceTree = "<group>"; };
 		7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ViewControllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7A9E320A1E2CE15C004ECF70 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = Views/HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,8 +90,8 @@
 		7AE5FDD71E64B55F00D6F6D6 /* AlertUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtil.swift; path = Services/AlertUtil.swift; sourceTree = "<group>"; };
 		7AE66AE11E2B6AAC00FF458A /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorageManager.swift; path = CoreData/Services/LocalStorageManager.swift; sourceTree = "<group>"; };
 		7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchscreenViewController.swift; path = ViewControllers/LaunchscreenViewController.swift; sourceTree = "<group>"; };
-		7AE66AE81E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleWorkoutTableViewCell.swift; path = Views/SimpleWorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		7AE6800E1E96DBFC00C6B3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainTabBar.storyboard; sourceTree = "<group>"; };
+		7AE680101E99533000C6B3A0 /* PictureProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PictureProvider.swift; path = CoreData/PictureProvider.swift; sourceTree = "<group>"; };
 		B220F520ACE816BE898A6B1E /* Pods-Gym Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gym Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gym Tracker/Pods-Gym Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		C6012F7CF0B74F8FCC5862B8 /* Pods_Gym_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gym_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -201,10 +197,7 @@
 		7A8B4C9C1E0871890002E37E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7AE66AE81E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift */,
 				7A0F8FBB1E450D0300D172E5 /* ExorciseTableViewCell.swift */,
-				7A8B4CB11E0888F40002E37E /* WorkoutTableViewCell.swift */,
-				7A8B4CBB1E08998E0002E37E /* HistoryExorciseTableViewCell.swift */,
 				7A9E320A1E2CE15C004ECF70 /* HistoryTableViewCell.swift */,
 				7A39446F1E6C2364000942D8 /* AddWorkoutTableViewCell.swift */,
 				7A3944701E6C2364000942D8 /* AddWorkoutTableViewCell.xib */,
@@ -243,6 +236,7 @@
 				7AE5FDCA1E62C1AF00D6F6D6 /* SessionProvider.swift */,
 				7AE5FDCE1E62C1DD00D6F6D6 /* ExorciseProvider.swift */,
 				7AE5FDCC1E62C1C300D6F6D6 /* TakeProvider.swift */,
+				7AE680101E99533000C6B3A0 /* PictureProvider.swift */,
 			);
 			name = Providers;
 			sourceTree = "<group>";
@@ -323,7 +317,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Axel Nowaczyk";
 				TargetAttributes = {
 					7A8B4C851E086D8E0002E37E = {
@@ -431,7 +425,6 @@
 				7AC2020F1E3B4F8C00876A9C /* CoreDataStack.swift in Sources */,
 				7AE5FDCF1E62C1DD00D6F6D6 /* ExorciseProvider.swift in Sources */,
 				7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */,
-				7A8B4CB21E0888F40002E37E /* WorkoutTableViewCell.swift in Sources */,
 				7A9FCDC11E747970007BB941 /* MainHistoryViewController.swift in Sources */,
 				7A8B4CC21E08A28B0002E37E /* HistoryChartViewController.swift in Sources */,
 				7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */,
@@ -446,9 +439,8 @@
 				7A1062DE1E154C65009DAE08 /* CoreDataModel.xcdatamodeld in Sources */,
 				7AE5FDCB1E62C1AF00D6F6D6 /* SessionProvider.swift in Sources */,
 				7A9FCDCB1E74AD2B007BB941 /* DateFormatterUtil.swift in Sources */,
+				7AE680111E99533000C6B3A0 /* PictureProvider.swift in Sources */,
 				7AE5FDD81E64B55F00D6F6D6 /* AlertUtil.swift in Sources */,
-				7AE66AE91E2B79B500FF458A /* SimpleWorkoutTableViewCell.swift in Sources */,
-				7A8B4CBC1E08998E0002E37E /* HistoryExorciseTableViewCell.swift in Sources */,
 				7A8B4CB81E0896D70002E37E /* MainTabBarController.swift in Sources */,
 				7AC2021C1E3F685B00876A9C /* AddWorkoutViewController.swift in Sources */,
 				7A8B4C8A1E086D8E0002E37E /* AppDelegate.swift in Sources */,
