@@ -23,13 +23,9 @@ class TakeProvider: BaseProvider {
     
     func storeTake(repsNumber: Int, weight: Double, for exorcise: Exorcise) -> Take {
         let take = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.takeModel, into: self.context) as! Take
-        
         take.repsNumber = Int16(repsNumber)
         take.weight = weight
-        
         take.wasIncludedIn = exorcise
-
-        saveContext()
         return take
     }
 
@@ -37,11 +33,9 @@ class TakeProvider: BaseProvider {
         takes
             .filter { $0.wasIncludedIn?.name == name }
             .forEach { context.delete($0) }
-        saveContext()
     }
     
     func delete(take: Take) {
         context.delete(take)
-        saveContext()
     }
 }

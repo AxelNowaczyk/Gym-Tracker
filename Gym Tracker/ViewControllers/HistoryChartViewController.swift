@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class HistoryChartViewController: UIViewController {
-    var exorcise = ""
+    var exorcise: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

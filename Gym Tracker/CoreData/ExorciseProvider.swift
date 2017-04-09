@@ -19,7 +19,6 @@ class ExorciseProvider: BaseProvider {
         let exorcise = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.exorciseModel, into: self.context) as! Exorcise
         exorcise.name = name
         exorcise.wasPerformedIn = session
-        
         return exorcise
     }
     
@@ -41,21 +40,18 @@ class ExorciseProvider: BaseProvider {
         exorcises
             .filter { $0.name == name }
             .forEach { context.delete($0) }
-        saveContext()
     }
 
     func changeNameForExorcices(named name: String, with newName: String) {
         exorcises
             .filter { $0.name == name }
             .forEach { $0.name = newName }
-        saveContext()
     }
     
     func removeExorcisesWithNoTakes(completionHandler: (Void) -> ()) {
         exorcises
             .filter { $0.consistsOf?.count == 0 }
             .forEach { context.delete($0) }
-        saveContext()
         completionHandler()
     }
     

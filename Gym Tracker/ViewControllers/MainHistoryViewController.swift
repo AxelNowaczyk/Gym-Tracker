@@ -43,16 +43,16 @@ class MainHistoryViewController: UIViewController {
     fileprivate var selectedTab: TabType = .table {
         didSet {
             if selectedTab == .table {
-                historyTableTabLabel.backgroundColor = selectedTabColor
-                historyTableTabLabel.textColor       = .white
-                chartTabLabel.backgroundColor        = notSelectedTabColor
-                chartTabLabel.textColor              = .black
+                historyTableTabLabel.backgroundColor = Colors.selectedTab
+                historyTableTabLabel.textColor       = Colors.selectedText
+                chartTabLabel.backgroundColor        = Colors.notSelectedTab
+                chartTabLabel.textColor              = Colors.notSelectedText
                 scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
             } else {
-                historyTableTabLabel.backgroundColor = notSelectedTabColor
-                historyTableTabLabel.textColor       = .black
-                chartTabLabel.backgroundColor        = selectedTabColor
-                chartTabLabel.textColor              = .white
+                historyTableTabLabel.backgroundColor = Colors.notSelectedTab
+                historyTableTabLabel.textColor       = Colors.notSelectedText
+                chartTabLabel.backgroundColor        = Colors.selectedTab
+                chartTabLabel.textColor              = Colors.selectedText
                 scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width, y: 0), animated: false)
             }
             UIView.animate(withDuration: 1) {
@@ -72,13 +72,17 @@ class MainHistoryViewController: UIViewController {
         }
     }
     var exorciseName: String?
-    fileprivate let selectedTabColor: UIColor        = .black
-    fileprivate let notSelectedTabColor: UIColor     = .white
+    fileprivate struct Colors {
+        static let selectedTab: UIColor      = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        static let selectedText: UIColor     = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        static let notSelectedTab: UIColor   = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        static let notSelectedText: UIColor  = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+
     fileprivate enum TabType {
         case table
         case chart
     }
-    fileprivate let sessionProvider     = SessionProvider()
     fileprivate let users               = UserProvider().usersToDisplay
     fileprivate var sessions: [Session] = [] {
         didSet {
@@ -124,7 +128,7 @@ class MainHistoryViewController: UIViewController {
                 let exorciseName = self.exorciseName else {
             return
         }
-        sessions = sessionProvider.getLastSessions(numberOfSessions: nil, for: user, performing: exorciseName)
+        sessions = SessionProvider().getLastSessions(numberOfSessions: nil, for: user, performing: exorciseName)
     }
 }
 

@@ -83,7 +83,9 @@
                             <outlet property="delegate" destination="gEo-7n-MD7" id="iwp-1Y-G6W"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Exorcises" id="RTX-Qr-Dbb" userLabel="Exorcises"/>
+                    <navigationItem key="navigationItem" title="Exorcises" id="RTX-Qr-Dbb" userLabel="Exorcises">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="eyf-hi-REj"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b23-p4-K1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -32,7 +32,9 @@ class AddWorkoutViewController: UIViewController {
                     return
         }
         let weightKG = weightConverter.convert(weight: weight, from: selectedWeightType, to: .kg)
-        _ = TakeProvider().storeTake(repsNumber: reps, weight: weightKG, for: exorcise)
+        let takeProvider = TakeProvider()
+        _ = takeProvider.storeTake(repsNumber: reps, weight: weightKG, for: exorcise)
+        takeProvider.saveContext()
         weightTextField.resignFirstResponder()
         repsTextField.resignFirstResponder()
         currentWorkoutTableView.reloadData()
@@ -55,18 +57,23 @@ class AddWorkoutViewController: UIViewController {
     var exorciseName: String!
     var exorcise: Exorcise {
         let sessionManager = SessionManager(user: user, exorciseName: exorciseName)
-        return ExorciseProvider().storeExorcise(named: exorciseName, in: sessionManager.currentSession)
+        let exorciseProvider = ExorciseProvider()
+        defer {
+            exorciseProvider.saveContext()
+        }
+        return exorciseProvider.storeExorcise(named: exorciseName, in: sessionManager.currentSession)
     }
     
     var previousExorcise: Exorcise? {
-        defer {
-            ExorciseProvider().saveContext()
-        }
         let sessionManager = SessionManager(user: user, exorciseName: exorciseName)
         guard let previousSession = sessionManager.previousSession else {
             return nil
         }
-        return ExorciseProvider().storeExorcise(named: exorciseName, in: previousSession)
+        let exorciseProvider = ExorciseProvider()
+        defer {
+            exorciseProvider.saveContext()
+        }
+        return exorciseProvider.storeExorcise(named: exorciseName, in: previousSession)
     }
     
     var currentTakes: [Take] {
