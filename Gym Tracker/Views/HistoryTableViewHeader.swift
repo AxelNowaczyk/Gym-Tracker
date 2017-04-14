@@ -10,6 +10,8 @@ import UIKit
 
 class HistoryTableViewHeader: UITableViewCell {
 
+    static let reuseIdentifier = "\(HistoryTableViewHeader.self)"
+    
     @IBOutlet var sessionLabel: UILabel!
     
 }

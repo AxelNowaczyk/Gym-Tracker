@@ -15,9 +15,9 @@ class HistoryTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
-    fileprivate enum CellTypes {
-        static let basic = "HistoryTableViewCell"
+
+    fileprivate enum SegueName: String {
+        case history = "HistorySegue"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,15 +29,15 @@ class HistoryTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier else {
-            print("no id")
+        guard   let id = segue.identifier,
+                let segueName = SegueName(rawValue: id) else {
+            print("unknown segue")
             return
         }
         
-        switch id {
-        case "HistorySegue":
+        switch segueName {
+        case .history:
             self.setupForHistorySegue(destination: segue.destination)
-        default: break
         }
     }
 
@@ -65,7 +65,7 @@ extension HistoryTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellTypes.basic, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.reuseIdentifier, for: indexPath)
         (cell as? HistoryTableViewCell)?.setup(exorciseNames[indexPath.row])
         return cell
     }

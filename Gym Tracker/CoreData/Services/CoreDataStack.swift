@@ -18,7 +18,7 @@ class CoreDataStack: NSObject {
     
     fileprivate var defaultPersistentStoreURL: URL!
     fileprivate var managedObjectModel: NSManagedObjectModel!
-
+    
     override init() {
         super.init()
         
@@ -27,14 +27,8 @@ class CoreDataStack: NSObject {
     
     func save() {
         managedObjectContext.perform { () -> Void in
-            
             if self.managedObjectContext.hasChanges {
-                do {
-                    try self.managedObjectContext.save()
-                }
-                catch {
-                    print("Error while saving database: \(error)")
-                }
+                try? self.managedObjectContext.save()
             }
         }
     }

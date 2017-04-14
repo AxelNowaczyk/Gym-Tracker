@@ -28,23 +28,11 @@ class UserProvider: BaseProvider {
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
-        do {
-            let users = try self.context.fetch(fetchRequest)
-            return users.first as? User
-        } catch {
-            return nil
-        }
+        return (try? self.context.fetch(fetchRequest))?.first as? User
     }
     
     var users: [User] {
-        do {
-            let users = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.userModel))
-            return (users as? [User]) ?? []
-            
-        } catch {
-            print(error)
-        }
-        return []
+        return (try? self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.userModel))) as? [User] ?? []
     }
     
     var usersToDisplay: [User] {

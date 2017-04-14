@@ -27,14 +27,9 @@ class SessionProvider: BaseProvider {
         }
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.predicate = NSPredicate(format: "wasPerformedBy == %@ AND ANY including.name == %@", user, exorciseName)
+  
+        return (try? self.context.fetch(fetchRequest)) as? [Session] ?? []
 
-        do {
-            let exorcises = try self.context.fetch(fetchRequest)
-            
-            return exorcises as? [Session] ?? []
-        } catch {
-            return []
-        }
     }
 
 }

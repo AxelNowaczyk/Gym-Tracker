@@ -49,10 +49,7 @@ class AddWorkoutViewController: UIViewController {
         case previous   = 1
         case current    = 2
     }
-    
-    fileprivate enum CellIdentifiers: String {
-        case addWorkoutCell = "AddWorkoutTableViewCell"
-    }
+
     fileprivate let cellHeigh: CGFloat = 44
     var exorciseName: String!
     var exorcise: Exorcise {
@@ -110,9 +107,9 @@ class AddWorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let nib = UINib(nibName: CellIdentifiers.addWorkoutCell.rawValue, bundle: nil)
-        currentWorkoutTableView.register(nib, forCellReuseIdentifier: CellIdentifiers.addWorkoutCell.rawValue)
-        previousWorkoutTableView.register(nib, forCellReuseIdentifier: CellIdentifiers.addWorkoutCell.rawValue)
+        let nib = UINib(nibName: AddWorkoutTableViewCell.reuseIdentifier, bundle: nil)
+        currentWorkoutTableView.register(nib, forCellReuseIdentifier: AddWorkoutTableViewCell.reuseIdentifier)
+        previousWorkoutTableView.register(nib, forCellReuseIdentifier: AddWorkoutTableViewCell.reuseIdentifier)
         
         title = exorciseName
         lastSelectedWeightType = selectedWeightType
@@ -272,7 +269,7 @@ extension AddWorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.addWorkoutCell.rawValue) as! AddWorkoutTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AddWorkoutTableViewCell.reuseIdentifier) as! AddWorkoutTableViewCell
         cell.weightSmallLabel.text = "Weight [\(selectedWeightType.description)]"
         
         guard let tableViewTag = TableViewTag(rawValue: tableView.tag) else {

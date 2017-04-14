@@ -9,6 +9,8 @@
 import UIKit
 
 class ExorciseTableViewCell: UITableViewCell {
+    
+    static let reuseIdentifier = "\(ExorciseTableViewCell.self)"
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var exorciseImageView: UIImageView!

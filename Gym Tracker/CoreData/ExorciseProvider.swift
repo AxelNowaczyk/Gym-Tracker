@@ -56,14 +56,11 @@ class ExorciseProvider: BaseProvider {
     }
     
     var exorcises: [Exorcise] {
-        do {
-            let exorcises = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.exorciseModel))
-            let uniqueExorcises = Array(Set(exorcises as! [Exorcise]))
-            return uniqueExorcises.sorted { $0.name! < $1.name! }
-        } catch {
-            print(error)
+        guard let exorcises = try? self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.exorciseModel)) else {
+            return []
         }
-        return []
+        let uniqueExorcises = Array(Set(exorcises as! [Exorcise]))
+        return uniqueExorcises.sorted { $0.name! < $1.name! }
     }
 
     var exorciseNames: [String] {

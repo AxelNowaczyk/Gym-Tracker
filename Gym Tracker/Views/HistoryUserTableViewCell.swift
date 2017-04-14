@@ -10,6 +10,8 @@ import UIKit
 
 class HistoryUserTableViewCell: UITableViewCell {
 
+    static let reuseIdentifier = "\(HistoryUserTableViewCell.self)"
+    
     @IBOutlet var nameLabel: UILabel!
 
 }

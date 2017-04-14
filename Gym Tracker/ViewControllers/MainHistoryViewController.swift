@@ -40,31 +40,34 @@ class MainHistoryViewController: UIViewController {
         return 44 * CGFloat(numberOfCellsToDisplay)
     }
     
+    fileprivate enum TabType {
+        case table
+        case chart
+    }
+    
     fileprivate var selectedTab: TabType = .table {
         didSet {
-            if selectedTab == .table {
+            switch selectedTab {
+            case .table:
                 historyTableTabLabel.backgroundColor = Colors.selectedTab
                 historyTableTabLabel.textColor       = Colors.selectedText
                 chartTabLabel.backgroundColor        = Colors.notSelectedTab
                 chartTabLabel.textColor              = Colors.notSelectedText
                 scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-            } else {
+            case .chart:
                 historyTableTabLabel.backgroundColor = Colors.notSelectedTab
                 historyTableTabLabel.textColor       = Colors.notSelectedText
                 chartTabLabel.backgroundColor        = Colors.selectedTab
                 chartTabLabel.textColor              = Colors.selectedText
                 scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width, y: 0), animated: false)
             }
+
             UIView.animate(withDuration: 1) {
                 self.userTableViewHeightConstraint.constant = 0
             }
         }
     }
-    fileprivate struct CellIdentifiers {
-        static let user = "HistoryUserTableViewCell"
-        static let sessionHeader = "HistoryTableViewHeader"
-        static let exorcise = "AddWorkoutTableViewCell"
-    }
+
     var userName: String? {
         didSet {
             selectedUserLabel.text = userName
@@ -79,10 +82,7 @@ class MainHistoryViewController: UIViewController {
         static let notSelectedText: UIColor  = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
 
-    fileprivate enum TabType {
-        case table
-        case chart
-    }
+
     fileprivate let users               = UserProvider().usersToDisplay
     fileprivate var sessions: [Session] = [] {
         didSet {
@@ -119,8 +119,8 @@ class MainHistoryViewController: UIViewController {
         updateSessions()
         updateChart()
     
-        workoutTableView.register(UINib(nibName: CellIdentifiers.sessionHeader, bundle: nil), forCellReuseIdentifier: CellIdentifiers.sessionHeader)
-        workoutTableView.register(UINib(nibName: CellIdentifiers.exorcise, bundle: nil), forCellReuseIdentifier: CellIdentifiers.exorcise)
+        workoutTableView.register(UINib(nibName: HistoryTableViewHeader.reuseIdentifier, bundle: nil), forCellReuseIdentifier: HistoryTableViewHeader.reuseIdentifier)
+        workoutTableView.register(UINib(nibName: AddWorkoutTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: AddWorkoutTableViewCell.reuseIdentifier)
     }
     
     fileprivate func updateSessions() {
@@ -147,7 +147,7 @@ extension MainHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         if tableView == workoutTableView {
-            let headerCell = workoutTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.sessionHeader) as! HistoryTableViewHeader
+            let headerCell = workoutTableView.dequeueReusableCell(withIdentifier: HistoryTableViewHeader.reuseIdentifier) as! HistoryTableViewHeader
             headerCell.frame.size = CGSize(width: tableView.frame.width, height: 50)
             let dateString = DateFormatterUtil().string(for: sessions[section].date)
             headerCell.sessionLabel.text = "\(dateString ?? "")"
@@ -179,13 +179,13 @@ extension MainHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == userTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.user, for: indexPath) as! HistoryUserTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: HistoryUserTableViewCell.reuseIdentifier, for: indexPath) as! HistoryUserTableViewCell
             cell.nameLabel.text = users[indexPath.row].name
             return cell
         } else if tableView == workoutTableView {
             let exorcise = ExorciseProvider().exorcise(named: exorciseName ?? "", in: sessions[indexPath.section])
             let take = (exorcise?.consistsOf?.array as? [Take])?[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.exorcise, for: indexPath) as! AddWorkoutTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AddWorkoutTableViewCell.reuseIdentifier, for: indexPath) as! AddWorkoutTableViewCell
             cell.repsBigLabel.text = "\(take!.repsNumber)"
             cell.weightBigLabel.text = "\(take!.weight)"
             return cell

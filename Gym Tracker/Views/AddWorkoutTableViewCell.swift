@@ -10,6 +10,8 @@ import UIKit
 
 class AddWorkoutTableViewCell: UITableViewCell {
 
+    static let reuseIdentifier = "\(AddWorkoutTableViewCell.self)"
+    
     @IBOutlet var weightBigLabel: UILabel!
     @IBOutlet var weightSmallLabel: UILabel!
     @IBOutlet var repsBigLabel: UILabel!

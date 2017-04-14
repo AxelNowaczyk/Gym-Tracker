@@ -54,12 +54,6 @@ class PictureProvider: BaseProvider {
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "exorciseName == %@", name)
         
-        do {
-            let pictures = try self.context.fetch(fetchRequest)
-            return pictures.first as? Picture
-        } catch {
-            return nil
-        }
+        return (try? self.context.fetch(fetchRequest))?.first as? Picture
     }
-    
 }

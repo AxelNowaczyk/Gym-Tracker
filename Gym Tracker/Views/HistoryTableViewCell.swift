@@ -10,6 +10,8 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
     
+    static let reuseIdentifier = "\(HistoryTableViewCell.self)"
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var exorciseImageView: UIImageView!
     

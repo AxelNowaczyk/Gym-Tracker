@@ -12,13 +12,7 @@ import CoreData
 class TakeProvider: BaseProvider {
     
     var takes: [Take] {
-        do {
-            let takes = try self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.takeModel))
-            return takes as? [Take] ?? []
-        } catch {
-            print(error)
-        }
-        return []
+        return (try? self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.takeModel))) as? [Take] ?? []
     }
     
     func storeTake(repsNumber: Int, weight: Double, for exorcise: Exorcise) -> Take {

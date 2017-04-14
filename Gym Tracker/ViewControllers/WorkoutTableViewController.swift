@@ -31,10 +31,6 @@ class WorkoutTableViewController: UITableViewController {
         }
     }
     
-    fileprivate enum CellIdentifierType: String {
-        case exorcise = "ExorciseTableViewCell"
-    }
-    
     fileprivate enum SegueType: String {
         case toAddWorkout = "RecentWorkoutsToAddWorkoutViewControllerSegue"
     }
@@ -78,8 +74,8 @@ extension WorkoutTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierType.exorcise.rawValue, for: indexPath)
-        (cell as! ExorciseTableViewCell).setup(exorciseNames[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExorciseTableViewCell.reuseIdentifier, for: indexPath) as! ExorciseTableViewCell
+        cell.setup(exorciseNames[indexPath.row])
         
         return cell
     }

@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
 
+    static let reuseIdentifier = "\(SettingsTableViewCell.self)"
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var visibilitySwitch: UISwitch!
     

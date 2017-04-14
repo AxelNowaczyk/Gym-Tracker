@@ -32,11 +32,7 @@ class SettingsTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
-    fileprivate struct CellType {
-        static let basic = "SettingsTableViewCell"
-    }
-    
+
     var rowHeight: CGFloat = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +56,7 @@ extension SettingsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellType.basic, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath)
         
         if let cell = cell as? SettingsTableViewCell {
             let user = users[indexPath.row]
