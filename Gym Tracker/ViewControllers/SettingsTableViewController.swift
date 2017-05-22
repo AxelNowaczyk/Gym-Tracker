@@ -15,11 +15,13 @@ class SettingsTableViewController: UITableViewController {
                                                         message: "",
                                                         textFieldPlaceholder: "User Name", withText: nil) { [weak self] textFieldText in
                                                             
-                                                            if  self?.users.first(where: { $0.name == textFieldText }) == nil,
-                                                                let newUser = self?.userProvider.storeUser(named: textFieldText) {
-                                                                    self?.users.append(newUser)
-                                                                    self?.userProvider.saveContext()
+                                                            guard self?.users.first(where: { $0.name == textFieldText }) == nil else {
+                                                                return
                                                             }
+                                                            
+                                                            let newUser = UserProvider.storeUser(named: textFieldText)
+                                                            self?.users.append(newUser)
+                                                            CoreDataStack.shared.save()
                                                             
         }
         present(alert, animated: true, completion: nil)
@@ -37,7 +39,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        users = userProvider.users.sorted { $0.name! < $1.name! }
+        users = UserProvider.users.sorted { $0.name! < $1.name! }
     }
 }
 
@@ -60,10 +62,10 @@ extension SettingsTableViewController {
         
         if let cell = cell as? SettingsTableViewCell {
             let user = users[indexPath.row]
-            cell.setup(for: user.name!, hidden: user.hidden, switchFunction: { [weak self] newValue in
+            cell.setup(for: user.name!, hidden: user.hidden) { newValue in
                 user.hidden = !newValue
-                self?.userProvider.saveContext()
-            })
+                CoreDataStack.shared.save()
+            }
         }
         
         return cell

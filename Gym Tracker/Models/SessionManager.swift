@@ -17,7 +17,7 @@ class SessionManager: NSObject {
     init(user: User, exorciseName: String) {
         super.init()
         
-        let lastSessions = sessionProvider.getLastSessions(numberOfSessions: 2, for: user, performing: exorciseName)
+        let lastSessions = SessionProvider.getLastSessions(numberOfSessions: 2, for: user, performing: exorciseName)
         initSessions(sessions: lastSessions, for: user)
     }
     
@@ -30,7 +30,7 @@ class SessionManager: NSObject {
                 currentSession = storedSession
                 previousSession = sessions[1]
             } else {
-                currentSession = sessionProvider.storeSession(for: user)
+                currentSession = SessionProvider.storeSession(for: user)
                 previousSession = storedSession
             }
         case 1:
@@ -38,11 +38,11 @@ class SessionManager: NSObject {
             if NSCalendar.current.isDateInToday(storedSession.date! as Date) {
                 currentSession = storedSession
             } else {
-                currentSession = sessionProvider.storeSession(for: user)
+                currentSession = SessionProvider.storeSession(for: user)
                 previousSession = storedSession
             }
         case 0:
-            currentSession = sessionProvider.storeSession(for: user)
+            currentSession = SessionProvider.storeSession(for: user)
         default: break
         }
         

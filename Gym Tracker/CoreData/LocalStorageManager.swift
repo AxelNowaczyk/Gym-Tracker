@@ -20,13 +20,4 @@ struct LocalStorageManager {
     
 }
 
-class BaseProvider: NSObject {
-    var context: NSManagedObjectContext {
-        return CoreDataStack.shared.managedObjectContext
-    }
-    
-    func saveContext() {
-        CoreDataStack.shared.save()
-    }
-}
 

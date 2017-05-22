@@ -36,8 +36,9 @@ class MainHistoryViewController: UIViewController {
     }
     
     fileprivate var tableViewHeight: CGFloat {
+        let cellHeight: CGFloat = 44
         let numberOfCellsToDisplay = users.count > 4 ? 5 : users.count
-        return 44 * CGFloat(numberOfCellsToDisplay)
+        return cellHeight * CGFloat(numberOfCellsToDisplay)
     }
     
     fileprivate enum TabType {
@@ -83,7 +84,7 @@ class MainHistoryViewController: UIViewController {
     }
 
 
-    fileprivate let users               = UserProvider().usersToDisplay
+    fileprivate let users               = UserProvider.usersToDisplay
     fileprivate var sessions: [Session] = [] {
         didSet {
             workoutTableView.reloadData()
@@ -105,7 +106,6 @@ class MainHistoryViewController: UIViewController {
             self.userName = userName
         }
         updateSessions()
-        workoutTableView.reloadData()
         updateChart()
     }
     
@@ -114,9 +114,7 @@ class MainHistoryViewController: UIViewController {
         
         userTableViewHeightConstraint.constant = 0
         selectedTab = .table
-        title = exorciseName
         userName = users.first?.name
-        updateSessions()
         updateChart()
     
         workoutTableView.register(UINib(nibName: HistoryTableViewHeader.reuseIdentifier, bundle: nil), forCellReuseIdentifier: HistoryTableViewHeader.reuseIdentifier)
@@ -124,11 +122,11 @@ class MainHistoryViewController: UIViewController {
     }
     
     fileprivate func updateSessions() {
-        guard   let user = UserProvider().user(named: userName),
+        guard   let user = UserProvider.user(named: userName),
                 let exorciseName = self.exorciseName else {
             return
         }
-        sessions = SessionProvider().getLastSessions(numberOfSessions: nil, for: user, performing: exorciseName)
+        sessions = SessionProvider.getLastSessions(numberOfSessions: nil, for: user, performing: exorciseName)
     }
 }
 
@@ -170,7 +168,7 @@ extension MainHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         if tableView == userTableView {
             return users.count
         } else if tableView == workoutTableView {
-            let exorcise = ExorciseProvider().exorcise(named: exorciseName ?? "", in: sessions[section])
+            let exorcise = ExorciseProvider.exorcise(named: exorciseName ?? "", in: sessions[section])
             return exorcise?.consistsOf?.count ?? 0
         } else {
             return 0
@@ -183,7 +181,7 @@ extension MainHistoryViewController: UITableViewDelegate, UITableViewDataSource 
             cell.nameLabel.text = users[indexPath.row].name
             return cell
         } else if tableView == workoutTableView {
-            let exorcise = ExorciseProvider().exorcise(named: exorciseName ?? "", in: sessions[indexPath.section])
+            let exorcise = ExorciseProvider.exorcise(named: exorciseName ?? "", in: sessions[indexPath.section])
             let take = (exorcise?.consistsOf?.array as? [Take])?[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: AddWorkoutTableViewCell.reuseIdentifier, for: indexPath) as! AddWorkoutTableViewCell
             cell.repsBigLabel.text = "\(take!.repsNumber)"
@@ -213,7 +211,7 @@ extension MainHistoryViewController {
         var values = [Double]()
 
         for session in sessions.reversed() {
-            let exorcise = ExorciseProvider().exorcise(named: exorciseName ?? "", in: session)
+            let exorcise = ExorciseProvider.exorcise(named: exorciseName ?? "", in: session)
             guard let takes = (exorcise?.consistsOf?.array as? [Take]) else {
                 continue
             }

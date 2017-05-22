@@ -32,9 +32,8 @@ class AddWorkoutViewController: UIViewController {
                     return
         }
         let weightKG = weightConverter.convert(weight: weight, from: selectedWeightType, to: .kg)
-        let takeProvider = TakeProvider()
-        _ = takeProvider.storeTake(repsNumber: reps, weight: weightKG, for: exorcise)
-        takeProvider.saveContext()
+        _ = TakeProvider.storeTake(repsNumber: reps, weight: weightKG, for: exorcise)
+        CoreDataStack.shared.save()
         weightTextField.resignFirstResponder()
         repsTextField.resignFirstResponder()
         currentWorkoutTableView.reloadData()
@@ -54,11 +53,11 @@ class AddWorkoutViewController: UIViewController {
     var exorciseName: String!
     var exorcise: Exorcise {
         let sessionManager = SessionManager(user: user, exorciseName: exorciseName)
-        let exorciseProvider = ExorciseProvider()
+
         defer {
-            exorciseProvider.saveContext()
+            CoreDataStack.shared.save()
         }
-        return exorciseProvider.storeExorcise(named: exorciseName, in: sessionManager.currentSession)
+        return ExorciseProvider.storeExorcise(named: exorciseName, in: sessionManager.currentSession)
     }
     
     var previousExorcise: Exorcise? {
@@ -66,11 +65,10 @@ class AddWorkoutViewController: UIViewController {
         guard let previousSession = sessionManager.previousSession else {
             return nil
         }
-        let exorciseProvider = ExorciseProvider()
         defer {
-            exorciseProvider.saveContext()
+            CoreDataStack.shared.save()
         }
-        return exorciseProvider.storeExorcise(named: exorciseName, in: previousSession)
+        return ExorciseProvider.storeExorcise(named: exorciseName, in: previousSession)
     }
     
     var currentTakes: [Take] {
@@ -120,7 +118,7 @@ class AddWorkoutViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        users = userProvider.usersToDisplay
+        users = UserProvider.usersToDisplay
         
         guard let mainTabBarController = tabBarController as? MainTabBarController else {
             return
@@ -137,6 +135,13 @@ class AddWorkoutViewController: UIViewController {
         }
         reloadData()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        ExorciseProvider.removeExorcisesWithNoTakes { }
+    }
+    
     
     fileprivate func reloadData() {
         previousWorkoutTableView.reloadData()
@@ -163,7 +168,7 @@ class AddWorkoutViewController: UIViewController {
         exorciseImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exorciseImageWasTapped))
         exorciseImageView.addGestureRecognizer(tapGesture)
-        exorciseImageView.image = PictureProvider().retrievePictureForExorcise(named: exorciseName) ?? #imageLiteral(resourceName: "exorciseIcon_default")
+        exorciseImageView.image = PictureProvider.retrievePictureForExorcise(named: exorciseName) ?? #imageLiteral(resourceName: "exorciseIcon_default")
     }
     
     func exorciseImageWasTapped(_ sender: UITapGestureRecognizer) {
@@ -304,9 +309,8 @@ extension AddWorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let takeToRemove = currentTakes[indexPath.row]
-        let takeProvider = TakeProvider()
-        takeProvider.delete(take: takeToRemove)
-        takeProvider.saveContext()
+        TakeProvider.delete(take: takeToRemove)
+        CoreDataStack.shared.save()
         tableView.reloadData()
     }
     
@@ -343,9 +347,8 @@ extension AddWorkoutViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
         exorciseImageView.image = image
-        let pictureProvider = PictureProvider()
-        pictureProvider.storePictureForExorcise(named: exorciseName, image: image)
-        pictureProvider.saveContext()
+        PictureProvider.storePictureForExorcise(named: exorciseName, image: image)
+        CoreDataStack.shared.save()
         self.dismiss(animated: true, completion: nil)
     }
     

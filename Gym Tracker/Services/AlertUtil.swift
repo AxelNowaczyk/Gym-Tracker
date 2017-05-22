@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AlertUtil {
+struct AlertUtil {
     
     static func createBasicAlert(with title: String, message: String) -> UIAlertController {
         
@@ -20,7 +20,8 @@ class AlertUtil {
     }
     
     typealias AlertWithTextFieldResponse = (String) -> Void
-    static func createAlertWithTextField(title: String, message: String, textFieldPlaceholder: String, withText text: String?, textFieldTextWhenSubmit: @escaping AlertWithTextFieldResponse) -> UIAlertController {
+    static func createAlertWithTextField(title: String, message: String, textFieldPlaceholder: String, withText text: String?,
+                                         textFieldTextWhenSubmit: @escaping AlertWithTextFieldResponse) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
         alertController.addTextField { (textField: UITextField) in
@@ -30,7 +31,7 @@ class AlertUtil {
             textField.clearButtonMode = .whileEditing
         }
         let submitAction = UIAlertAction(title: "Submit", style: .default, handler: { (action) -> Void in
-            if let textfieldValue = alertController.textFields?[0].text {
+            if let textfieldValue = alertController.textFields?.first?.text {
                 textFieldTextWhenSubmit(textfieldValue)
             } else {
                 textFieldTextWhenSubmit("Unknown")
@@ -42,7 +43,5 @@ class AlertUtil {
         
         return alertController
     }
-    
-
     
 }

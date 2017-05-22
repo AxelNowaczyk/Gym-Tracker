@@ -23,7 +23,7 @@ class HistoryTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        exorciseNames = ExorciseProvider().exorciseNames
+        exorciseNames = ExorciseProvider.exorciseNames
     }
     
     // MARK: - Navigation
@@ -35,21 +35,20 @@ class HistoryTableViewController: UITableViewController {
             return
         }
         
-        switch segueName {
-        case .history:
-            self.setupForHistorySegue(destination: segue.destination)
-        }
+        setup(viewController: segue.destination, forSegue: segueName)
     }
 
-    private func setupForHistorySegue(destination viewController: UIViewController) {
-        if  let dvc = viewController as? MainHistoryViewController,
-            let selectedRow = tableView.indexPathForSelectedRow?.row {
-
+    private func setup(viewController: UIViewController, forSegue segue: SegueName) {
+        switch segue {
+        case .history:
+            guard let dvc = viewController as? MainHistoryViewController,
+                let selectedRow = tableView.indexPathForSelectedRow?.row else {
+                    return
+            }
             dvc.exorciseName = exorciseNames[selectedRow]
             (tabBarController as? MainTabBarController)?.selectedExorciseName = dvc.exorciseName
         }
     }
-
 }
 
 // MARK: - Table view data source

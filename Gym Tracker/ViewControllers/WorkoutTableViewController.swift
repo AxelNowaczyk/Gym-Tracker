@@ -24,7 +24,6 @@ class WorkoutTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    fileprivate let exorciseProvider            = ExorciseProvider()
     fileprivate var exorciseNames: [String]     = [] {
         didSet {
             tableView.reloadData()
@@ -42,7 +41,7 @@ class WorkoutTableViewController: UITableViewController {
     }
 
     fileprivate func reloadData() {
-        exorciseNames = exorciseProvider.exorciseNames
+        exorciseNames = ExorciseProvider.exorciseNames
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,9 +93,9 @@ extension WorkoutTableViewController {
                                                             message: "",
                                                             textFieldPlaceholder: "Exorcise Name", withText: self.exorciseNames[indexPath.row]) { textFieldText in
                                                                 
-                                                                self.exorciseProvider.changeNameForExorcices(named: self.exorciseNames[indexPath.row], with: textFieldText)
-                                                                PictureProvider().changeName(oldName: self.exorciseNames[indexPath.row], newName: textFieldText)
-                                                                self.exorciseProvider.saveContext()
+                                                                ExorciseProvider.changeNameForExorcices(named: self.exorciseNames[indexPath.row], with: textFieldText)
+                                                                PictureProvider.changeName(oldName: self.exorciseNames[indexPath.row], newName: textFieldText)
+                                                                CoreDataStack.shared.save()
                                                                 self.reloadData()
             }
             self.present(alert, animated: true, completion: nil)
@@ -104,9 +103,9 @@ extension WorkoutTableViewController {
         editAction.backgroundColor = .blue
         
         let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
-            self.exorciseProvider.removeExorcices(named: self.exorciseNames[indexPath.row])
-            PictureProvider().deletePictureForExorcise(named: self.exorciseNames[indexPath.row])
-            self.exorciseProvider.saveContext()
+            ExorciseProvider.removeExorcices(named: self.exorciseNames[indexPath.row])
+            PictureProvider.deletePictureForExorcise(named: self.exorciseNames[indexPath.row])
+            CoreDataStack.shared.save()
             self.reloadData()
         }
         deleteAction.backgroundColor = .red

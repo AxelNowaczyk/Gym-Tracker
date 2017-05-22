@@ -9,17 +9,17 @@
 import Foundation
 import CoreData
 
-class UserProvider: BaseProvider {
+class UserProvider: NSObject {
 
-    func storeUser(named name: String, hidden: Bool = false) -> User {
-        let user = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.userModel, into: self.context) as! User
+    static func storeUser(named name: String, hidden: Bool = false) -> User {
+        let user = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.userModel, into: CoreDataStack.shared.managedObjectContext) as! User
         user.name = name
         user.hidden = hidden
         
         return user
     }
     
-    func user(named name: String?) -> User? {
+    static func user(named name: String?) -> User? {
         guard let name = name else {
             return nil
         }
@@ -28,14 +28,14 @@ class UserProvider: BaseProvider {
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
-        return (try? self.context.fetch(fetchRequest))?.first as? User
+        return (try? CoreDataStack.shared.managedObjectContext.fetch(fetchRequest))?.first as? User
     }
     
-    var users: [User] {
-        return (try? self.context.fetch(NSFetchRequest(entityName: LocalStorageManager.userModel))) as? [User] ?? []
+    static var users: [User] {
+        return (try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: LocalStorageManager.userModel))) as? [User] ?? []
     }
     
-    var usersToDisplay: [User] {
+    static var usersToDisplay: [User] {
         
         var usersToShow = [User]()
         for user in users where !user.hidden {

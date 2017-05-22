@@ -11,33 +11,33 @@ import Foundation
 import UIKit
 import CoreData
 
-class PictureProvider: BaseProvider {
+class PictureProvider: NSObject {
     
-    func storePictureForExorcise(named name: String, image: UIImage) {
+    static func storePictureForExorcise(named name: String, image: UIImage) {
         var picture: Picture! = retrievePictureModelForExorcise(named: name)
         if picture == nil {
-            picture = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.pictureModel, into: self.context) as! Picture
+            picture = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.pictureModel, into: CoreDataStack.shared.managedObjectContext) as! Picture
             picture.exorciseName = name
         }
         let jpegImage = UIImageJPEGRepresentation(image, 0.0)
         picture.pictureData = jpegImage as NSData?
     }
     
-    func changeName(oldName: String, newName: String) {
+    static func changeName(oldName: String, newName: String) {
         guard   let picture = retrievePictureModelForExorcise(named: oldName) else {
                 return
         }
         picture.exorciseName = newName
     }
 
-    func deletePictureForExorcise(named name: String) {
+    static func deletePictureForExorcise(named name: String) {
         guard   let picture = retrievePictureModelForExorcise(named: name) else {
             return
         }
-        context.delete(picture)
+        CoreDataStack.shared.managedObjectContext.delete(picture)
     }
     
-    func retrievePictureForExorcise(named name: String?) -> UIImage? {
+    static func retrievePictureForExorcise(named name: String?) -> UIImage? {
         guard   let picture = retrievePictureModelForExorcise(named: name),
                 let pictureData = picture.pictureData as Data? else {
             return nil
@@ -45,7 +45,7 @@ class PictureProvider: BaseProvider {
         return UIImage(data: pictureData)
     }
     
-    private func retrievePictureModelForExorcise(named name: String?) -> Picture? {
+    private static func retrievePictureModelForExorcise(named name: String?) -> Picture? {
         guard let name = name else {
             return nil
         }
@@ -54,6 +54,6 @@ class PictureProvider: BaseProvider {
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "exorciseName == %@", name)
         
-        return (try? self.context.fetch(fetchRequest))?.first as? Picture
+        return (try? CoreDataStack.shared.managedObjectContext.fetch(fetchRequest))?.first as? Picture
     }
 }

@@ -9,18 +9,18 @@
 import Foundation
 import CoreData
 
-class SessionProvider: BaseProvider {
+class SessionProvider: NSObject {
     
-    func storeSession(for user: User, with date: Date? = nil) -> Session {
+    static func storeSession(for user: User, with date: Date? = nil) -> Session {
         
-        let session = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.sessionModel, into: self.context) as! Session
+        let session = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.sessionModel, into: CoreDataStack.shared.managedObjectContext) as! Session
         session.date = date as NSDate? ?? NSDate()
         user.addToPerformed(session)
         
         return session
     }
 
-    func getLastSessions(numberOfSessions: Int?, for user: User, performing exorciseName: String) -> [Session] {
+    static func getLastSessions(numberOfSessions: Int?, for user: User, performing exorciseName: String) -> [Session] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.sessionModel)
         if let numberOfSessions = numberOfSessions {
             fetchRequest.fetchLimit = numberOfSessions
@@ -28,7 +28,7 @@ class SessionProvider: BaseProvider {
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.predicate = NSPredicate(format: "wasPerformedBy == %@ AND ANY including.name == %@", user, exorciseName)
   
-        return (try? self.context.fetch(fetchRequest)) as? [Session] ?? []
+        return (try? CoreDataStack.shared.managedObjectContext.fetch(fetchRequest)) as? [Session] ?? []
 
     }
 

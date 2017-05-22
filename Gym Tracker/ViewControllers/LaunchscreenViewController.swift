@@ -45,7 +45,7 @@ class LaunchscreenViewController: UIViewController {
     private var dataWasFetched = false
     func performInitialSetup() {
         DispatchQueue.global().async {
-            ExorciseProvider().removeExorcisesWithNoTakes {
+            ExorciseProvider.removeExorcisesWithNoTakes {
                 self.performInitialSetup {
                     self.dataWasFetched = true
                 }
@@ -87,7 +87,7 @@ class LaunchscreenViewController: UIViewController {
     }
     func performInitialSetupForDebug(completionHandler: () -> Void) {
         
-        if UserProvider().users.isEmpty {
+        if UserProvider.users.isEmpty {
             setupWorkouts()
         }
         
@@ -95,18 +95,16 @@ class LaunchscreenViewController: UIViewController {
     }
     
     private func setupWorkouts() {
-        let userProvider = UserProvider()
-        let sessionProvider = SessionProvider()
-        let axelUser = userProvider.storeUser(named: UserNameType.axel.rawValue)
-        let maciekUser = userProvider.storeUser(named: UserNameType.maciek.rawValue)
+        let axelUser = UserProvider.storeUser(named: UserNameType.axel.rawValue)
+        let maciekUser = UserProvider.storeUser(named: UserNameType.maciek.rawValue)
         
         var date: Date!
         var sessionA: Session!
         var sessionM: Session!
         // Day 1
         date = Calendar.current.date(byAdding: .day, value: -7, to: Date())
-        sessionA = sessionProvider.storeSession(for: axelUser, with: date)
-        sessionM = sessionProvider.storeSession(for: maciekUser, with: date)
+        sessionA = SessionProvider.storeSession(for: axelUser, with: date)
+        sessionM = SessionProvider.storeSession(for: maciekUser, with: date)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaDol.rawValue, in: sessionA, repNumber: 10, weight: 70)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaDol.rawValue, in: sessionM, repNumber: 10, weight: 50)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaGora.rawValue, in: sessionA, repNumber: 10, weight: 60)
@@ -117,8 +115,8 @@ class LaunchscreenViewController: UIViewController {
         setupWorkout(named: ExorciseNameType.dips.rawValue, in: sessionM, repNumber: 10, weight: -10)
         // Day 2
         date = Calendar.current.date(byAdding: .day, value: -6, to: Date())
-        sessionA = sessionProvider.storeSession(for: axelUser, with: date)
-        sessionM = sessionProvider.storeSession(for: maciekUser, with: date)
+        sessionA = SessionProvider.storeSession(for: axelUser, with: date)
+        sessionM = SessionProvider.storeSession(for: maciekUser, with: date)
         setupWorkout(named: ExorciseNameType.hantle.rawValue, in: sessionA, repNumber: 10, weight: 65)
         setupWorkout(named: ExorciseNameType.hantle.rawValue, in: sessionM, repNumber: 10, weight: 30)
         setupWorkout(named: ExorciseNameType.barki.rawValue, in: sessionA, repNumber: 10, weight: 25)
@@ -129,8 +127,8 @@ class LaunchscreenViewController: UIViewController {
         setupWorkout(named: ExorciseNameType.pullUps.rawValue, in: sessionM, repNumber: 10, weight: -30)
         // Day 3
         date = Calendar.current.date(byAdding: .day, value: -5, to: Date())
-        sessionA = sessionProvider.storeSession(for: axelUser, with: date)
-        sessionM = sessionProvider.storeSession(for: maciekUser, with: date)
+        sessionA = SessionProvider.storeSession(for: axelUser, with: date)
+        sessionM = SessionProvider.storeSession(for: maciekUser, with: date)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaDol.rawValue, in: sessionA, repNumber: 10, weight: 71)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaDol.rawValue, in: sessionM, repNumber: 10, weight: 51)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaGora.rawValue, in: sessionA, repNumber: 10, weight: 61)
@@ -141,16 +139,16 @@ class LaunchscreenViewController: UIViewController {
         setupWorkout(named: ExorciseNameType.dips.rawValue, in: sessionM, repNumber: 10, weight: -9)
         // Day 4
         date = Calendar.current.date(byAdding: .day, value: -4, to: Date())
-        sessionA = sessionProvider.storeSession(for: axelUser, with: date)
-        sessionM = sessionProvider.storeSession(for: maciekUser, with: date)
+        sessionA = SessionProvider.storeSession(for: axelUser, with: date)
+        sessionM = SessionProvider.storeSession(for: maciekUser, with: date)
         setupWorkout(named: ExorciseNameType.hantle.rawValue, in: sessionA, repNumber: 10, weight: 66)
         setupWorkout(named: ExorciseNameType.barki.rawValue, in: sessionA, repNumber: 10, weight: 26)
         setupWorkout(named: ExorciseNameType.bicek.rawValue, in: sessionA, repNumber: 10, weight: 26)
         setupWorkout(named: ExorciseNameType.pullUps.rawValue, in: sessionA, repNumber: 10, weight: -9)
         // Day 5
         date = Calendar.current.date(byAdding: .day, value: -3, to: Date())
-        sessionA = sessionProvider.storeSession(for: axelUser, with: date)
-        sessionM = sessionProvider.storeSession(for: maciekUser, with: date)
+        sessionA = SessionProvider.storeSession(for: axelUser, with: date)
+        sessionM = SessionProvider.storeSession(for: maciekUser, with: date)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaDol.rawValue, in: sessionA, repNumber: 10, weight: 72)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaDol.rawValue, in: sessionM, repNumber: 10, weight: 52)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaGora.rawValue, in: sessionA, repNumber: 10, weight: 62)
@@ -161,8 +159,8 @@ class LaunchscreenViewController: UIViewController {
         setupWorkout(named: ExorciseNameType.dips.rawValue, in: sessionM, repNumber: 10, weight: -8)
         // Day 6
         date = Calendar.current.date(byAdding: .day, value: -2, to: Date())
-        sessionA = sessionProvider.storeSession(for: axelUser, with: date)
-        sessionM = sessionProvider.storeSession(for: maciekUser, with: date)
+        sessionA = SessionProvider.storeSession(for: axelUser, with: date)
+        sessionM = SessionProvider.storeSession(for: maciekUser, with: date)
         setupWorkout(named: ExorciseNameType.hantle.rawValue, in: sessionA, repNumber: 10, weight: 68)
         setupWorkout(named: ExorciseNameType.hantle.rawValue, in: sessionM, repNumber: 10, weight: 33)
         setupWorkout(named: ExorciseNameType.barki.rawValue, in: sessionA, repNumber: 10, weight: 28)
@@ -173,8 +171,8 @@ class LaunchscreenViewController: UIViewController {
         setupWorkout(named: ExorciseNameType.pullUps.rawValue, in: sessionM, repNumber: 10, weight: -27)
         // Day 7
         date = Calendar.current.date(byAdding: .day, value: -1, to: Date())
-        sessionA = sessionProvider.storeSession(for: axelUser, with: date)
-        sessionM = sessionProvider.storeSession(for: maciekUser, with: date)
+        sessionA = SessionProvider.storeSession(for: axelUser, with: date)
+        sessionM = SessionProvider.storeSession(for: maciekUser, with: date)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaDol.rawValue, in: sessionA, repNumber: 10, weight: 74)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaDol.rawValue, in: sessionM, repNumber: 10, weight: 54)
         setupWorkout(named: ExorciseNameType.lawkaSkosnaGora.rawValue, in: sessionA, repNumber: 10, weight: 64)
@@ -183,14 +181,13 @@ class LaunchscreenViewController: UIViewController {
         setupWorkout(named: ExorciseNameType.pushUps.rawValue, in: sessionM, repNumber: 10, weight: 4)
         setupWorkout(named: ExorciseNameType.dips.rawValue, in: sessionA, repNumber: 10, weight: 14)
         setupWorkout(named: ExorciseNameType.dips.rawValue, in: sessionM, repNumber: 10, weight: -6)
-        userProvider.saveContext()
+        CoreDataStack.shared.save()
     }
     
     private func setupWorkout(named workoutName: String, in session: Session, repNumber: Int = 0, weight: Double = 0) {
-        let workout = ExorciseProvider().storeExorcise(named: workoutName, in: session)
-        let takeProvider = TakeProvider()
+        let workout = ExorciseProvider.storeExorcise(named: workoutName, in: session)
         for i in 0..<3 {
-            _ = takeProvider.storeTake(repsNumber: repNumber+i, weight: weight, for: workout)
+            _ = TakeProvider.storeTake(repsNumber: repNumber+i, weight: weight, for: workout)
         }
     }
 

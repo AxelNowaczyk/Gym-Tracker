@@ -26,16 +26,26 @@ extension UIView {
         let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! UInt
         let curFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let targetFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let tabBarHeight = (UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController)?.tabBar.bounds.size.height
-        var deltaY = targetFrame.origin.y - curFrame.origin.y
-        if deltaY < 0 {
-            deltaY += tabBarHeight ?? 0
-        } else {
-            deltaY -= tabBarHeight ?? 0
-        }
         
+        let deltaY = targetFrame.origin.y - curFrame.origin.y
+        
+        moveFrameIfNeeded(delta: deltaY, duration: duration, curve: curve)
+    }
+    
+    private func moveFrameIfNeeded(delta: CGFloat, duration: Double, curve: UInt) {
+        var delta = delta
+        guard delta != 0 else {
+            return
+        }
+        let tabBarHeight = (UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController)?.tabBar.bounds.size.height ?? 0
+        
+        if delta < 0 {
+            delta += tabBarHeight
+        } else {
+            delta -= tabBarHeight
+        }
         UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIViewKeyframeAnimationOptions(rawValue: curve), animations: {
-            self.frame.origin.y += deltaY
+            self.frame.origin.y += delta
         })
     }
 }
