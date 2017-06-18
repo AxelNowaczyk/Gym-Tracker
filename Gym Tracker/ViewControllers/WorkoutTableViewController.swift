@@ -93,6 +93,10 @@ extension WorkoutTableViewController {
                                                             message: "",
                                                             textFieldPlaceholder: "Exorcise Name", withText: self.exorciseNames[indexPath.row]) { textFieldText in
                                                                 
+                                                                guard nil == (self.exorciseNames.first { $0 == textFieldText }) else {
+                                                                    return
+                                                                }
+                                                                
                                                                 ExorciseProvider.changeNameForExorcices(named: self.exorciseNames[indexPath.row], with: textFieldText)
                                                                 PictureProvider.changeName(oldName: self.exorciseNames[indexPath.row], newName: textFieldText)
                                                                 CoreDataStack.shared.save()

@@ -15,23 +15,20 @@ class LaunchscreenViewController: UIViewController {
     
     let debug = true
     
-    final let userProbability = 90
-    final let exorciseProbability = 80
-
     fileprivate enum UserNameType: String {
         case axel   = "Axel"
         case maciek = "Maciek"
     }
     
     fileprivate enum ExorciseNameType: String {
-        case lawkaSkosnaDol   = "Lawka Skosna Dol"
-        case lawkaSkosnaGora = "Lawka Skosna Gora"
+        case lawkaSkosnaDol   = "Decline DB Press"
+        case lawkaSkosnaGora = "Incline DB Press"
         case pushUps = "Push Ups"
         case dips   = "Dips"
         
-        case hantle = "Hantle"
-        case barki = "Barki"
-        case bicek = "Bicek"
+        case hantle = "DB Flyes"
+        case barki = "Machine Press"
+        case przysiad = "Front Squat"
         case pullUps   = "Pull Ups"
 
     }
@@ -121,8 +118,8 @@ class LaunchscreenViewController: UIViewController {
         setupWorkout(named: ExorciseNameType.hantle.rawValue, in: sessionM, repNumber: 10, weight: 30)
         setupWorkout(named: ExorciseNameType.barki.rawValue, in: sessionA, repNumber: 10, weight: 25)
         setupWorkout(named: ExorciseNameType.barki.rawValue, in: sessionM, repNumber: 10, weight: 15)
-        setupWorkout(named: ExorciseNameType.bicek.rawValue, in: sessionA, repNumber: 10, weight: 25)
-        setupWorkout(named: ExorciseNameType.bicek.rawValue, in: sessionM, repNumber: 10, weight: 20)
+        setupWorkout(named: ExorciseNameType.przysiad.rawValue, in: sessionA, repNumber: 10, weight: 25)
+        setupWorkout(named: ExorciseNameType.przysiad.rawValue, in: sessionM, repNumber: 10, weight: 20)
         setupWorkout(named: ExorciseNameType.pullUps.rawValue, in: sessionA, repNumber: 10, weight: -10)
         setupWorkout(named: ExorciseNameType.pullUps.rawValue, in: sessionM, repNumber: 10, weight: -30)
         // Day 3
@@ -143,7 +140,7 @@ class LaunchscreenViewController: UIViewController {
         sessionM = SessionProvider.storeSession(for: maciekUser, with: date)
         setupWorkout(named: ExorciseNameType.hantle.rawValue, in: sessionA, repNumber: 10, weight: 66)
         setupWorkout(named: ExorciseNameType.barki.rawValue, in: sessionA, repNumber: 10, weight: 26)
-        setupWorkout(named: ExorciseNameType.bicek.rawValue, in: sessionA, repNumber: 10, weight: 26)
+        setupWorkout(named: ExorciseNameType.przysiad.rawValue, in: sessionA, repNumber: 10, weight: 26)
         setupWorkout(named: ExorciseNameType.pullUps.rawValue, in: sessionA, repNumber: 10, weight: -9)
         // Day 5
         date = Calendar.current.date(byAdding: .day, value: -3, to: Date())
@@ -165,8 +162,8 @@ class LaunchscreenViewController: UIViewController {
         setupWorkout(named: ExorciseNameType.hantle.rawValue, in: sessionM, repNumber: 10, weight: 33)
         setupWorkout(named: ExorciseNameType.barki.rawValue, in: sessionA, repNumber: 10, weight: 28)
         setupWorkout(named: ExorciseNameType.barki.rawValue, in: sessionM, repNumber: 10, weight: 18)
-        setupWorkout(named: ExorciseNameType.bicek.rawValue, in: sessionA, repNumber: 10, weight: 28)
-        setupWorkout(named: ExorciseNameType.bicek.rawValue, in: sessionM, repNumber: 10, weight: 23)
+        setupWorkout(named: ExorciseNameType.przysiad.rawValue, in: sessionA, repNumber: 10, weight: 28)
+        setupWorkout(named: ExorciseNameType.przysiad.rawValue, in: sessionM, repNumber: 10, weight: 23)
         setupWorkout(named: ExorciseNameType.pullUps.rawValue, in: sessionA, repNumber: 10, weight: -7)
         setupWorkout(named: ExorciseNameType.pullUps.rawValue, in: sessionM, repNumber: 10, weight: -27)
         // Day 7

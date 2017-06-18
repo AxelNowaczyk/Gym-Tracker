@@ -15,6 +15,10 @@ class SettingsTableViewController: UITableViewController {
                                                         message: "",
                                                         textFieldPlaceholder: "User Name", withText: nil) { [weak self] textFieldText in
                                                             
+                                                            guard textFieldText.characters.count > 0 else {
+                                                                return
+                                                            }
+                                                            
                                                             guard self?.users.first(where: { $0.name == textFieldText }) == nil else {
                                                                 return
                                                             }

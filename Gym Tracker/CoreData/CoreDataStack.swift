@@ -69,7 +69,7 @@ class CoreDataStack: NSObject {
         }
         persistentStoreCoordinator = coordinator
     }
-    
+
     fileprivate func setupManagedObjectContext() {
         let coordinator = persistentStoreCoordinator
         let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
