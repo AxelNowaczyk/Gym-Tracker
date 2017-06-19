@@ -51,7 +51,7 @@ class AddWorkoutViewController: UIViewController {
 
     fileprivate let cellHeigh: CGFloat = 44
     var exorciseName: String!
-    var exorcise: Exorcise {
+    fileprivate var exorcise: Exorcise {
         let sessionManager = SessionManager(user: user, exorciseName: exorciseName)
 
         defer {
@@ -60,7 +60,7 @@ class AddWorkoutViewController: UIViewController {
         return ExorciseProvider.storeExorcise(named: exorciseName, in: sessionManager.currentSession)
     }
     
-    var previousExorcise: Exorcise? {
+    fileprivate var previousExorcise: Exorcise? {
         let sessionManager = SessionManager(user: user, exorciseName: exorciseName)
         guard let previousSession = sessionManager.previousSession else {
             return nil
@@ -71,21 +71,21 @@ class AddWorkoutViewController: UIViewController {
         return ExorciseProvider.storeExorcise(named: exorciseName, in: previousSession)
     }
     
-    var currentTakes: [Take] {
+    fileprivate var currentTakes: [Take] {
         return exorcise.consistsOf?.array as? [Take] ?? []
     }
     
-    var previousTakes: [Take] {
+    fileprivate var previousTakes: [Take] {
         return previousExorcise?.consistsOf?.array as? [Take] ?? []
     }
     
-    var lastSelectedWeightType: WeightType!
-    var selectedWeightType: WeightType {
+    fileprivate var lastSelectedWeightType: WeightType!
+    fileprivate var selectedWeightType: WeightType {
         return WeightType.allValues[weightPickerView.selectedRow(inComponent: 0)]
     }
     
-    let userProvider = UserProvider()
-    let weightConverter = WeightConverter()
+    fileprivate let userProvider = UserProvider()
+    fileprivate let weightConverter = WeightConverter()
     
     fileprivate var users: [User] = [] {
         didSet {
@@ -94,7 +94,7 @@ class AddWorkoutViewController: UIViewController {
         }
     }
     
-    var user: User {
+    fileprivate var user: User {
         return users[userPickerView.selectedRow(inComponent: 0)]
     }
     

@@ -32,7 +32,7 @@ class SettingsTableViewController: UITableViewController {
     
     }
     
-    fileprivate let userProvider = UserProvider()
+    private let userProvider = UserProvider()
     fileprivate var users: [User] = [] {
         didSet {
             tableView.reloadData()
@@ -40,6 +40,7 @@ class SettingsTableViewController: UITableViewController {
     }
 
     var rowHeight: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -19,7 +19,7 @@ class SettingsTableViewCell: UITableViewCell {
         switchFunction?(visibilitySwitch.isOn)
     }
     
-    fileprivate var switchFunction: SwitchFunction?
+    private var switchFunction: SwitchFunction?
     typealias SwitchFunction = (Bool) -> Void
     func setup(for user: String, hidden: Bool, switchFunction: @escaping SwitchFunction) {
         nameLabel.text = user

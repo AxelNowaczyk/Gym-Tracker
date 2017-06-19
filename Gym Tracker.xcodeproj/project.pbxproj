@@ -25,7 +25,6 @@
 		7A8B4CB01E0888D20002E37E /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CAF1E0888D20002E37E /* WorkoutTableViewController.swift */; };
 		7A8B4CB41E088FC50002E37E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CB31E088FC50002E37E /* HistoryTableViewController.swift */; };
 		7A8B4CB81E0896D70002E37E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CB71E0896D70002E37E /* MainTabBarController.swift */; };
-		7A8B4CC21E08A28B0002E37E /* HistoryChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */; };
 		7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */; };
 		7A9E320B1E2CE15C004ECF70 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E320A1E2CE15C004ECF70 /* HistoryTableViewCell.swift */; };
 		7A9FCDC11E747970007BB941 /* MainHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9FCDC01E747970007BB941 /* MainHistoryViewController.swift */; };
@@ -70,7 +69,6 @@
 		7A8B4CAF1E0888D20002E37E /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutTableViewController.swift; path = ViewControllers/WorkoutTableViewController.swift; sourceTree = "<group>"; };
 		7A8B4CB31E088FC50002E37E /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewController.swift; path = ViewControllers/HistoryTableViewController.swift; sourceTree = "<group>"; };
 		7A8B4CB71E0896D70002E37E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = ViewControllers/MainTabBarController.swift; sourceTree = "<group>"; };
-		7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryChartViewController.swift; path = ViewControllers/HistoryChartViewController.swift; sourceTree = "<group>"; };
 		7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ViewControllers/SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7A9E320A1E2CE15C004ECF70 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = Views/HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		7A9FCDC01E747970007BB941 /* MainHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainHistoryViewController.swift; path = ViewControllers/MainHistoryViewController.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				7A9FCDC01E747970007BB941 /* MainHistoryViewController.swift */,
 				7A8B4CB31E088FC50002E37E /* HistoryTableViewController.swift */,
 				7A8B4CB71E0896D70002E37E /* MainTabBarController.swift */,
-				7A8B4CC11E08A28B0002E37E /* HistoryChartViewController.swift */,
 				7AE66AE31E2B6FF500FF458A /* LaunchscreenViewController.swift */,
 				7A9E31DB1E2B8B5B004ECF70 /* SettingsTableViewController.swift */,
 				7AC2021B1E3F685B00876A9C /* AddWorkoutViewController.swift */,
@@ -399,7 +396,6 @@
 				7A39446A1E6A04A8000942D8 /* WeightConverter.swift in Sources */,
 				7AE66AE41E2B6FF500FF458A /* LaunchscreenViewController.swift in Sources */,
 				7A9FCDC11E747970007BB941 /* MainHistoryViewController.swift in Sources */,
-				7A8B4CC21E08A28B0002E37E /* HistoryChartViewController.swift in Sources */,
 				7A9E31DC1E2B8B5B004ECF70 /* SettingsTableViewController.swift in Sources */,
 				7A9E320B1E2CE15C004ECF70 /* HistoryTableViewCell.swift in Sources */,
 				7A1145E01E6E0A6300EC6CBD /* UIView+KeybordHandling.swift in Sources */,
@@ -512,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -556,7 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

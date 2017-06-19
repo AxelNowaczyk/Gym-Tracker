@@ -40,7 +40,7 @@ class LaunchscreenViewController: UIViewController {
     }
     
     private var dataWasFetched = false
-    func performInitialSetup() {
+    private func performInitialSetup() {
         DispatchQueue.global().async {
             ExorciseProvider.removeExorcisesWithNoTakes {
                 self.performInitialSetup {
@@ -59,7 +59,7 @@ class LaunchscreenViewController: UIViewController {
         }
     }
     
-    func performAnimation(completionHandler: @escaping (Void) -> Void) {
+    private func performAnimation(completionHandler: @escaping (Void) -> Void) {
         UIView.animate(withDuration: 2.0, animations: {
             self.dumbbellImageView.transform = CGAffineTransform(rotationAngle: .pi)
             self.view.layoutIfNeeded()

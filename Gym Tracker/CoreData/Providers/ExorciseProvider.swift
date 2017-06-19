@@ -11,6 +11,22 @@ import CoreData
 
 class ExorciseProvider: NSObject {
     
+    static var exorcises: [Exorcise] {
+        guard let exorcises = try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: LocalStorageManager.exorciseModel)) else {
+            return []
+        }
+        let uniqueExorcises = Array(Set(exorcises as! [Exorcise]))
+        return uniqueExorcises.sorted { $0.name! < $1.name! }
+    }
+    
+    static var exorciseNames: [String] {
+        let exorcisesStringNames = exorcises.map() { $0.name! }
+        let uniqueNames = exorcisesStringNames.reduce([]) { ac, name in
+            ac.contains(where: { $0 == name }) ? ac : ac + [name]
+        }
+        return uniqueNames
+    }
+    
     static func storeExorcise(named name: String, in session: Session) -> Exorcise {
         if let exorcise = self.exorcise(named: name, in: session) {
             return exorcise
@@ -54,21 +70,4 @@ class ExorciseProvider: NSObject {
             .forEach { CoreDataStack.shared.managedObjectContext.delete($0) }
         completionHandler()
     }
-    
-    static var exorcises: [Exorcise] {
-        guard let exorcises = try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: LocalStorageManager.exorciseModel)) else {
-            return []
-        }
-        let uniqueExorcises = Array(Set(exorcises as! [Exorcise]))
-        return uniqueExorcises.sorted { $0.name! < $1.name! }
-    }
-
-    static var exorciseNames: [String] {
-        let exorcisesStringNames = exorcises.map() { $0.name! }
-        let uniqueNames = exorcisesStringNames.reduce([]) { ac, name in
-            ac.contains(where: { $0 == name }) ? ac : ac + [name]
-        }
-        return uniqueNames
-    }
-    
 }
