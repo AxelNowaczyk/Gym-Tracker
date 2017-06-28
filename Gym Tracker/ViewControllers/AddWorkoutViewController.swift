@@ -12,12 +12,11 @@ class AddWorkoutViewController: UIViewController {
     
     @IBOutlet var userPickerView: UIPickerView!
     @IBOutlet var weightPickerView: UIPickerView!
-    @IBOutlet var exorcisePictureImageView: UIImageView!
     @IBOutlet var previousWorkoutTableView: UITableView!
     @IBOutlet var currentWorkoutTableView: UITableView!
     @IBOutlet var repsTextField: UITextField!
     @IBOutlet var weightTextField: UITextField!
-    @IBOutlet var exorciseImageView: UIImageView!
+    @IBOutlet var exerciseImageView: UIImageView!
     
     @IBAction func clearButtonWasTouched(_ sender: UIButton) {
         clearTextFields()
@@ -32,7 +31,7 @@ class AddWorkoutViewController: UIViewController {
                     return
         }
         let weightKG = weightConverter.convert(weight: weight, from: selectedWeightType, to: .kg)
-        _ = TakeProvider.storeTake(repsNumber: reps, weight: weightKG, for: exorcise)
+        _ = TakeProvider.storeTake(repsNumber: reps, weight: weightKG, for: exercise)
         CoreDataStack.shared.save()
         weightTextField.resignFirstResponder()
         repsTextField.resignFirstResponder()
@@ -50,33 +49,33 @@ class AddWorkoutViewController: UIViewController {
     }
 
     fileprivate let cellHeigh: CGFloat = 44
-    var exorciseName: String!
-    fileprivate var exorcise: Exorcise {
-        let sessionManager = SessionManager(user: user, exorciseName: exorciseName)
+    var exerciseName: String!
+    fileprivate var exercise: Exercise {
+        let sessionManager = SessionManager(user: user, exerciseName: exerciseName)
 
         defer {
             CoreDataStack.shared.save()
         }
-        return ExorciseProvider.storeExorcise(named: exorciseName, in: sessionManager.currentSession)
+        return ExerciseProvider.storeExercise(named: exerciseName, in: sessionManager.currentSession)
     }
     
-    fileprivate var previousExorcise: Exorcise? {
-        let sessionManager = SessionManager(user: user, exorciseName: exorciseName)
+    fileprivate var previousexercise: Exercise? {
+        let sessionManager = SessionManager(user: user, exerciseName: exerciseName)
         guard let previousSession = sessionManager.previousSession else {
             return nil
         }
         defer {
             CoreDataStack.shared.save()
         }
-        return ExorciseProvider.storeExorcise(named: exorciseName, in: previousSession)
+        return ExerciseProvider.storeExercise(named: exerciseName, in: previousSession)
     }
     
     fileprivate var currentTakes: [Take] {
-        return exorcise.consistsOf?.array as? [Take] ?? []
+        return exercise.consistsOf?.array as? [Take] ?? []
     }
     
     fileprivate var previousTakes: [Take] {
-        return previousExorcise?.consistsOf?.array as? [Take] ?? []
+        return previousexercise?.consistsOf?.array as? [Take] ?? []
     }
     
     fileprivate var lastSelectedWeightType: WeightType!
@@ -109,7 +108,7 @@ class AddWorkoutViewController: UIViewController {
         currentWorkoutTableView.register(nib, forCellReuseIdentifier: AddWorkoutTableViewCell.reuseIdentifier)
         previousWorkoutTableView.register(nib, forCellReuseIdentifier: AddWorkoutTableViewCell.reuseIdentifier)
         
-        title = exorciseName
+        title = exerciseName
         lastSelectedWeightType = selectedWeightType
         setupImageView()
         view.bindToKeyboard()
@@ -124,9 +123,9 @@ class AddWorkoutViewController: UIViewController {
             return
         }
         
-        if  let exorciseName = mainTabBarController.selectedExorciseName {
-            self.exorciseName = exorciseName
-            title = exorciseName
+        if  let exerciseName = mainTabBarController.selectedExerciseName {
+            self.exerciseName = exerciseName
+            title = exerciseName
         }
         
         if  let userName = mainTabBarController.selectedUserName,
@@ -139,7 +138,7 @@ class AddWorkoutViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        ExorciseProvider.removeExorcisesWithNoTakes { }
+        ExerciseProvider.removeexercisesWithNoTakes { }
     }
     
     
@@ -165,15 +164,15 @@ class AddWorkoutViewController: UIViewController {
 
     
     fileprivate func setupImageView() {
-        exorciseImageView.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exorciseImageWasTapped))
-        exorciseImageView.addGestureRecognizer(tapGesture)
-        exorciseImageView.image = PictureProvider.retrievePictureForExorcise(named: exorciseName) ?? #imageLiteral(resourceName: "exorciseIcon_default")
+        exerciseImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exerciseImageWasTapped))
+        exerciseImageView.addGestureRecognizer(tapGesture)
+        exerciseImageView.image = PictureProvider.retrievePictureForexercise(named: exerciseName) ?? #imageLiteral(resourceName: "exerciseIcon_default")
     }
     
-    func exorciseImageWasTapped(_ sender: UITapGestureRecognizer) {
+    func exerciseImageWasTapped(_ sender: UITapGestureRecognizer) {
         
-        let alertController = UIAlertController(title: "Select picture for this exorcise.", message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Select picture for this exercise.", message: nil, preferredStyle: .actionSheet)
         
         let alertActionPhotoLibrary = UIAlertAction(title: "Photo Library", style: .default) { _ in
             let picker = UIImagePickerController()
@@ -346,8 +345,8 @@ extension AddWorkoutViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
-        exorciseImageView.image = image
-        PictureProvider.storePictureForExorcise(named: exorciseName, image: image)
+        exerciseImageView.image = image
+        PictureProvider.storePictureForexercise(named: exerciseName, image: image)
         CoreDataStack.shared.save()
         self.dismiss(animated: true, completion: nil)
     }

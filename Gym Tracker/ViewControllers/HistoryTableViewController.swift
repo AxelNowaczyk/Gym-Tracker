@@ -10,7 +10,7 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
 
-    var exorciseNames: [String] = [] {
+    var exerciseNames: [String] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -23,7 +23,7 @@ class HistoryTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        exorciseNames = ExorciseProvider.exorciseNames
+        exerciseNames = ExerciseProvider.exerciseNames
     }
     
     // MARK: - Navigation
@@ -45,8 +45,8 @@ class HistoryTableViewController: UITableViewController {
                 let selectedRow = tableView.indexPathForSelectedRow?.row else {
                     return
             }
-            dvc.exorciseName = exorciseNames[selectedRow]
-            (tabBarController as? MainTabBarController)?.selectedExorciseName = dvc.exorciseName
+            dvc.exerciseName = exerciseNames[selectedRow]
+            (tabBarController as? MainTabBarController)?.selectedExerciseName = dvc.exerciseName
         }
     }
 }
@@ -60,12 +60,12 @@ extension HistoryTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exorciseNames.count
+        return exerciseNames.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.reuseIdentifier, for: indexPath)
-        (cell as? HistoryTableViewCell)?.setup(exorciseNames[indexPath.row])
+        (cell as? HistoryTableViewCell)?.setup(exerciseNames[indexPath.row])
         return cell
     }
 }

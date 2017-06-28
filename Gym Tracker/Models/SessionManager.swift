@@ -14,10 +14,10 @@ class SessionManager: NSObject {
     fileprivate(set) var previousSession: Session?
     fileprivate let sessionProvider = SessionProvider()
     
-    init(user: User, exorciseName: String) {
+    init(user: User, exerciseName: String) {
         super.init()
         
-        let lastSessions = SessionProvider.getLastSessions(numberOfSessions: 2, for: user, performing: exorciseName)
+        let lastSessions = SessionProvider.getLastSessions(numberOfSessions: 2, for: user, performing: exerciseName)
         initSessions(sessions: lastSessions, for: user)
     }
     

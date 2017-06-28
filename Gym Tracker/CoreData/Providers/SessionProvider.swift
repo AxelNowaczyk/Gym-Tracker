@@ -20,13 +20,13 @@ class SessionProvider: NSObject {
         return session
     }
 
-    static func getLastSessions(numberOfSessions: Int?, for user: User, performing exorciseName: String) -> [Session] {
+    static func getLastSessions(numberOfSessions: Int?, for user: User, performing exerciseName: String) -> [Session] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.sessionModel)
         if let numberOfSessions = numberOfSessions {
             fetchRequest.fetchLimit = numberOfSessions
         }
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        fetchRequest.predicate = NSPredicate(format: "wasPerformedBy == %@ AND ANY including.name == %@", user, exorciseName)
+        fetchRequest.predicate = NSPredicate(format: "wasPerformedBy == %@ AND ANY including.name == %@", user, exerciseName)
   
         return (try? CoreDataStack.shared.managedObjectContext.fetch(fetchRequest)) as? [Session] ?? []
 

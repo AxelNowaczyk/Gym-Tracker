@@ -1,5 +1,5 @@
 //
-//  ExorciseTableViewCell.swift
+//  exerciseTableViewCell.swift
 //  Gym Tracker
 //
 //  Created by Axel Nowaczyk on 03/02/2017.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ExorciseTableViewCell: UITableViewCell {
+class ExerciseTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "\(ExorciseTableViewCell.self)"
+    static let reuseIdentifier = "\(ExerciseTableViewCell.self)"
 
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var exorciseImageView: UIImageView!
+    @IBOutlet var exerciseImageView: UIImageView!
 
     func setup(_ name: String) {
         nameLabel.text = name
-        exorciseImageView.image = PictureProvider.retrievePictureForExorcise(named: name) ?? #imageLiteral(resourceName: "exorciseIcon_default")
+        exerciseImageView.image = PictureProvider.retrievePictureForexercise(named: name) ?? #imageLiteral(resourceName: "exerciseIcon_default")
     }
     
 }

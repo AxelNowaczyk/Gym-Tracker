@@ -13,11 +13,11 @@ class HistoryTableViewCell: UITableViewCell {
     static let reuseIdentifier = "\(HistoryTableViewCell.self)"
     
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var exorciseImageView: UIImageView!
+    @IBOutlet var exerciseImageView: UIImageView!
     
     func setup(_ name: String) {
         nameLabel.text = name
-        exorciseImageView.image = PictureProvider.retrievePictureForExorcise(named: name) ?? #imageLiteral(resourceName: "exorciseIcon_default")
+        exerciseImageView.image = PictureProvider.retrievePictureForexercise(named: name) ?? #imageLiteral(resourceName: "exerciseIcon_default")
     }
     
 }

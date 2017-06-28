@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5IQ-OA-9Fg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5IQ-OA-9Fg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExorciseTableViewCell" id="Oum-5G-1zk" customClass="ExorciseTableViewCell" customModule="Gym_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseTableViewCell" id="Oum-5G-1zk" customClass="ExerciseTableViewCell" customModule="Gym_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oum-5G-1zk" id="N8z-DV-jEr">
@@ -59,8 +59,8 @@
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outlet property="exorciseImageView" destination="GkT-UW-6O9" id="4c6-xg-abH"/>
-                                    <outlet property="nameLabel" destination="G3X-d6-ICZ" id="fek-nz-BW8"/>
+                                    <outlet property="exerciseImageView" destination="GkT-UW-6O9" id="G5h-nZ-NZQ"/>
+                                    <outlet property="nameLabel" destination="G3X-d6-ICZ" id="heq-6C-2Zt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -177,7 +177,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84D-8q-Eo9">
                                 <rect key="frame" x="16" y="5" width="124" height="124"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exorciseIcon_default" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-tJ-qQC">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exerciseIcon_default" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-tJ-qQC">
                                         <rect key="frame" x="1" y="1" width="122" height="122"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -256,8 +256,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="currentWorkoutTableView" destination="THu-YP-Lfs" id="kfK-do-1Yl"/>
-                        <outlet property="exorciseImageView" destination="YA6-tJ-qQC" id="PU3-sP-dJX"/>
-                        <outlet property="exorcisePictureImageView" destination="YA6-tJ-qQC" id="dyE-cg-3Ni"/>
+                        <outlet property="exerciseImageView" destination="YA6-tJ-qQC" id="3QQ-Fq-rQq"/>
                         <outlet property="previousWorkoutTableView" destination="uDv-Oa-BoM" id="mmV-TY-jJa"/>
                         <outlet property="repsTextField" destination="92R-1m-Xnb" id="gR7-zK-OH0"/>
                         <outlet property="userPickerView" destination="seO-Fj-Gr0" id="Aaw-1H-aOf"/>
@@ -295,7 +294,7 @@
     </scenes>
     <resources>
         <image name="Clock" width="25" height="25"/>
-        <image name="exorciseIcon_default" width="80" height="80"/>
+        <image name="exerciseIcon_default" width="80" height="80"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

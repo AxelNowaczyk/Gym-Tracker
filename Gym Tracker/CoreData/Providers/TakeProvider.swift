@@ -15,15 +15,15 @@ class TakeProvider: NSObject {
         return (try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: LocalStorageManager.takeModel))) as? [Take] ?? []
     }
     
-    static func storeTake(repsNumber: Int, weight: Double, for exorcise: Exorcise) -> Take {
+    static func storeTake(repsNumber: Int, weight: Double, for exercise: Exercise) -> Take {
         let take = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.takeModel, into: CoreDataStack.shared.managedObjectContext) as! Take
         take.repsNumber = Int16(repsNumber)
         take.weight = weight
-        take.wasIncludedIn = exorcise
+        take.wasIncludedIn = exercise
         return take
     }
 
-    static func deleteAllTakesForExorcise(named name: String) {
+    static func deleteAllTakesForexercise(named name: String) {
         takes
             .filter { $0.wasIncludedIn?.name == name }
             .forEach { CoreDataStack.shared.managedObjectContext.delete($0) }

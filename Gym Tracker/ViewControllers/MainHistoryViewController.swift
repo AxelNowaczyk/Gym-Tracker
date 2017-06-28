@@ -75,7 +75,7 @@ class MainHistoryViewController: UIViewController {
             (tabBarController as? MainTabBarController)?.selectedUserName = userName
         }
     }
-    var exorciseName: String?
+    var exerciseName: String?
     fileprivate struct Colors {
         static let selectedTab: UIColor      = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         static let selectedText: UIColor     = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -97,9 +97,9 @@ class MainHistoryViewController: UIViewController {
             return
         }
         
-        if let exorciseName = mainTabBarController.selectedExorciseName {
-            self.exorciseName = exorciseName
-            title = exorciseName
+        if let exerciseName = mainTabBarController.selectedExerciseName {
+            self.exerciseName = exerciseName
+            title = exerciseName
         }
         
         if  let userName = mainTabBarController.selectedUserName {
@@ -123,10 +123,10 @@ class MainHistoryViewController: UIViewController {
     
     fileprivate func updateSessions() {
         guard   let user = UserProvider.user(named: userName),
-                let exorciseName = self.exorciseName else {
+                let exerciseName = self.exerciseName else {
             return
         }
-        sessions = SessionProvider.getLastSessions(numberOfSessions: nil, for: user, performing: exorciseName)
+        sessions = SessionProvider.getLastSessions(numberOfSessions: nil, for: user, performing: exerciseName)
     }
 }
 
@@ -168,8 +168,8 @@ extension MainHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         if tableView == userTableView {
             return users.count
         } else if tableView == workoutTableView {
-            let exorcise = ExorciseProvider.exorcise(named: exorciseName ?? "", in: sessions[section])
-            return exorcise?.consistsOf?.count ?? 0
+            let exercise = ExerciseProvider.exercise(named: exerciseName ?? "", in: sessions[section])
+            return exercise?.consistsOf?.count ?? 0
         } else {
             return 0
         }
@@ -181,8 +181,8 @@ extension MainHistoryViewController: UITableViewDelegate, UITableViewDataSource 
             cell.nameLabel.text = users[indexPath.row].name
             return cell
         } else if tableView == workoutTableView {
-            let exorcise = ExorciseProvider.exorcise(named: exorciseName ?? "", in: sessions[indexPath.section])
-            let take = (exorcise?.consistsOf?.array as? [Take])?[indexPath.row]
+            let exercise = ExerciseProvider.exercise(named: exerciseName ?? "", in: sessions[indexPath.section])
+            let take = (exercise?.consistsOf?.array as? [Take])?[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: AddWorkoutTableViewCell.reuseIdentifier, for: indexPath) as! AddWorkoutTableViewCell
             cell.repsBigLabel.text = "\(take!.repsNumber)"
             cell.weightBigLabel.text = "\(take!.weight)"
@@ -211,8 +211,8 @@ extension MainHistoryViewController {
         var values = [Double]()
 
         for session in sessions.reversed() {
-            let exorcise = ExorciseProvider.exorcise(named: exorciseName ?? "", in: session)
-            guard let takes = (exorcise?.consistsOf?.array as? [Take]) else {
+            let exercise = ExerciseProvider.exercise(named: exerciseName ?? "", in: session)
+            guard let takes = (exercise?.consistsOf?.array as? [Take]) else {
                 continue
             }
             let newYVal = takes.reduce(0) { res, take in

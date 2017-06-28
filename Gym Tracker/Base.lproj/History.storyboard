@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mQ6-IS-KzP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mQ6-IS-KzP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +33,7 @@
             </objects>
             <point key="canvasLocation" x="-1482" y="802"/>
         </scene>
-        <!--Exorcises-->
+        <!--Exercises-->
         <scene sceneID="nRy-nM-gvb">
             <objects>
                 <tableViewController id="gEo-7n-MD7" customClass="HistoryTableViewController" customModule="Gym_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +55,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exorciseIcon_default" translatesAutoresizingMaskIntoConstraints="NO" id="T36-PT-cdC">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exerciseIcon_default" translatesAutoresizingMaskIntoConstraints="NO" id="T36-PT-cdC">
                                             <rect key="frame" x="10" y="5" width="33.5" height="33.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="T36-PT-cdC" secondAttribute="height" multiplier="1:1" id="Teg-yx-uYB"/>
@@ -72,7 +72,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="exorciseImageView" destination="T36-PT-cdC" id="YWZ-Cs-sQt"/>
+                                    <outlet property="exerciseImageView" destination="T36-PT-cdC" id="45F-F2-QF1"/>
                                     <outlet property="nameLabel" destination="yAM-Nx-qb2" id="S3V-Gb-eSm"/>
                                     <segue destination="pNH-AU-GL5" kind="show" identifier="HistorySegue" id="c3o-mT-eLf"/>
                                 </connections>
@@ -83,7 +83,7 @@
                             <outlet property="delegate" destination="gEo-7n-MD7" id="iwp-1Y-G6W"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Exorcises" id="RTX-Qr-Dbb" userLabel="Exorcises">
+                    <navigationItem key="navigationItem" title="Exercises" id="RTX-Qr-Dbb" userLabel="Exercises">
                         <barButtonItem key="backBarButtonItem" title="Back" id="eyf-hi-REj"/>
                     </navigationItem>
                 </tableViewController>
@@ -324,7 +324,7 @@
     </scenes>
     <resources>
         <image name="Calendar" width="25" height="25"/>
-        <image name="exorciseIcon_default" width="80" height="80"/>
+        <image name="exerciseIcon_default" width="80" height="80"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

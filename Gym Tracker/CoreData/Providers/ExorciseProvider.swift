@@ -1,5 +1,5 @@
 //
-//  ExorciseProvider.swift
+//  exerciseProvider.swift
 //  Gym Tracker
 //
 //  Created by Axel Nowaczyk on 26/02/2017.
@@ -9,42 +9,42 @@
 import Foundation
 import CoreData
 
-class ExorciseProvider: NSObject {
+class ExerciseProvider: NSObject {
     
-    static var exorcises: [Exorcise] {
-        guard let exorcises = try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: LocalStorageManager.exorciseModel)) else {
+    static var exercises: [Exercise] {
+        guard let exercises = try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: LocalStorageManager.exerciseModel)) else {
             return []
         }
-        let uniqueExorcises = Array(Set(exorcises as! [Exorcise]))
-        return uniqueExorcises.sorted { $0.name! < $1.name! }
+        let uniqueExercises = Array(Set(exercises as! [Exercise]))
+        return uniqueExercises.sorted { $0.name! < $1.name! }
     }
     
-    static var exorciseNames: [String] {
-        let exorcisesStringNames = exorcises.map() { $0.name! }
-        let uniqueNames = exorcisesStringNames.reduce([]) { ac, name in
+    static var exerciseNames: [String] {
+        let exercisesStringNames = exercises.map() { $0.name! }
+        let uniqueNames = exercisesStringNames.reduce([]) { ac, name in
             ac.contains(where: { $0 == name }) ? ac : ac + [name]
         }
         return uniqueNames
     }
     
-    static func storeExorcise(named name: String, in session: Session) -> Exorcise {
-        if let exorcise = self.exorcise(named: name, in: session) {
-            return exorcise
+    static func storeExercise(named name: String, in session: Session) -> Exercise {
+        if let exercise = self.exercise(named: name, in: session) {
+            return exercise
         }
         
-        let exorcise = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.exorciseModel, into: CoreDataStack.shared.managedObjectContext) as! Exorcise
-        exorcise.name = name
-        exorcise.wasPerformedIn = session
-        return exorcise
+        let exercise = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.exerciseModel, into: CoreDataStack.shared.managedObjectContext) as! Exercise
+        exercise.name = name
+        exercise.wasPerformedIn = session
+        return exercise
     }
     
-    static func exorcise(named name: String, in session: Session) -> Exorcise? {
-        return session.including?.first { ($0 as? Exorcise)?.name == name } as! Exorcise?
+    static func exercise(named name: String, in session: Session) -> Exercise? {
+        return session.including?.first { ($0 as? Exercise)?.name == name } as! Exercise?
     }
     
-    static func exorcises(in session: Session) -> [Exorcise] {
+    static func exercises(in session: Session) -> [Exercise] {
         guard   let sessionsSet = session.including,
-                let sessions = Array(sessionsSet) as? [Exorcise] else {
+                let sessions = Array(sessionsSet) as? [Exercise] else {
             return []
         }
         
@@ -52,20 +52,20 @@ class ExorciseProvider: NSObject {
     }
     
     static func removeExorcices(named name: String) {
-        TakeProvider.deleteAllTakesForExorcise(named: name)
-        exorcises
+        TakeProvider.deleteAllTakesForexercise(named: name)
+        exercises
             .filter { $0.name == name }
             .forEach { CoreDataStack.shared.managedObjectContext.delete($0) }
     }
 
     static func changeNameForExorcices(named name: String, with newName: String) {
-        exorcises
+        exercises
             .filter { $0.name == name }
             .forEach { $0.name = newName }
     }
     
-    static func removeExorcisesWithNoTakes(completionHandler: (Void) -> ()) {
-        exorcises
+    static func removeexercisesWithNoTakes(completionHandler: (Void) -> ()) {
+        exercises
             .filter { $0.consistsOf?.count == 0 }
             .forEach { CoreDataStack.shared.managedObjectContext.delete($0) }
         completionHandler()

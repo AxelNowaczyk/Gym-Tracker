@@ -12,19 +12,19 @@ class WorkoutTableViewController: UITableViewController {
     
     @IBAction func addBarButtonWasPressed(_ sender: UIBarButtonItem) {
 
-        let alert = AlertUtil.createAlertWithTextField( title: "Write name for the new exorcise: ",
+        let alert = AlertUtil.createAlertWithTextField( title: "Write name for the new exercise: ",
                                                         message: "",
-                                                        textFieldPlaceholder: "Exorcise Name", withText: nil) { textFieldText in
+                                                        textFieldPlaceholder: "exercise Name", withText: nil) { textFieldText in
                                                             
-                                                            if self.exorciseNames.first(where: { $0 == textFieldText }) == nil {
-                                                                self.exorciseNames.append(textFieldText)
+                                                            if self.exerciseNames.first(where: { $0 == textFieldText }) == nil {
+                                                                self.exerciseNames.append(textFieldText)
                                                             }
 
         }
         present(alert, animated: true, completion: nil)
     }
     
-    fileprivate var exorciseNames: [String]     = [] {
+    fileprivate var exerciseNames: [String]     = [] {
         didSet {
             tableView.reloadData()
         }
@@ -41,7 +41,7 @@ class WorkoutTableViewController: UITableViewController {
     }
 
     fileprivate func reloadData() {
-        exorciseNames = ExorciseProvider.exorciseNames
+        exerciseNames = ExerciseProvider.exerciseNames
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,8 +57,8 @@ class WorkoutTableViewController: UITableViewController {
                 return
             }
             let addWorkoutViewController = segue.destination as! AddWorkoutViewController
-            addWorkoutViewController.exorciseName = exorciseNames[selectedRow]
-            (tabBarController as? MainTabBarController)?.selectedExorciseName = addWorkoutViewController.exorciseName
+            addWorkoutViewController.exerciseName = exerciseNames[selectedRow]
+            (tabBarController as? MainTabBarController)?.selectedExerciseName = addWorkoutViewController.exerciseName
         }
         
     }
@@ -68,13 +68,13 @@ class WorkoutTableViewController: UITableViewController {
 extension WorkoutTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exorciseNames.count
+        return exerciseNames.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: ExorciseTableViewCell.reuseIdentifier, for: indexPath) as! ExorciseTableViewCell
-        cell.setup(exorciseNames[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseTableViewCell.reuseIdentifier, for: indexPath) as! ExerciseTableViewCell
+        cell.setup(exerciseNames[indexPath.row])
         
         return cell
     }
@@ -89,16 +89,16 @@ extension WorkoutTableViewController {
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
-            let alert = AlertUtil.createAlertWithTextField( title: "Write new name for the exorcise: ",
+            let alert = AlertUtil.createAlertWithTextField( title: "Write new name for the exercise: ",
                                                             message: "",
-                                                            textFieldPlaceholder: "Exorcise Name", withText: self.exorciseNames[indexPath.row]) { textFieldText in
+                                                            textFieldPlaceholder: "exercise Name", withText: self.exerciseNames[indexPath.row]) { textFieldText in
                                                                 
-                                                                guard nil == (self.exorciseNames.first { $0 == textFieldText }) else {
+                                                                guard nil == (self.exerciseNames.first { $0 == textFieldText }) else {
                                                                     return
                                                                 }
                                                                 
-                                                                ExorciseProvider.changeNameForExorcices(named: self.exorciseNames[indexPath.row], with: textFieldText)
-                                                                PictureProvider.changeName(oldName: self.exorciseNames[indexPath.row], newName: textFieldText)
+                                                                ExerciseProvider.changeNameForExorcices(named: self.exerciseNames[indexPath.row], with: textFieldText)
+                                                                PictureProvider.changeName(oldName: self.exerciseNames[indexPath.row], newName: textFieldText)
                                                                 CoreDataStack.shared.save()
                                                                 self.reloadData()
             }
@@ -107,8 +107,8 @@ extension WorkoutTableViewController {
         editAction.backgroundColor = .blue
         
         let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
-            ExorciseProvider.removeExorcices(named: self.exorciseNames[indexPath.row])
-            PictureProvider.deletePictureForExorcise(named: self.exorciseNames[indexPath.row])
+            ExerciseProvider.removeExorcices(named: self.exerciseNames[indexPath.row])
+            PictureProvider.deletePictureForexercise(named: self.exerciseNames[indexPath.row])
             CoreDataStack.shared.save()
             self.reloadData()
         }

@@ -10,7 +10,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-    var selectedExorciseName: String?
+    var selectedExerciseName: String?
     var selectedUserName: String?
     
 }
