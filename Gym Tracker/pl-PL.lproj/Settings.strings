@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "No name"; ObjectID = "0QV-9q-0dz"; */
+"0QV-9q-0dz.text" = "No name";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "8jE-mb-ktZ"; */
+"8jE-mb-ktZ.title" = "Settings";
+
+/* Class = "UILabel"; text = "Users"; ObjectID = "DTr-66-uhl"; */
+"DTr-66-uhl.text" = "Users";
+
+/* Class = "UINavigationItem"; title = "Users"; ObjectID = "MT1-A8-xC9"; */
+"MT1-A8-xC9.title" = "Users";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "NbG-mF-dJb"; */
+"NbG-mF-dJb.text" = "About";
+
+/* Class = "UITableViewSection"; headerTitle = "INFORMATION"; ObjectID = "Okh-uy-QKY"; */
+"Okh-uy-QKY.headerTitle" = "INFORMATION";
+
+/* Class = "UILabel"; text = "Help"; ObjectID = "RTA-xU-Tqg"; */
+"RTA-xU-Tqg.text" = "Help";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "mTC-P0-LGT"; */
+"mTC-P0-LGT.title" = "Settings";
+
+/* Class = "UITableViewSection"; headerTitle = "GENERAL"; ObjectID = "pQW-S8-qym"; */
+"pQW-S8-qym.headerTitle" = "GENERAL";

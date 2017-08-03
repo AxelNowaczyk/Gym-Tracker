@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "History table"; ObjectID = "IlR-sa-PlG"; */
+"IlR-sa-PlG.text" = "History table";
+
+/* Class = "UITabBarItem"; title = "History"; ObjectID = "OI3-wR-ly8"; */
+"OI3-wR-ly8.title" = "History";
+
+/* Class = "UINavigationItem"; title = "Exercises"; ObjectID = "RTX-Qr-Dbb"; */
+"RTX-Qr-Dbb.title" = "Exercises";
+
+/* Class = "UILabel"; text = "Chart"; ObjectID = "eay-Ky-BUc"; */
+"eay-Ky-BUc.text" = "Chart";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "eyf-hi-REj"; */
+"eyf-hi-REj.title" = "Back";
+
+/* Class = "UILabel"; text = "Axel"; ObjectID = "ngr-ST-FZ3"; */
+"ngr-ST-FZ3.text" = "Axel";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "rFi-Zn-Ksr"; */
+"rFi-Zn-Ksr.text" = "Name";
+
+/* Class = "UILabel"; text = "No name"; ObjectID = "yAM-Nx-qb2"; */
+"yAM-Nx-qb2.text" = "No name";

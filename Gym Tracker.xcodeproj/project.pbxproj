@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5118A8411F333A83002CFE19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5118A8431F333A83002CFE19 /* Localizable.strings */; };
+		5118A8451F334049002CFE19 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5118A8471F334049002CFE19 /* Settings.storyboard */; };
 		75EC19C9F1BE47C9B32E3EAD /* Pods_Gym_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6012F7CF0B74F8FCC5862B8 /* Pods_Gym_Tracker.framework */; };
 		7A0F8FBC1E450D0300D172E5 /* ExorciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0F8FBB1E450D0300D172E5 /* ExorciseTableViewCell.swift */; };
 		7A1062DA1E15498B009DAE08 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1062D91E15498B009DAE08 /* CoreData.framework */; };
@@ -35,7 +37,6 @@
 		7AAC46551E77230A00208FD8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC46541E77230A00208FD8 /* SettingsTableViewCell.swift */; };
 		7AC202121E3B526B00876A9C /* RecentWorkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC202101E3B526B00876A9C /* RecentWorkouts.storyboard */; };
 		7AC202151E3B529400876A9C /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC202131E3B529400876A9C /* History.storyboard */; };
-		7AC202171E3B52AD00876A9C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC202161E3B52AD00876A9C /* Settings.storyboard */; };
 		7AC2021C1E3F685B00876A9C /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2021B1E3F685B00876A9C /* AddWorkoutViewController.swift */; };
 		7AC693991ED2F7C400C1AB45 /* ExorciseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC693941ED2F7C400C1AB45 /* ExorciseProvider.swift */; };
 		7AC6939A1ED2F7C400C1AB45 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC693951ED2F7C400C1AB45 /* UserProvider.swift */; };
@@ -50,6 +51,15 @@
 
 /* Begin PBXFileReference section */
 		47A562DDDB5380A5CB1F3306 /* Pods-Gym Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gym Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gym Tracker/Pods-Gym Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		5118A83A1F33397E002CFE19 /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5118A83B1F33397F002CFE19 /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/Main.strings"; sourceTree = "<group>"; };
+		5118A83C1F33397F002CFE19 /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/MainTabBar.strings"; sourceTree = "<group>"; };
+		5118A83D1F33397F002CFE19 /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/History.strings"; sourceTree = "<group>"; };
+		5118A83E1F33397F002CFE19 /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/RecentWorkouts.strings"; sourceTree = "<group>"; };
+		5118A8421F333A83002CFE19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5118A8441F333A86002CFE19 /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5118A8461F334049002CFE19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		5118A8491F334079002CFE19 /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/Settings.strings"; sourceTree = "<group>"; };
 		7A0F8FBB1E450D0300D172E5 /* ExorciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExorciseTableViewCell.swift; path = Views/ExorciseTableViewCell.swift; sourceTree = "<group>"; };
 		7A1062D91E15498B009DAE08 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7A1062DD1E154C65009DAE08 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -79,7 +89,6 @@
 		7AAC46541E77230A00208FD8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = Views/SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		7AC202111E3B526B00876A9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RecentWorkouts.storyboard; sourceTree = "<group>"; };
 		7AC202141E3B529400876A9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
-		7AC202161E3B52AD00876A9C /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		7AC2021B1E3F685B00876A9C /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddWorkoutViewController.swift; path = ViewControllers/AddWorkoutViewController.swift; sourceTree = "<group>"; };
 		7AC693941ED2F7C400C1AB45 /* ExorciseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExorciseProvider.swift; path = CoreData/Providers/ExorciseProvider.swift; sourceTree = "<group>"; };
 		7AC693951ED2F7C400C1AB45 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProvider.swift; path = CoreData/Providers/UserProvider.swift; sourceTree = "<group>"; };
@@ -163,6 +172,7 @@
 				7A8B4C9C1E0871890002E37E /* Views */,
 				7A8B4C9B1E08710D0002E37E /* ViewControllers */,
 				7A8B4C891E086D8E0002E37E /* AppDelegate.swift */,
+				5118A8431F333A83002CFE19 /* Localizable.strings */,
 				7A9E320C1E2CE5C2004ECF70 /* Storyboards */,
 				7A1062ED1E15555F009DAE08 /* Assests */,
 				7A8B4C951E086D8E0002E37E /* Info.plist */,
@@ -205,7 +215,7 @@
 				7A8B4C921E086D8E0002E37E /* LaunchScreen.storyboard */,
 				7A8B4C8D1E086D8E0002E37E /* Main.storyboard */,
 				7AE6800D1E96DBFC00C6B3A0 /* MainTabBar.storyboard */,
-				7AC202161E3B52AD00876A9C /* Settings.storyboard */,
+				5118A8471F334049002CFE19 /* Settings.storyboard */,
 				7AC202131E3B529400876A9C /* History.storyboard */,
 				7AC202101E3B526B00876A9C /* RecentWorkouts.storyboard */,
 			);
@@ -295,7 +305,7 @@
 				TargetAttributes = {
 					7A8B4C851E086D8E0002E37E = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 42H8FWNPQW;
+						DevelopmentTeam = 7BPBY6BPNP;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -307,6 +317,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pl-PL",
 			);
 			mainGroup = 7A8B4C7D1E086D8E0002E37E;
 			productRefGroup = 7A8B4C871E086D8E0002E37E /* Products */;
@@ -328,8 +339,9 @@
 				7A9FCDC91E749F65007BB941 /* HistoryTableViewHeader.xib in Resources */,
 				7AC202121E3B526B00876A9C /* RecentWorkouts.storyboard in Resources */,
 				7A8B4C941E086D8E0002E37E /* LaunchScreen.storyboard in Resources */,
+				5118A8411F333A83002CFE19 /* Localizable.strings in Resources */,
 				7A8B4C911E086D8E0002E37E /* Assets.xcassets in Resources */,
-				7AC202171E3B52AD00876A9C /* Settings.storyboard in Resources */,
+				5118A8451F334049002CFE19 /* Settings.storyboard in Resources */,
 				7AC202151E3B529400876A9C /* History.storyboard in Resources */,
 				7A8B4C8F1E086D8E0002E37E /* Main.storyboard in Resources */,
 			);
@@ -380,7 +392,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -424,10 +436,29 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5118A8431F333A83002CFE19 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5118A8421F333A83002CFE19 /* Base */,
+				5118A8441F333A86002CFE19 /* pl-PL */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5118A8471F334049002CFE19 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5118A8461F334049002CFE19 /* Base */,
+				5118A8491F334079002CFE19 /* pl-PL */,
+			);
+			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
 		7A8B4C8D1E086D8E0002E37E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7A8B4C8E1E086D8E0002E37E /* Base */,
+				5118A83B1F33397F002CFE19 /* pl-PL */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -436,6 +467,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7A8B4C931E086D8E0002E37E /* Base */,
+				5118A83A1F33397E002CFE19 /* pl-PL */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -444,6 +476,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7AC202111E3B526B00876A9C /* Base */,
+				5118A83E1F33397F002CFE19 /* pl-PL */,
 			);
 			name = RecentWorkouts.storyboard;
 			sourceTree = "<group>";
@@ -452,6 +485,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7AC202141E3B529400876A9C /* Base */,
+				5118A83D1F33397F002CFE19 /* pl-PL */,
 			);
 			name = History.storyboard;
 			sourceTree = "<group>";
@@ -460,6 +494,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7AE6800E1E96DBFC00C6B3A0 /* Base */,
+				5118A83C1F33397F002CFE19 /* pl-PL */,
 			);
 			name = MainTabBar.storyboard;
 			sourceTree = "<group>";
@@ -471,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -521,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -566,7 +603,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 42H8FWNPQW;
+				DEVELOPMENT_TEAM = 7BPBY6BPNP;
 				INFOPLIST_FILE = "Gym Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.axelnowaczyk.Gym-Tracker";
@@ -582,7 +619,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 42H8FWNPQW;
+				DEVELOPMENT_TEAM = 7BPBY6BPNP;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Gym Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

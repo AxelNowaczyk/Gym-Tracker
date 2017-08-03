@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Current workout"; ObjectID = "5cj-f0-sHW"; */
+"5cj-f0-sHW.text" = "Current workout";
+
+/* Class = "UITextField"; placeholder = "Reps"; ObjectID = "92R-1m-Xnb"; */
+"92R-1m-Xnb.placeholder" = "Reps";
+
+/* Class = "UILabel"; text = "Previous workout"; ObjectID = "Ksw-zh-kXO"; */
+"Ksw-zh-kXO.text" = "Previous workout";
+
+/* Class = "UITabBarItem"; title = "Recent"; ObjectID = "Nc6-KP-nXs"; */
+"Nc6-KP-nXs.title" = "Recent";
+
+/* Class = "UINavigationItem"; title = "Recent workouts"; ObjectID = "ReW-Nx-0O5"; */
+"ReW-Nx-0O5.title" = "Recent workouts";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "ZHV-XG-JpW"; */
+"ZHV-XG-JpW.title" = "Back";
+
+/* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "chx-XU-SBh"; */
+"chx-XU-SBh.normalTitle" = "Clear";
+
+/* Class = "UITextField"; placeholder = "Weight"; ObjectID = "cj3-7I-7lq"; */
+"cj3-7I-7lq.placeholder" = "Weight";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "zvv-ej-edC"; */
+"zvv-ej-edC.normalTitle" = "Add";
