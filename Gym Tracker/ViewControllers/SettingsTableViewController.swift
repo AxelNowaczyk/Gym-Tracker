@@ -11,9 +11,9 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
 
     @IBAction func addBarButtonItemWasTapped(_ sender: UIBarButtonItem) {
-        let alert = AlertUtil.createAlertWithTextField( title: "Write name for a new user: ",
+        let alert = AlertUtil.createAlertWithTextField( title: "\("Alert_Add_user_Title".localized): ",
                                                         message: "",
-                                                        textFieldPlaceholder: "User Name", withText: nil) { [weak self] textFieldText in
+                                                        textFieldPlaceholder: "Alert_Add_user_Placeholder".localized, withText: nil) { [weak self] textFieldText in
                                                             
                                                             guard textFieldText.characters.count > 0 else {
                                                                 return
@@ -51,11 +51,11 @@ class SettingsTableViewController: UITableViewController {
 extension SettingsTableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Users"
+        return "Users_Title".localized
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "Select which users should be displayed in the application."
+        return "Users_Footer".localized
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

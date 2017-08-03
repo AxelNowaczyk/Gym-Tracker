@@ -1,7 +1,27 @@
-/* 
-  Localizable.strings
-  Gym Tracker
+"Alert_OK" = "OK";
+"Alert_Error" = "OOPS";
+"Alert_Cancel" = "Cancel";
+"Alert_Submit" = "Submit";
+"Alert_Unknown" = "Unknown";
 
-  Created by Nowaczyk Axel on 03/08/2017.
-  Copyright © 2017 Axel Nowaczyk. All rights reserved.
-*/
+"Alert_Add_exorcise_Title" = "Write name for the new exercise";
+"Alert_Add_exorcise_Placeholder" = "Exercise name";
+"Alert_Add_exorcise_ErrorMsg" = "You need to provide number of rips to add workout.";
+
+"Alert_Edit_exorcise_Title" = "Write new name for the exercise";
+"Alert_Edit_exorcise_Placeholder" = "Exercise name";
+
+"Alert_Add_user_Title" = "Write name for a new user";
+"Alert_Add_user_Placeholder" = "User Name";
+
+"Alert_Picture_Title" = "Select picture for this exercise.";
+"Alert_Picture_Option_1" = "Photo Library";
+"Alert_Picture_Option_2" = "Camera";
+"Alert_Picture_Cancel" = "Cancel";
+"Exorcise_Weight" = "Weight";
+
+"Users_Title" = "Users";
+"Users_Footer" = "Select which users should be displayed in the application.";
+
+"Table_View_Edit" = "Edit";
+"Table_View_Delete" = "Delete";

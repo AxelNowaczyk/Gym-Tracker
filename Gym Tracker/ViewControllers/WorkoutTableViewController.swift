@@ -12,9 +12,9 @@ class WorkoutTableViewController: UITableViewController {
     
     @IBAction func addBarButtonWasPressed(_ sender: UIBarButtonItem) {
 
-        let alert = AlertUtil.createAlertWithTextField( title: "Write name for the new exercise: ",
+        let alert = AlertUtil.createAlertWithTextField( title: "\("Alert_Add_exorcise_Title".localized): ",
                                                         message: "",
-                                                        textFieldPlaceholder: "exercise Name", withText: nil) { textFieldText in
+                                                        textFieldPlaceholder: "Alert_Add_exorcise_Placeholder".localized, withText: nil) { textFieldText in
                                                             
                                                             if self.exerciseNames.first(where: { $0 == textFieldText }) == nil {
                                                                 self.exerciseNames.append(textFieldText)
@@ -88,10 +88,10 @@ extension WorkoutTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
-            let alert = AlertUtil.createAlertWithTextField( title: "Write new name for the exercise: ",
+        let editAction = UITableViewRowAction(style: .normal, title: "Table_View_Edit".localized) { action, index in
+            let alert = AlertUtil.createAlertWithTextField( title: "\("Alert_Edit_exorcise_Title".localized): ",
                                                             message: "",
-                                                            textFieldPlaceholder: "exercise Name", withText: self.exerciseNames[indexPath.row]) { textFieldText in
+                                                            textFieldPlaceholder: "Alert_Edit_exorcise_Placeholder".localized, withText: self.exerciseNames[indexPath.row]) { textFieldText in
                                                                 
                                                                 guard nil == (self.exerciseNames.first { $0 == textFieldText }) else {
                                                                     return
@@ -106,7 +106,7 @@ extension WorkoutTableViewController {
         }
         editAction.backgroundColor = .blue
         
-        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Table_View_Delete".localized) { action, index in
             ExerciseProvider.removeExorcices(named: self.exerciseNames[indexPath.row])
             PictureProvider.deletePictureForexercise(named: self.exerciseNames[indexPath.row])
             CoreDataStack.shared.save()

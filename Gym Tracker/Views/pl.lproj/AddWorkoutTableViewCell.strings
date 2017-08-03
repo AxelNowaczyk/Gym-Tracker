@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Reps"; ObjectID = "Erj-qi-xUy"; */
+"Erj-qi-xUy.text" = "Ilość powrórzeń";
+
+/* Class = "UILabel"; text = "Weight [kg]"; ObjectID = "Oia-7n-Ibe"; */
+"Oia-7n-Ibe.text" = "Waga [kg]";
+
+/* Class = "UILabel"; text = "Reps"; ObjectID = "PTD-dA-ga7"; */
+"PTD-dA-ga7.text" = "Ilość powrórzeń";
+
+/* Class = "UILabel"; text = "Weight"; ObjectID = "mzg-2H-gio"; */
+"mzg-2H-gio.text" = "Waga";
