@@ -1,7 +1,27 @@
-/* 
-  Localizable.strings
-  Gym Tracker
+"Alert_OK" = "OK";
+"Alert_Error" = "OOPS";
+"Alert_Cancel" = "Anuluj";
+"Alert_Submit" = "Zatwierdź";
+"Alert_Unknown" = "Nieznany";
 
-  Created by Nowaczyk Axel on 03/08/2017.
-  Copyright © 2017 Axel Nowaczyk. All rights reserved.
-*/
+"Alert_Add_exorcise_Title" = "Wpisz nazwę dla nowego ćwiczenia";
+"Alert_Add_exorcise_Placeholder" = "Nazwa ćwiczenia";
+"Alert_Add_exorcise_ErrorMsg" = "Musisz wprowadzić liczbę powtórzeń by dodać set.";
+
+"Alert_Edit_exorcise_Title" = "Wpisz nową nazwę dla ćwiczenia";
+"Alert_Edit_exorcise_Placeholder" = "Nazwa ćwiczenia";
+
+"Alert_Add_user_Title" = "Wpisz nazwę dla nowego urzytkownika";
+"Alert_Add_user_Placeholder" = "Nazwa urzytkownika";
+
+"Alert_Picture_Title" = "Wybierz obrazek dla ćwiczenia.";
+"Alert_Picture_Option_1" = "Galeria";
+"Alert_Picture_Option_2" = "Zrób zdięcie";
+"Alert_Picture_Cancel" = "Anuluj";
+"Exorcise_Weight" = "Waga";
+
+"Users_Title" = "Urzytkownicy";
+"Users_Footer" = "Wybierz którzy urzytkownicy powinni być pokazani w aplikacji.";
+
+"Table_View_Edit" = "Edytuj";
+"Table_View_Delete" = "Usuń";
