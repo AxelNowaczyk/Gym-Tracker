@@ -16,7 +16,7 @@ class PictureProvider: NSObject {
     static func storePictureForexercise(named name: String, image: UIImage) {
         var picture: Picture! = retrievePictureModelForexercise(named: name)
         if picture == nil {
-            picture = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.pictureModel, into: CoreDataStack.shared.managedObjectContext) as! Picture
+            picture = NSEntityDescription.insertNewObject(forEntityName: CoreDataModelType.picture.rawValue, into: CoreDataStack.shared.managedObjectContext) as! Picture
             picture.exerciseName = name
         }
         let jpegImage = UIImageJPEGRepresentation(image, 0.0)
@@ -50,7 +50,7 @@ class PictureProvider: NSObject {
             return nil
         }
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.pictureModel)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: CoreDataModelType.picture.rawValue)
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "exerciseName == %@", name)
         

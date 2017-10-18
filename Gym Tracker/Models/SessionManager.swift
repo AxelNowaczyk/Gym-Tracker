@@ -10,9 +10,9 @@ import Foundation
 
 class SessionManager: NSObject {
     
-    fileprivate(set) var currentSession: Session!
-    fileprivate(set) var previousSession: Session?
-    fileprivate let sessionProvider = SessionProvider()
+    private(set) var currentSession: Session!
+    private(set) var previousSession: Session?
+    private let sessionProvider = SessionProvider()
     
     init(user: User, exerciseName: String) {
         super.init()

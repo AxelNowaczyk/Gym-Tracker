@@ -12,7 +12,7 @@ import CoreData
 class UserProvider: NSObject {
 
     static func storeUser(named name: String, hidden: Bool = false) -> User {
-        let user = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.userModel, into: CoreDataStack.shared.managedObjectContext) as! User
+        let user = NSEntityDescription.insertNewObject(forEntityName: CoreDataModelType.user.rawValue, into: CoreDataStack.shared.managedObjectContext) as! User
         user.name = name
         user.hidden = hidden
         
@@ -24,7 +24,7 @@ class UserProvider: NSObject {
             return nil
         }
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.userModel)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: CoreDataModelType.user.rawValue)
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
@@ -32,7 +32,7 @@ class UserProvider: NSObject {
     }
     
     static var users: [User] {
-        return (try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: LocalStorageManager.userModel))) as? [User] ?? []
+        return (try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: CoreDataModelType.user.rawValue))) as? [User] ?? []
     }
     
     static var usersToDisplay: [User] {

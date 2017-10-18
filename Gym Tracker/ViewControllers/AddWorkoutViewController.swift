@@ -170,7 +170,7 @@ class AddWorkoutViewController: UIViewController {
         exerciseImageView.image = PictureProvider.retrievePictureForexercise(named: exerciseName) ?? #imageLiteral(resourceName: "exerciseIcon_default")
     }
     
-    func exerciseImageWasTapped(_ sender: UITapGestureRecognizer) {
+    @objc func exerciseImageWasTapped(_ sender: UITapGestureRecognizer) {
         
         let alertController = UIAlertController(title: "Select picture for this exercise.", message: nil, preferredStyle: .actionSheet)
         
@@ -242,15 +242,10 @@ extension AddWorkoutViewController: UIPickerViewDataSource, UIPickerViewDelegate
         case .user:
             (tabBarController as? MainTabBarController)?.selectedUserName = users[row].name
             clearTextFields()
-            fallthrough
         case .weight:
             updateWeighstIfNeeded()
-            fallthrough
-        case .user,
-             .weight:
-            reloadData()
         }
-        
+        reloadData()
         lastSelectedWeightType = selectedWeightType
     }
     
@@ -284,15 +279,15 @@ extension AddWorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         case .current:
             cell.repsBigLabel.text = "\(currentTakes[indexPath.row].repsNumber)"
             let weight = weightConverter.convert(weight: currentTakes[indexPath.row].weight, from: .kg, to: selectedWeightType)
-            cell.weightBigLabel.text = "\((weight*100).rounded()/100)"
+            cell.weightBigLabel.text = "\(weight.roundSecondPlace)"
         case .previous:
             cell.repsBigLabel.text = "\(previousTakes[indexPath.row].repsNumber)"
             let weight = weightConverter.convert(weight: previousTakes[indexPath.row].weight, from: .kg, to: selectedWeightType)
-            cell.weightBigLabel.text = "\((weight*100).rounded()/100)"
+            cell.weightBigLabel.text = "\(weight.roundSecondPlace)"
         }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         guard let tableViewTag = TableViewTag(rawValue: tableView.tag) else {
             return false
@@ -331,6 +326,11 @@ extension AddWorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         }
         weightTextField.text = "\(take.weight)"
         repsTextField.text = "\(take.repsNumber)"
+    }
+}
+private extension Double {
+    var roundSecondPlace: Double {
+        return (self*100).rounded()/100
     }
 }
 

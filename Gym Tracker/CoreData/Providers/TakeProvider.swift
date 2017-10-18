@@ -12,11 +12,11 @@ import CoreData
 class TakeProvider: NSObject {
     
     static var takes: [Take] {
-        return (try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: LocalStorageManager.takeModel))) as? [Take] ?? []
+        return (try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: CoreDataModelType.take.rawValue))) as? [Take] ?? []
     }
     
     static func storeTake(repsNumber: Int, weight: Double, for exercise: Exercise) -> Take {
-        let take = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.takeModel, into: CoreDataStack.shared.managedObjectContext) as! Take
+        let take = NSEntityDescription.insertNewObject(forEntityName: CoreDataModelType.take.rawValue, into: CoreDataStack.shared.managedObjectContext) as! Take
         take.repsNumber = Int16(repsNumber)
         take.weight = weight
         take.wasIncludedIn = exercise

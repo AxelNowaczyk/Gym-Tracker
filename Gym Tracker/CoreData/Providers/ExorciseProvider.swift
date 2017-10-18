@@ -12,7 +12,7 @@ import CoreData
 class ExerciseProvider: NSObject {
     
     static var exercises: [Exercise] {
-        guard let exercises = try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: LocalStorageManager.exerciseModel)) else {
+        guard let exercises = try? CoreDataStack.shared.managedObjectContext.fetch(NSFetchRequest(entityName: CoreDataModelType.exercise.rawValue)) else {
             return []
         }
         let uniqueExercises = Array(Set(exercises as! [Exercise]))
@@ -32,7 +32,7 @@ class ExerciseProvider: NSObject {
             return exercise
         }
         
-        let exercise = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.exerciseModel, into: CoreDataStack.shared.managedObjectContext) as! Exercise
+        let exercise = NSEntityDescription.insertNewObject(forEntityName: CoreDataModelType.exercise.rawValue, into: CoreDataStack.shared.managedObjectContext) as! Exercise
         exercise.name = name
         exercise.wasPerformedIn = session
         return exercise
@@ -64,7 +64,7 @@ class ExerciseProvider: NSObject {
             .forEach { $0.name = newName }
     }
     
-    static func removeexercisesWithNoTakes(completionHandler: (Void) -> ()) {
+    static func removeexercisesWithNoTakes(completionHandler: () -> Void) {
         exercises
             .filter { $0.consistsOf?.count == 0 }
             .forEach { CoreDataStack.shared.managedObjectContext.delete($0) }

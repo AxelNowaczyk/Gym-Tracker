@@ -24,7 +24,7 @@ class WorkoutTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    fileprivate var exerciseNames: [String]     = [] {
+    fileprivate var exerciseNames: [String] = [] {
         didSet {
             tableView.reloadData()
         }

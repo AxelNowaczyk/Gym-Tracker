@@ -9,6 +9,14 @@
 import Foundation
 import CoreData
 
+enum CoreDataModelType: String {
+    case user = "User"
+    case session = "Session"
+    case take = "Take"
+    case exercise = "Exercise"
+    case picture = "Picture"
+}
+
 class CoreDataStack: NSObject {
     
     static var shared = CoreDataStack()
@@ -16,8 +24,8 @@ class CoreDataStack: NSObject {
     var persistentStoreCoordinator: NSPersistentStoreCoordinator!
     var managedObjectContext: NSManagedObjectContext!
     
-    fileprivate var defaultPersistentStoreURL: URL!
-    fileprivate var managedObjectModel: NSManagedObjectModel!
+    private var defaultPersistentStoreURL: URL!
+    private var managedObjectModel: NSManagedObjectModel!
     
     override init() {
         super.init()
@@ -33,26 +41,26 @@ class CoreDataStack: NSObject {
         }
     }
     
-    fileprivate func setupCoreData() {
+    private func setupCoreData() {
         setupManagedObjectModel()
         setupDefaultPersistentStoreURL()
         setupPersistentStoreCoordinator()
         setupManagedObjectContext()
     }
 
-    fileprivate func setupManagedObjectModel() {
+    private func setupManagedObjectModel() {
         guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last else {
             fatalError("No last element in file manager")
         }
         defaultPersistentStoreURL = url
     }
     
-    fileprivate func setupDefaultPersistentStoreURL() {
+    private func setupDefaultPersistentStoreURL() {
         let modelURL = Bundle.main.url(forResource: "CoreDataModel", withExtension: "momd")!
         managedObjectModel = NSManagedObjectModel(contentsOf: modelURL)!
     }
     
-    fileprivate func setupPersistentStoreCoordinator() {
+    private func setupPersistentStoreCoordinator() {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.defaultPersistentStoreURL.appendingPathComponent("GymTracker.sqlite")
         do {
@@ -70,7 +78,7 @@ class CoreDataStack: NSObject {
         persistentStoreCoordinator = coordinator
     }
 
-    fileprivate func setupManagedObjectContext() {
+    private func setupManagedObjectContext() {
         let coordinator = persistentStoreCoordinator
         let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy

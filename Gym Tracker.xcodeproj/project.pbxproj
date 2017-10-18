@@ -20,7 +20,6 @@
 		7A39446A1E6A04A8000942D8 /* WeightConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3944691E6A04A8000942D8 /* WeightConverter.swift */; };
 		7A39446E1E6B478E000942D8 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39446D1E6B478E000942D8 /* SessionManager.swift */; };
 		7A3944711E6C2364000942D8 /* AddWorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39446F1E6C2364000942D8 /* AddWorkoutTableViewCell.swift */; };
-		7A3D3B251EC71B2B009762B5 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D3B241EC71B2B009762B5 /* LocalStorageManager.swift */; };
 		7A3D3B311EC71B90009762B5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D3B301EC71B90009762B5 /* CoreDataStack.swift */; };
 		7A8B4C8A1E086D8E0002E37E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8B4C891E086D8E0002E37E /* AppDelegate.swift */; };
 		7A8B4C8F1E086D8E0002E37E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8B4C8D1E086D8E0002E37E /* Main.storyboard */; };
@@ -73,7 +72,6 @@
 		7A3944691E6A04A8000942D8 /* WeightConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeightConverter.swift; path = Models/WeightConverter.swift; sourceTree = "<group>"; };
 		7A39446D1E6B478E000942D8 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Models/SessionManager.swift; sourceTree = "<group>"; };
 		7A39446F1E6C2364000942D8 /* AddWorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddWorkoutTableViewCell.swift; path = Views/AddWorkoutTableViewCell.swift; sourceTree = "<group>"; };
-		7A3D3B241EC71B2B009762B5 /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorageManager.swift; path = CoreData/LocalStorageManager.swift; sourceTree = "<group>"; };
 		7A3D3B301EC71B90009762B5 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = CoreData/CoreDataStack.swift; sourceTree = "<group>"; };
 		7A8B4C861E086D8E0002E37E /* Gym Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gym Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8B4C891E086D8E0002E37E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 		7A1062DB1E154C31009DAE08 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				7A3D3B241EC71B2B009762B5 /* LocalStorageManager.swift */,
 				7A3D3B301EC71B90009762B5 /* CoreDataStack.swift */,
 				7AE5FDD01E62C1E800D6F6D6 /* Providers */,
 				7A1062DC1E154C65009DAE08 /* CoreDataModel.xcdatamodeld */,
@@ -313,12 +310,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Axel Nowaczyk";
 				TargetAttributes = {
 					7A8B4C851E086D8E0002E37E = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 7BPBY6BPNP;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -430,7 +428,6 @@
 				7A39446E1E6B478E000942D8 /* SessionManager.swift in Sources */,
 				7AE5FDD41E63972A00D6F6D6 /* Take+Comparable.swift in Sources */,
 				7AC6939B1ED2F7C400C1AB45 /* TakeProvider.swift in Sources */,
-				7A3D3B251EC71B2B009762B5 /* LocalStorageManager.swift in Sources */,
 				7A1062DE1E154C65009DAE08 /* CoreDataModel.xcdatamodeld in Sources */,
 				7A9FCDCB1E74AD2B007BB941 /* DateFormatterUtil.swift in Sources */,
 				7AE5FDD81E64B55F00D6F6D6 /* AlertUtil.swift in Sources */,
@@ -546,7 +543,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -554,7 +553,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -597,7 +600,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -605,7 +610,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -642,7 +651,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.axelnowaczyk.Gym-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -659,7 +669,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.axelnowaczyk.Gym-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -59,7 +59,7 @@ class LaunchscreenViewController: UIViewController {
         }
     }
     
-    private func performAnimation(completionHandler: @escaping (Void) -> Void) {
+    private func performAnimation(completionHandler: @escaping () -> Void) {
         UIView.animate(withDuration: 2.0, animations: {
             self.dumbbellImageView.transform = CGAffineTransform(rotationAngle: .pi)
             self.view.layoutIfNeeded()

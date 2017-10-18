@@ -13,7 +13,7 @@ class SessionProvider: NSObject {
     
     static func storeSession(for user: User, with date: Date? = nil) -> Session {
         
-        let session = NSEntityDescription.insertNewObject(forEntityName: LocalStorageManager.sessionModel, into: CoreDataStack.shared.managedObjectContext) as! Session
+        let session = NSEntityDescription.insertNewObject(forEntityName: CoreDataModelType.session.rawValue, into: CoreDataStack.shared.managedObjectContext) as! Session
         session.date = date as NSDate? ?? NSDate()
         user.addToPerformed(session)
         
@@ -21,7 +21,7 @@ class SessionProvider: NSObject {
     }
 
     static func getLastSessions(numberOfSessions: Int?, for user: User, performing exerciseName: String) -> [Session] {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: LocalStorageManager.sessionModel)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: CoreDataModelType.session.rawValue)
         if let numberOfSessions = numberOfSessions {
             fetchRequest.fetchLimit = numberOfSessions
         }
