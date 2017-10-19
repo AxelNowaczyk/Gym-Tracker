@@ -12,20 +12,79 @@ import UIKit
 class LaunchscreenViewController: UIViewController {
  
     @IBOutlet var dumbbellImageView: UIImageView!
-    
-    let debug = true
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        performInitialSetup()
+    }
+
+    private func performInitialSetup() {
+        let animator = Animator(superView: self.view, using: dumbbellImageView)
+        animator.startAnimation()
+
+        DispatchQueue.global().async {
+            ExerciseProvider.removeExercisesWithNoTakes {
+                let debugDataLoader = DebugDataLoader()
+                debugDataLoader.performInitialSetup {
+                    DispatchQueue.main.async {
+                        animator.stopAnimiation()
+                        let viewController = UIStoryboard(name: "MainTabBar", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as? MainTabBarController
+                        UIApplication.shared.keyWindow?.rootViewController = viewController
+                        self.performSegue(withIdentifier: "Show tabbarController", sender: self)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct Animator {
+
+    private let superView: UIView
+    private let imageView: UIImageView
+    private let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+
+    init(superView: UIView, using imageView:UIImageView) {
+        self.superView = superView
+        self.imageView = imageView
+    }
+
+    typealias CompletionHandler = () -> Void
+    func startAnimation(completionHandler: CompletionHandler? = nil) {
+        imageView.layer.removeAllAnimations()
+        animation.fromValue = 0
+        animation.toValue =  Double.pi * 2
+        animation.duration = 0.5
+        animation.repeatCount = .greatestFiniteMagnitude
+        imageView.layer.add(animation, forKey: "rotationAnimation")
+        completionHandler?()
+    }
+    func stopAnimiation(completionHandler: CompletionHandler? = nil) {
+        imageView.layer.removeAllAnimations()
+        completionHandler?()
+    }
+}
+
+struct DebugDataLoader {
+
+    let debug: Bool
+
+    init(debug: Bool = true) {
+        self.debug = debug
+    }
+
     fileprivate enum UserNameType: String {
         case axel   = "Axel"
         case maciek = "Maciek"
     }
-    
+
     fileprivate enum exerciseNameType: String {
         case lawkaSkosnaDol   = "Decline DB Press"
         case lawkaSkosnaGora = "Incline DB Press"
         case pushUps = "Push Ups"
         case dips   = "Dips"
-        
+
         case hantle = "DB Flyes"
         case barki = "Machine Press"
         case przysiad = "Front Squat"
@@ -33,46 +92,6 @@ class LaunchscreenViewController: UIViewController {
 
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        performInitialSetup()
-    }
-    
-    private var dataWasFetched = false
-    private func performInitialSetup() {
-        DispatchQueue.global().async {
-            ExerciseProvider.removeexercisesWithNoTakes {
-                self.performInitialSetup {
-                    self.dataWasFetched = true
-                }
-            }
-        }
-        performAnimation {
-            if self.dataWasFetched {
-                let viewController = UIStoryboard(name: "MainTabBar", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as? MainTabBarController
-                UIApplication.shared.keyWindow?.rootViewController = viewController
-                self.performSegue(withIdentifier: "Show tabbarController", sender: self)
-            } else {
-                self.performInitialSetup()
-            }
-        }
-    }
-    
-    private func performAnimation(completionHandler: @escaping () -> Void) {
-        UIView.animate(withDuration: 2.0, animations: {
-            self.dumbbellImageView.transform = CGAffineTransform(rotationAngle: .pi)
-            self.view.layoutIfNeeded()
-        }) { _ in
-            UIView.animate(withDuration: 2.0, animations: {
-                self.dumbbellImageView.transform = CGAffineTransform(rotationAngle: 0)
-                self.view.layoutIfNeeded()
-            }) { _ in
-                completionHandler()
-            }
-        }
-    }
-    
     func performInitialSetup(completionHandler: () -> Void) {
         if debug {
             performInitialSetupForDebug {
@@ -82,19 +101,20 @@ class LaunchscreenViewController: UIViewController {
             completionHandler()
         }
     }
+
     func performInitialSetupForDebug(completionHandler: () -> Void) {
-        
+
         if UserProvider.users.isEmpty {
             setupWorkouts()
         }
-        
+
         completionHandler()
     }
-    
+
     private func setupWorkouts() {
         let axelUser = UserProvider.storeUser(named: UserNameType.axel.rawValue)
         let maciekUser = UserProvider.storeUser(named: UserNameType.maciek.rawValue)
-        
+
         var date: Date!
         var sessionA: Session!
         var sessionM: Session!
@@ -180,17 +200,14 @@ class LaunchscreenViewController: UIViewController {
         setupWorkout(named: exerciseNameType.dips.rawValue, in: sessionM, repNumber: 10, weight: -6)
         CoreDataStack.shared.save()
     }
-    
+
     private func setupWorkout(named workoutName: String, in session: Session, repNumber: Int = 0, weight: Double = 0) {
         let workout = ExerciseProvider.storeExercise(named: workoutName, in: session)
         for i in 0..<3 {
             _ = TakeProvider.storeTake(repsNumber: repNumber+i, weight: weight, for: workout)
         }
     }
-
 }
-
-
 
 
 

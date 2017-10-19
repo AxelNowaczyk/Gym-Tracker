@@ -64,7 +64,7 @@ class ExerciseProvider: NSObject {
             .forEach { $0.name = newName }
     }
     
-    static func removeexercisesWithNoTakes(completionHandler: () -> Void) {
+    static func removeExercisesWithNoTakes(completionHandler: () -> Void) {
         exercises
             .filter { $0.consistsOf?.count == 0 }
             .forEach { CoreDataStack.shared.managedObjectContext.delete($0) }

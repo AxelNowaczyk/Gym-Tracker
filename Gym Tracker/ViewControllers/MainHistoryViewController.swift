@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Charts
+//import Charts
 
 class MainHistoryViewController: UIViewController {
 
@@ -18,8 +18,8 @@ class MainHistoryViewController: UIViewController {
     @IBOutlet var chartTabLabel: UILabel!
     @IBOutlet var userTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var chartView: LineChartView!
-    
+//    @IBOutlet var chartView: LineChartView!
+
     @IBAction func selectedUserLabelWasTapped(_ sender: UITapGestureRecognizer) {
         UIView.animate(withDuration: 1) {
             let newHeight = self.userTableViewHeightConstraint.constant == self.tableViewHeight ? 0 : self.tableViewHeight
@@ -220,27 +220,27 @@ extension MainHistoryViewController {
             }
             values.append(newYVal)
         }
-        setChart(values: values)
-        
+//        setChart(values: values)
+
     }
 
-    fileprivate func setChart(values: [Double]) {
-        var dataEntries: [ChartDataEntry] = []
-        
-        for (index, value) in values.enumerated() {
-            dataEntries.append(ChartDataEntry(x: Double(index), y: value))
-        }
-        
-        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Workouts")
-        lineChartDataSet.axisDependency = .right
-        lineChartDataSet.circleRadius = 0
-        chartView.chartDescription?.enabled = false
-        chartView.leftAxis.axisMinimum = 0.0
-        chartView.xAxis.labelTextColor = .white
-        chartView.leftAxis.labelTextColor = .white
-        chartView.rightAxis.labelTextColor = .white
-        chartView.legend.enabled = false
-        chartView.data = LineChartData(dataSet: lineChartDataSet)
-    }
+//    fileprivate func setChart(values: [Double]) {
+//        var dataEntries: [ChartDataEntry] = []
+//        
+//        for (index, value) in values.enumerated() {
+//            dataEntries.append(ChartDataEntry(x: Double(index), y: value))
+//        }
+//        
+//        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Workouts")
+//        lineChartDataSet.axisDependency = .right
+//        lineChartDataSet.circleRadius = 0
+//        chartView.chartDescription?.enabled = false
+//        chartView.leftAxis.axisMinimum = 0.0
+//        chartView.xAxis.labelTextColor = .white
+//        chartView.leftAxis.labelTextColor = .white
+//        chartView.rightAxis.labelTextColor = .white
+//        chartView.legend.enabled = false
+//        chartView.data = LineChartData(dataSet: lineChartDataSet)
+//    }
     
 }

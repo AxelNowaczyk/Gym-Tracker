@@ -14,7 +14,7 @@ class SessionProvider: NSObject {
     static func storeSession(for user: User, with date: Date? = nil) -> Session {
         
         let session = NSEntityDescription.insertNewObject(forEntityName: CoreDataModelType.session.rawValue, into: CoreDataStack.shared.managedObjectContext) as! Session
-        session.date = date as NSDate? ?? NSDate()
+        session.date = date as Date? ?? NSDate() as Date
         user.addToPerformed(session)
         
         return session

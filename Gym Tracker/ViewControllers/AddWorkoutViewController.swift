@@ -12,7 +12,7 @@ class AddWorkoutViewController: UIViewController {
     
     @IBOutlet var userPickerView: UIPickerView!
     @IBOutlet var weightPickerView: UIPickerView!
-    @IBOutlet var previousWorkoutTableView: UITableView!
+    @IBOutlet var previousWorkoutTableView: UITableView! 
     @IBOutlet var currentWorkoutTableView: UITableView!
     @IBOutlet var repsTextField: UITextField!
     @IBOutlet var weightTextField: UITextField!
@@ -138,7 +138,7 @@ class AddWorkoutViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        ExerciseProvider.removeexercisesWithNoTakes { }
+        ExerciseProvider.removeExercisesWithNoTakes { }
     }
     
     

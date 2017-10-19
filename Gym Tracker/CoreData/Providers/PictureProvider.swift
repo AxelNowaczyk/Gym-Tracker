@@ -20,7 +20,7 @@ class PictureProvider: NSObject {
             picture.exerciseName = name
         }
         let jpegImage = UIImageJPEGRepresentation(image, 0.0)
-        picture.pictureData = jpegImage as NSData?
+        picture.pictureData = jpegImage
     }
     
     static func changeName(oldName: String, newName: String) {
