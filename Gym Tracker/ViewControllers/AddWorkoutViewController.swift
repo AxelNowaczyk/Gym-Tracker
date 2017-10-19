@@ -154,7 +154,7 @@ class AddWorkoutViewController: UIViewController {
         }
         
         let newWeight = weightConverter.convert(weight: weight, from: lastSelectedWeightType, to: selectedWeightType)
-        weightTextField.text = "\((newWeight*100).rounded()/100)"
+        weightTextField.text = "\(newWeight.roundSecondPlace)"
     }
     
     fileprivate func clearTextFields() {
@@ -326,11 +326,6 @@ extension AddWorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         }
         weightTextField.text = "\(take.weight)"
         repsTextField.text = "\(take.repsNumber)"
-    }
-}
-private extension Double {
-    var roundSecondPlace: Double {
-        return (self*100).rounded()/100
     }
 }
 

@@ -12,6 +12,7 @@
 		5118A84D1F33432A002CFE19 /* AddWorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5118A84F1F33432A002CFE19 /* AddWorkoutTableViewCell.xib */; };
 		5118A8521F334339002CFE19 /* HistoryTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5118A8541F334339002CFE19 /* HistoryTableViewHeader.xib */; };
 		5118A8651F335468002CFE19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5118A8671F335468002CFE19 /* Localizable.strings */; };
+		516A3A3C1F98B6350035BD4E /* Double+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516A3A3B1F98B6340035BD4E /* Double+Round.swift */; };
 		75EC19C9F1BE47C9B32E3EAD /* Pods_Gym_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6012F7CF0B74F8FCC5862B8 /* Pods_Gym_Tracker.framework */; };
 		7A0F8FBC1E450D0300D172E5 /* ExorciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0F8FBB1E450D0300D172E5 /* ExorciseTableViewCell.swift */; };
 		7A1062DA1E15498B009DAE08 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1062D91E15498B009DAE08 /* CoreData.framework */; };
@@ -65,6 +66,7 @@
 		5118A85F1F33502C002CFE19 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/RecentWorkouts.strings; sourceTree = "<group>"; };
 		5118A8661F335468002CFE19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5118A8681F335469002CFE19 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		516A3A3B1F98B6340035BD4E /* Double+Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Double+Round.swift"; path = "Extensions/Double+Round.swift"; sourceTree = "<group>"; };
 		7A0F8FBB1E450D0300D172E5 /* ExorciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExorciseTableViewCell.swift; path = Views/ExorciseTableViewCell.swift; sourceTree = "<group>"; };
 		7A1062D91E15498B009DAE08 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7A1062DD1E154C65009DAE08 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				5118A84B1F33410C002CFE19 /* String+localizable.swift */,
+				516A3A3B1F98B6340035BD4E /* Double+Round.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				7AC2021C1E3F685B00876A9C /* AddWorkoutViewController.swift in Sources */,
 				5118A84C1F33410C002CFE19 /* String+localizable.swift in Sources */,
 				7A8B4C8A1E086D8E0002E37E /* AppDelegate.swift in Sources */,
+				516A3A3C1F98B6350035BD4E /* Double+Round.swift in Sources */,
 				7AC693991ED2F7C400C1AB45 /* ExorciseProvider.swift in Sources */,
 				7A0F8FBC1E450D0300D172E5 /* ExorciseTableViewCell.swift in Sources */,
 				7AC6939D1ED2F7C400C1AB45 /* PictureProvider.swift in Sources */,
